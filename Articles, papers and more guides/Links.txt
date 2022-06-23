@@ -1,0 +1,3 @@
+Dataset de imatges de training:
+- https://discourse.forosaluddigital.cl/t/datasets-gratuitos-para-entrenar-algoritmos-de-salud/608
+- https://www.kaggle.com/
