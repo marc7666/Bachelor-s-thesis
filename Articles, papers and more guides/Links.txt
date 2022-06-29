@@ -31,3 +31,6 @@ La IA vs el alzheimer
 - https://www.investigacionyciencia.es/revistas/investigacion-y-ciencia/qu-ocultan-las-estrellas-de-neutrones-765/inteligencia-artificial-contra-el-alzhimer-17419
 - https://www.geriatricarea.com/2022/01/07/cre-alzheimer-participa-en-un-proyecto-de-deteccion-precoz-de-demencias-mediante-inteligencia-artificial/
 - https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html
+
+Guia per la creació d'un classificador d'imatges en python utilitzant tensroflow i keras:
+- https://www.youtube.com/watch?v=j6eGHROLKP8&t=275s
