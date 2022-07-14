@@ -74,3 +74,7 @@
 ## Image classifier tutorial:
 
 - https://www.youtube.com/watch?v=j6eGHROLKP8&t=275s
+
+## INE
+
+- https://www.ine.es/jaxi/Tabla.htm?path=/t15/p418/a2008/hogares/p02/modulo1/l0/&file=04028.px
