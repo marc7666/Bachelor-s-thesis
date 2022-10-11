@@ -7,11 +7,11 @@
 
 ## Training dataset's link:
 
-- https://www.kaggle.com/datasets/sachinkumar413/alzheimer-mri-dataset
+- https://www.kaggle.com/datasets/legendahmed/alzheimermridataset
 
 ## Dataset de imatges de training:
 
-- https://discourse.forosaluddigital.cl/t/datasets-gratuitos-para-entrenar-algoritmos-de-salud/608
+- https://discourse.forosaluddigital.cl/t/datasets-gratuitos-para-entrenar-algoritmos-de-salud/608 => DESCARTAT
 
 - https://www.kaggle.com/
 
