@@ -4,6 +4,10 @@
 
 - https://www.overleaf.com/3199536932ywdpncsnymsn
 
+## Model 1 link to collab:
+
+- https://colab.research.google.com/drive/1xqcsdMRHkW-AlQwEprSO5YxNIM3SOaF0?usp=sharing
+
 
 ## Training dataset's link:
 
