@@ -1,5 +1,9 @@
 # TFG
 
+## Poll
+
+https://forms.gle/vbFHtRLT9Yo9BDJZ6
+
 ## Link to the document with edition permission
 
 - https://www.overleaf.com/3199536932ywdpncsnymsn
