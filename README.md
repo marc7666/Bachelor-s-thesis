@@ -1,4 +1,4 @@
-# TFG
+# Bachelor's thesis
 
 Hi everyone, this is the repository of my bachelor's thesis.
 
