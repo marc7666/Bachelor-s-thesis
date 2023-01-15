@@ -25,6 +25,10 @@ https://forms.gle/vbFHtRLT9Yo9BDJZ6
 
 ## Alzheimer's disease information links:
 
+- https://www.alz.org/alzheimer-demencia/que-es-la-enfermedad-de-alzheimer (SUMARIZED)
+
+- https://www.caeme.org.ar/alzheimer-la-historia-de-una-enfermedad-que-desafia-a-la-ciencia/#:~:text=Fue%20descripta%20por%20primera%20vez,a%20principios%20del%20siglo%20XX.&text=En%20la%20enfermedad%20de%20Alzheimer,afectan%20el%20funcionamiento%20del%20cerebro. (SUMARIZED)
+
 - https://fpmaragall.org/ca/alzheimer-enfermetat/
 
 - https://www.mayoclinic.org/diseases-conditions/alzheimers-disease/symptoms-causes/syc-20350447 
@@ -33,7 +37,7 @@ https://forms.gle/vbFHtRLT9Yo9BDJZ6
 
 - https://www.elsevier.es/es-revista-neurologia-argentina-301-articulo-enfermedad-alzheimer-guia-practica-clinica-S185300281170026X
 
-- https://www.alz.org/alzheimer-demencia/tratamientos
+- https://www.alz.org/alzheimer-demencia/tratamientos (SUMARIZED)
 
 - https://www.ceafa.es/es
 
@@ -59,9 +63,10 @@ https://forms.gle/vbFHtRLT9Yo9BDJZ6
 
 - https://www.mayoclinic.org/es-es/diseases-conditions/alzheimers-disease/in-depth/alzheimers-treatments/art-20047780
 
-- https://www.nia.nih.gov/espanol/medicamentos-enfermedad-alzheimer
+- http://www.alzfae.org/fundacion/549/medicamentos-autorizados (SUMARIZED)
 
-- https://knowalzheimer.com/todo-sobre-el-alzheimer/tratamientos-actuales-de-la-enfermedad-de-alzheimer/
+- https://aiudo.es/asociaciones-de-alzheimer-y-centros/#asociaciones-de-alzheimer (SUMARIZED)
+
 
 ## IA vs. Alzheimer's links:
 
