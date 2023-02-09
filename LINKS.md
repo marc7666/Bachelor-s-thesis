@@ -53,6 +53,23 @@ https://forms.gle/vbFHtRLT9Yo9BDJZ6
 
 - https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html
 
+## IA:
+
+- https://www.europarl.europa.eu/news/es/headlines/society/20200827STO85804/que-es-la-inteligencia-artificial-y-como-se-usa => SUMARIZED
+
+- https://www.iberdrola.com/innovacion/que-es-inteligencia-artificial => SUMARIZED
+
+- https://nexusintegra.io/es/ventajas-y-desventajas-de-la-inteligencia-artificial/ => SUMARIZED
+
+- https://www.santander.com/es/sala-de-comunicacion/dp/los-principales-retos-de-la-inteligencia-artificial => SUMARIZED
+
+- https://keepcoding.io/blog/tipos-de-aprendizaje-automatico/ => SUMARIZED
+
+- https://www.diegocalvo.es/clasificacion-de-redes-neuronales-artificiales/ => SUMARIZED
+
+- https://keepcoding.io/blog/redes-neuronales-convolucionales/#Que_son_las_Redes_Neuronales_Convolucionales => SUMARIZED
+
 ## INE
 
-- https://www.ine.es/jaxi/Tabla.htm?path=/t15/p418/a2008/hogares/p02/modulo1/l0/&file=04028.px
+- https://www.ine.es/jaxi/Tabla.htm?path=/t15/p418/a2008/hogares/p02/modulo1/l0/&file=04028.px => ABANDONED
+
