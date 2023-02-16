@@ -69,6 +69,10 @@ https://forms.gle/vbFHtRLT9Yo9BDJZ6
 
 - https://keepcoding.io/blog/redes-neuronales-convolucionales/#Que_son_las_Redes_Neuronales_Convolucionales => SUMARIZED
 
+- https://www.ibm.com/docs/es/spss-modeler/saas?topic=networks-neural-model => SUMARIZED
+
+- https://www.juanbarrios.com/redes-neurales-convolucionales/ => SUMARIZED
+
 ## INE
 
 - https://www.ine.es/jaxi/Tabla.htm?path=/t15/p418/a2008/hogares/p02/modulo1/l0/&file=04028.px => ABANDONED
