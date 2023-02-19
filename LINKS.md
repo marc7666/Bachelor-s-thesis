@@ -39,19 +39,19 @@ https://forms.gle/vbFHtRLT9Yo9BDJZ6
 
 ## IA vs. Alzheimer's links:
 
-- https://neurohouse.es/espacio-reimagine/la-inteligencia-artificial-una-nueva-aliada-contra-el-alzheimer
+- https://neurohouse.es/espacio-reimagine/la-inteligencia-artificial-una-nueva-aliada-contra-el-alzheimer => SUMARIZED
 
-- https://www.aecoc.es/innovation-hub-noticias/la-inteligencia-artificial-puede-detectar-signos-de-alzheimer-antes-que-nuestra-propia-familia/
+- https://www.aecoc.es/innovation-hub-noticias/la-inteligencia-artificial-puede-detectar-signos-de-alzheimer-antes-que-nuestra-propia-familia/ => ABANDONED
 
-- https://www.lavanguardia.com/vida/20220427/8225520/inteligencia-artificial-ver-deterioro-cognitivo-acabara-alzheimer.html
+- https://www.lavanguardia.com/vida/20220427/8225520/inteligencia-artificial-ver-deterioro-cognitivo-acabara-alzheimer.html => SUMARIZED
 
-- https://www.telefonica.com/es/sala-comunicacion/blog/como-ayuda-la-inteligencia-artificial-en-el-diagnostico-del-alzheimer/
+- https://www.telefonica.com/es/sala-comunicacion/blog/como-ayuda-la-inteligencia-artificial-en-el-diagnostico-del-alzheimer/ => ABANDONED
 
-- https://www.investigacionyciencia.es/revistas/investigacion-y-ciencia/qu-ocultan-las-estrellas-de-neutrones-765/inteligencia-artificial-contra-el-alzhimer-17419
+- https://www.investigacionyciencia.es/revistas/investigacion-y-ciencia/qu-ocultan-las-estrellas-de-neutrones-765/inteligencia-artificial-contra-el-alzhimer-17419 => ABANDONED
 
-- https://www.geriatricarea.com/2022/01/07/cre-alzheimer-participa-en-un-proyecto-de-deteccion-precoz-de-demencias-mediante-inteligencia-artificial/
+- https://www.geriatricarea.com/2022/01/07/cre-alzheimer-participa-en-un-proyecto-de-deteccion-precoz-de-demencias-mediante-inteligencia-artificial/ => ABANDONED
 
-- https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html
+- https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html => SUMARIZED
 
 ## IA:
 
