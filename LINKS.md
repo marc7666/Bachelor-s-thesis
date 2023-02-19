@@ -8,6 +8,10 @@ https://forms.gle/vbFHtRLT9Yo9BDJZ6
 
 - https://www.overleaf.com/3199536932ywdpncsnymsn
 
+## Section for Annexes links
+
+- [...]
+
 ## Training dataset's link:
 
 - https://www.kaggle.com/datasets/legendahmed/alzheimermridataset => ABANDONED
