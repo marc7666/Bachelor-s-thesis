@@ -40,7 +40,6 @@ https://forms.gle/vbFHtRLT9Yo9BDJZ6
 
 - https://aiudo.es/asociaciones-de-alzheimer-y-centros/#asociaciones-de-alzheimer (SUMARIZED)
 
-### Afegit fins aqui a la documentació
 
 ## IA vs. Alzheimer's links:
 
