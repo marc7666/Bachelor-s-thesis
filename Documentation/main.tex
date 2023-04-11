@@ -335,17 +335,20 @@ La història de la intel·ligència artificial neix l'any 1950, quan Alan Turing
 \end{figure}
 S'entén per intel·ligència artificial la capacitat que té una màquina d'adquirir aptituds relacionades amb els éssers humans. Aquestes aptituds inclouen el raonament i l'aprenentatge, entre d'altres. Dit d'altra manera, la IA és un conjunt d'algorismes que pretén fer que les màquines imitin el comportament humà.\\
 Segons els informàtics experts, \textit{Stuart Russell} (Figrua \ref{fig:russell}) i \textit{Peter Norvig} (Figura \ref{fig:norvig}), existeixen quatre tipus diferents d'intel·ligències artificials.
- \begin{figure}[H]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale = 0.5]{images/russell-aqua.jpg}
-    \caption{Retrat de Stuart Russell}
-    \label{fig:russell}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale = 0.5]{images/peter_norvig_speaking_at_university_of_california_berkeley_2013.jpg}
-    \caption{Retrat de Peter Norvig}
-    \label{fig:norvig}
+    \begin{subfigure}[b]{0.48\linewidth}
+        \includegraphics[width=\linewidth]{images/russell-aqua.jpg}
+        \caption{Retrat de Stuart Russell}
+        \label{fig:russell}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{images/peter_norvig_speaking_at_university_of_california_berkeley_2013.jpg}
+        \caption{Retrat de Peter Norvig}
+        \label{fig:norvig}
+    \end{subfigure}
+    \caption{Retrats dels científics Stuart Russell (esquerra) i Peter Norvig (dreta)}
+    \label{fig:StuartNorvig}
 \end{figure}
 El primer tipus són aquells sistemes que pensen com els humans, és a dir, són aquells sistemes que automatitzen tasques com prendre decisions, resoldre problemes, etc. Un exemple d'aquest tipus de IA són les xarxes neuronals.\\
 A continuació, es troben aquelles IA capaces de recrear el comportament humà. Aquest tipus de sistemes són computadores que duen a terme diferents tasques de la mateixa manera que ho faria un humà. El cas més evident són els robots.\\
@@ -371,21 +374,55 @@ Un cop vistos els avantatges, toca veure la part dolenta de la intel·ligència 
     \item Insuficiència de personal amb la qualificació adequada.
     \item Cost i temps d'implementació dels projectes.
 \end{itemize}
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\linewidth}
+        \includegraphics[width=\linewidth]{images/1565701087600.jpg}
+        \caption{Retrat d'Andy Chan}
+        \label{fig:chan}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.47\linewidth}
+        \includegraphics[width=\linewidth]{images/Capture_medium.jpg}
+        \caption{Retrat de Kai-Fu Lee}
+        \label{fig:lee}
+    \end{subfigure}
+    \caption{Retrats d'Andy Chan (esquerra) i Kai-Fu Lee (dreta)}
+    \label{fig:AndyKai}
+\end{figure}
+\subsection*{Qué és el \textit{Machine Learning}?}
+\addcontentsline{toc}{subsection}{Que és el \textit{Machine Learning}?}
+Es defineix com \textit{Machine Learning} la disciplina que atorga, als ordinadors, la capacitat d'aprendre de manera autònoma patrons en dades massives i elaborar prediccions.\\
+En paraules de \textit{Jeff Hawkins} (Figura \ref{fig:hawkins}):
+\begin{center}
+    \begin{minipage}{0.9\linewidth}
+        \vspace{5pt}
+        {\small
+            El \textit{Machine Learning} és la capacitat de predir el futur, per exemple, el pes d'un got que volem aixecar o la reacció de les persones als nostres actes, d'acord amb els patrons emmagatzemats en la memòria.
+        }
+        \vspace{5pt}
+    \end{minipage}
+\end{center}
 \begin{figure}[H]
     \centering
-    \includegraphics[scale = 0.4]{images/1565701087600.jpg}
-    \caption{Retrat d'\textit{Andy Chan}}
-    \label{fig:chan}
+    \includegraphics[scale = 0.3]{images/b2a43a485uokuohjp5l7peo9f0.jpg}
+    \caption{Retrat de \textit{Jeff Hawkins}}
+    \label{fig:hawkins}
 \end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[scale = 1.2]{images/Capture_medium.jpg}
-    \caption{Retrat de \textit{Kai-Fu Lee}}
-    \label{fig:lee}
-\end{figure}
-\subsection*{Qué és el \textit{machine learning}?}
-\addcontentsline{toc}{subsection}{Que és el \textit{machine learning}?}
-
+\subsubsection*{Tipus de \textit{Machine Learning}}
+\addcontentsline{toc}{subsubsection}{Tipus de \textit{Machine Learning}}
+Ara com ara, existeixen quatre tipus diferents d'aprenentatge automàtic.\\
+El primer tipus és, l'aprenentatge supervisat. Aquest tipus d'aprenentatge, és aquell en el qual especifiquem a l'algorisme quina cosa ha d'aprendre i, un cop après, el model intel·ligent u seguirà al peu de la lletra. Dit més formalment, un model intel·ligent que utilitza aprenentatge supervisat és, aquell que ha estat entrenat amb una base de dades perfectament etiquetada i que realitza prediccions molt específiques basant-se en les etiquetes.\\
+Dos exemples d'ús d'aquest tipus d'aprenentatge podrien ser els classificadors d'imatges i els classificadors de so.\\
+El segon tipus d'aprenentatge és el no supervisat. L'objectiu d'aquest tipus d'aprenentatge és, que el programari aprengui per si mateix sense ajuda dels científics de dades a partir d'un conjunt de dades etiquetades. És a dir, aquesta tècnica de \textit{Machine Learning}, es basa en el fet que són els mateixos models els que troben patrons existents en les dades a analitzar.\\
+Dins de l'aprenentatge no supervisat, es poden diferenciar dos subtipus. El primer és el \textit{Clustering} que permet identificar les agrupacions naturals resultants de l'anàlisi de totes les dades i, el segon, és l'\textit{Association} que permet descobrir les relacions entre les variables en un gran volum de dades.\\
+El penúltim tipus de \textit{Machine Learning} és, l'aprenentatge semisupervisat. Aquest tipus d'aprenentatge és, una mescla dels dos anteriors, ja que utilitza un grup mínim d'etiquetes. La gran majoria de les dades són dades que no estan etiquetades, perquè tot i que les dades sense etiquetar augmenten els costos, són útils per aconseguir els objectius.\\
+Tot i que sí que hi ha una supervisió per part del programador, no és una tasca que es realitzarà al llarg del procés d'aprenentatge (Algunes dades sí que s'etiqueten a mà, però la resta les etiquetarà l'algorisme).\\
+Aquest tipus d'aprenentatge també es pot usar per a la classificació d'imatges. En aquest cas, es dona un subconjunt d'imatges etiquetades i un subconjunt sense etiquetes. El model s'ajudarà de les imatges etiquetades per classificar les no etiquetades.\\
+Un segon exemple d'utilització d'aquesta tècnica, és la detecció de frau fiscal en transaccions financeres. El procediment és igual que abans; es tenen una sèrie de transaccions etiquetades com a frau (o com a no frau) i una sèrie de transaccions sense etiquetar. El model usarà les dades etiquetades per aprendre a detectar transaccions fraudulentes i també utilitzarà les dades no etiquetades per millorar la precisió a l'hora de detectar si una transacció és fraudulenta o no.\\
+L'últim tipus d'aprenentatge automàtic és l'aprenentatge per reforç. La principal característica de l'aprenentatge per reforç és que és capaç de funcionar sense grans quantitats de dades. En aquesta tècnica, la IA guia el seu propi aprenentatge (explora un entorn desconegut) mitjançant un sistema de recompenses i càstigs. És a dir, és un sistema que guia el seu aprenentatge segons la tècnica de "prova i error".\\
+El sistema de recompenses i càstigs comporta, no solament que, el model aprengui de manera immediata sinó que busqui maximitzar la recompensa.
+Un exemple molt clar d'aquest tipus de sistemes són els robots. El robot rebrà una recompensa o un càstig segons realitzi bé, o no, una determinada acció. Un exemple de recompensa, per exemple, podria ser augmentar un punt en un sistema de puntuació. Per contra, el càstig, disminuiria un punt.\\
+Aquest tipus d'aprenentatge també es pot extrapolar a la vida real. L'entrenament de gossos en seria un cas. L'entrenador ensenya una ordre a l'animal i aquest rebrà una galeta com a premi, si ho fa bé, o se li posarà el morrió si ho fa malament.
 \subsection*{Qué és una xarxa neuronal?}
 \addcontentsline{toc}{subsection}{Qué és una xarxa neuronal?}
 
