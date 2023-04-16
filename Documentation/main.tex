@@ -443,24 +443,55 @@ La capa d'entrada, com el seu nom indica, representa tots els camps que s'entren
 En segon lloc, estan les capes ocultes. Cal remarcar que aquest tipus de capes, poden no existir en la xarxa, és a dir, és possible que la xarxa estigui composta, exclusivament, per una capa d'entrada i una capa de sortida (xarxa monocapa). També existeix la possibilitat que, en comptes d'haver-hi diverses capes ocultes, solament n'hi hagi una. Cada capa oculta estarà formada per una o més neurones.\\
 Finalment, la capa de sortida, és una capa que tindrà tantes neurones com resultats puguin tenir les dades processades. És a dir, en el cas d'aquest treball, la xarxa s'encarrega de classificar imatges entre quatre nivells diferents d'Alzheimer, per tant, la xarxa tindrà una totalitat de 4 neurones a la capa de sortida.\\
 Com s'ha esmentat, les neurones estan organitzades per capes. Cada neurona es relaciona mitjançant "pesos" amb algunes (o totes) les neurones de la següent capa, així, les dades es presenten en la primera capa (la d'entrada) i els valors es propaguen des de la neurona en la qual es troben en aquell moment fins a totes aquelles neurones de la capa següent amb les quals hi hagi una relació. Finalment, els resultats arribaran a la capa de sortida, on es podran observar els resultats.
-\subsubsection*{Com aprèn una xarxa neuronal?}
-\addcontentsline{toc}{subsubsection}{Com aprèn una xarxa neuronal?}
-Per entrenar una xarxa neuronal, cal exposar una gran quantitat d'entrades amb les seves respectives sortides. Durant l'entrenament, la xarxa anirà ajustant els pesos de les connexions entre neurones per tal de millorar el rendiment i poder prediccions en el futur. Per ajustar els pesos, la xarxa realitza complexos càlculs matemàtics que generen una sortida a partir d'una entrada per a posteriorment realitzar una comparació del càlcul obtingut amb la sortida real. Amb aquesta comparació de resultats s'obté un error que és l'utilitzat per ajustar els pesos de les connexions de la xarxa.\\
-Aquest procés es repeteix un elevat nombre de vegades però no sempre amb la mateixa entrada i la mateixa sortida, sinó que les parelles \textit{input - output}, canvien. D'aquesta manera, al llarg del temps, la xarxa podrà ser capaç de realitzar, de manera precisa, prediccions amb dades d'entrada que no ha vist mai, és a dir, amb dades que no s'han utilitzat en el moment de l'entrenament.
 \subsection*{Xarxes neuronals convolucionals (CNN)}
 \addcontentsline{toc}{subsection}{Xarxes neuronals convolucionals (CNN)}
-
+Les xarxes neuronals convolucionals són, un algorisme de \textit{deep learning} que estan dissenyades per l'anàlisi d'atributs visuals de grans quantitats de dades. Tot i que, normalment, s'utilitzen en aspectes relacionats amb les imatges, les CNN tenen més aplicacions dins del món de la intel·ligència artificial. Aquests altres menesters inclouen el processament del llenguatge natural, per exemple.\\
+Com tota xarxa utilitzada per a classificar, aquestes xarxes, en primer lloc, han de realitzar una fase d'extracció de característiques. D'aquesta fase se n'encarreguen les neurones convolucionals. Seguidament, es realitza una reducció per mostreig (\textit{pooling} en aquest cas) i finalment, es troben una sèrie de neurones més senzilles que permeten realitzar la classificació de les característiques que s'han extret prèviament.\\
+En aquesta fase d'extracció de característiques es pot trobar una similitud molt elevada amb el procés d'estimulació cel·lular del còrtex visual del cervell humà.\\
+Per dur a terme amb èxit aquesta fase, es van alternant capes de convolució i capes de reducció (\textit{pooling}). A mesura que les dades avancen cap a la sortida, cada cop es van fent més i més petites. D'aquesta manera les primeres capes són menys sensibles a canvis mentre que les capes finals són extremadament sensibles a qualsevol canvi i a qualsevol pertorbació en les dades d'entrada.
 \subsection*{Entrenament de xarxes neuronals}
 \addcontentsline{toc}{subsection}{Entrenament de xarxes neuronals}
-
+Per entrenar una xarxa neuronal, cal exposar una gran quantitat d'entrades amb les seves respectives sortides. Durant l'entrenament, la xarxa anirà ajustant els pesos de les connexions entre neurones per tal de millorar el rendiment i poder prediccions en el futur. Per ajustar els pesos, la xarxa realitza complexos càlculs matemàtics que generen una sortida a partir d'una entrada per a posteriorment realitzar una comparació del càlcul obtingut amb la sortida real. Amb aquesta comparació de resultats s'obté un error que és l'utilitzat per ajustar els pesos de les connexions de la xarxa.\\
+Aquest procés es repeteix un elevat nombre de vegades però no sempre amb la mateixa entrada i la mateixa sortida, sinó que les parelles \textit{input - output}, canvien. D'aquesta manera, al llarg del temps, la xarxa podrà ser capaç de realitzar, de manera precisa, prediccions amb dades d'entrada que no ha vist mai, és a dir, amb dades que no s'han utilitzat en el moment de l'entrenament.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.5]{images/CNN.png}
+    \caption{Exemple d'esquema d'una CNN}
+    \label{fig:cnn}
+\end{figure}
+\section*{La IA en la lluita contra l'Alzheimer}
+\addcontentsline{toc}{section}{La IA en la lluita contra l'Alzheimer}
+En aquesta secció es presentaran una sèrie d'articles periodístics que mostres que, no solament és possible que la IA ajudi en la batalla contra l'Alzheimer, sinó que ho fa de manera molt efectiva.\\
+La primera notícia es publica a \href{https://neurohouse.es/espacio-reimagine/la-inteligencia-artificial-una-nueva-aliada-contra-el-alzheimer}{\underline{\textit{Neuro House}}} el 22-10-2020 i es titula "\textit{La inteligencia artificial, una nueva aliada contra el Alzheimer}".
+\begin{center}
+    \begin{minipage}{0.9\linewidth}
+        \vspace{5pt}
+        {\small
+            Gràcies als progressos tan grans que està havent-hi en el camp de la IA, és possible detectar casos d'Alzheimer fins amb quinze anys d'antelació, mitjançant l'estudi genètic i el monitoratge dels pacients. A més, està previst que de manera futura, la IA pugui servir per a la detecció d'altres afectacions mentals de caràcter mortal com podria ser, per exemple, la depressió.\\
+            Investigadors de la Universitat de Califòrnia, han desenvolupat una IA que és capaç de detectar la disminució del consum de glucosa, un dels primers símptomes de la malaltia d'Alzheimer.
+        }
+        \vspace{5pt}
+    \end{minipage}
+\end{center}
 \newpage
-
-\section*{La intel·ligència artificial en la salut}
-\addcontentsline{toc}{section}{La intel·ligència artificial en la salut}
+El segon article va ser publicat al diari \href{https://www.lavanguardia.com/vida/20220427/8225520/inteligencia-artificial-ver-deterioro-cognitivo-acabara-alzheimer.html}{\underline{La Vanguardia}} el 27-04-2022 i porta per títol "\textit{Inteligencia artificial para ver si deterioro cognitivo acabará en Alzheimer}".
+\begin{center}
+    \begin{minipage}{0.9\linewidth}
+        \vspace{5pt}
+        {\small
+            Alguns científics de la UOC han desenvolupat una IA que permet diagnosticar si el deteriorament cognitiu lleu progressarà fins a arribar a convertir-se en Alzheimer.\\
+            Aquesta IA utilitza mètodes molt específics per reconèixer imatges de MRI i supera l'eficàcia de tots els mètodes emprats fins al moment, segons la investigadora Mona Ashtari-Majlan.\\
+            Per desenvolupar aquesta intel·ligència, els investigadors, han fet servir el mètode de les xarxes neuronals convolucionals de múltiples fluxes, que és una tècnica d'intel·ligència artificial i de \textit{deep learning} molt útil per la classificació d'imatges.\\
+            En primer lloc, l'equip d'investigació, va comprar imatges de MRI de persones amb Alzheimer i de persones sanes, cosa que va permetre buscar diferents punts de referència. Després d'entrenar el model, van realitzar un ajustament d'aquest amb imatges de persones amb una diagnosi de deteriorament cognitiu lleu.\\
+            Amb un total de quasi 700 imatges de bases de dades públiques, el model és capaç de diferenciar si el deteriorament cognitiu lleu arribarà a ser Alzheimer, o no, amb un 85\% de precisió.
+        }
+        \vspace{5pt}
+    \end{minipage}
+\end{center}
+La tercera, i última, notícia es va publicar al diari \href{https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html}{\underline{\textit{La Razón}}} el 7-11-2022 i es titula "\textit{Una nueva prueba para el diagnóstico precoz del Alzheimer logra una efectividad del 98\%}".
 
 \section*{Implementació de la proposta de treball i anàlisi de resultats}
 \addcontentsline{toc}{section}{Implementació de la proposta de treball i anàlisi de resultats}
-
 \subsection*{Disseny dels experiments}
 \addcontentsline{toc}{subsection}{Disseny dels experiments}
 
@@ -487,7 +518,6 @@ Aquest procés es repeteix un elevat nombre de vegades però no sempre amb la ma
 
 \section*{Annexs}
 \addcontentsline{toc}{section}{Annexs}
-
 \section*{Agraïments}
 \addcontentsline{toc}{section}{Agraïments}
 Jordi Planes (tutor i director del TFG), Nacho Lopez (Coordinador del GEI i encarregat d'acceptar el meu TFG), Joana Cervera (proporcionadora de informació a través d'xperiència personal), Esteban Cervera (proporcionador de informació a través d'xperiència personal), Sergi Cervera (conseller informàtic), Nuria Rosell (consellera d'estil), Nikita Deinega (conseller mèdic), 
@@ -502,7 +532,6 @@ Jordi Planes (tutor i director del TFG), Nacho Lopez (Coordinador del GEI i enca
     \item \href{https://www.mayoclinic.org/es-es/diseases-conditions/alzheimers-disease/in-depth/alzheimers/art-20048103}{\underline{Enfermedad de Alzheimer: los medicamentos ayudan a controlar los síntomas}}
     \item \href{http://www.alzfae.org/fundacion/549/medicamentos-autorizados}{\underline{Medicamentos autorizados}}
     \item \href{https://aiudo.es/asociaciones-de-alzheimer-y-centros/#asociaciones-de-alzheimer}{\underline{Asociaciones de Alzheimer y centros de ayuda en toda España}}
-    \item \href{https://neurohouse.es/espacio-reimagine/la-inteligencia-artificial-una-nueva-aliada-contra-el-alzheimer}{\underline{La inteligencia artificial, una nueva aliada contra el Alzheimer}}
     \item \href{https://www.aecoc.es/innovation-hub-noticias/la-inteligencia-artificial-puede-detectar-signos-de-alzheimer-antes-que-nuestra-propia-familia/}{\underline{La inteligencia artificial puede detectar signos de Alzheimer antes que nuestra propia familia}}
     \item \href{https://www.lavanguardia.com/vida/20220427/8225520/inteligencia-artificial-ver-deterioro-cognitivo-acabara-alzheimer.html}{\underline{Inteligencia artficial para ver si deterioro cognitivo acabará en Alzheimer}}
     \item \href{https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html}{\underline{Una nueva prueba para el diagnóstico precoz del alzhéimer logra una efectividad del 98\%}}
@@ -543,6 +572,7 @@ Jordi Planes (tutor i director del TFG), Nacho Lopez (Coordinador del GEI i enca
     \item \href{https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/S/amzn-author-media-prod/b2a43a485uokuohjp5l7peo9f0.jpg}{\underline{Retrat de \textit{Jeff Hawkins}}}
     \item \href{https://keepcoding.io/blog/redes-neuronales-convolucionales/#Que_son_las_Redes_Neuronales_Convolucionales}{\underline{Informació sobre les xarxes neuronals convolucionals}}
     \item \href{https://m.media-amazon.com/images/S/amzn-author-media-prod/b2a43a485uokuohjp5l7peo9f0._SX450_.jpg}{\underline{Retrat de \textit{Jeff Hawkins}}}
+    \item \href{https://editor.analyticsvidhya.com/uploads/25366Convolutional_Neural_Network_to_identify_the_image_of_a_bird.png}{\underline{Imatge d'exemple d'una CNN}}
 \end{itemize}
 
 
