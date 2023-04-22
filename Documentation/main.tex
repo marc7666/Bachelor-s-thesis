@@ -526,13 +526,31 @@ La tercera, i última, notícia es va publicar al diari \href{https://www.larazo
 \addcontentsline{toc}{section}{Implementació de la proposta de treball i anàlisi de resultats}
 \subsection*{Disseny dels experiments}
 \addcontentsline{toc}{subsection}{Disseny dels experiments}
-
-\subsubsection*{Característiques de la màquina on s'han dut a terme els experiments}
-\addcontentsline{toc}{subsubsection}{Característiques de la màquina on s'han dut a terme els experiments}
-
+ En aquesta secció hi haurà continguts diversos aspectes com: aclariments del codi, les característiques de la màquina i de l'entorn de programació on s'han realitzat tant els entrenaments de la xarxa com les proves, les llibreries utilitzades, anàlisis gràfiques i numèriques i l'anàlisi de les prediccions de manera gràfica.
+\subsubsection*{Característiques de la màquina i de l'entorn de programació}
+\addcontentsline{toc}{subsubsection}{Característiques de la màquina i de l'entorn de programació}
+\textbf{\underline{Característiques del PC:}}
+\begin{itemize}
+    \item Sistema operatiu: Windows 10 Pro 64-bit
+    \item CPU: Intel Core i7-3770K (8 CPUs) ~3.5GHz
+    \item RAM: 8GB
+    \item Disc: Western Digital Blue WD10EZEX 1TB
+\end{itemize}
+\textbf{\underline{Característiques de l'entorn de programació:}}
+L'entorn de programació utilitzat és una llibreta \textit{Google Colab} que usa el \textit{backend} de \textit{Google Compute Engine} i inclou els següents recursos:
+\begin{itemize}
+    \item RAM: 12.7 GB
+    \item Disc: 107.7GB
+\end{itemize}
 \subsubsection*{Llibreries de Python utilitzades}
 \addcontentsline{toc}{subsubsection}{Llibreries de Python utilitzades}
-
+A continuació s'especificaran les llibreries utilitzades per implementar la proposta de treball, tot donant una petita explicació de l'especialització de cada llibreria.\\
+La primera, i principal, llibreria utilitzada és \href{https://www.tensorflow.org/?hl=es-419}{\underline{TensorFlow}}. Aquesta és una llibreria de codi obert que permet detectar i desxifrar patrons i correlacions, d'un conjunt de dades, de manera que aquests es corresponguin a patrons i correlacions similars al raonament humà.\\
+La segona llibreria és \href{https://keras.io}{\underline{Keras}}. Keras és un programari que té implementades moltes eines de treball necessàries per poder crear una xarxa neuronal com: capes, optimitzadors, funcions d'activació, etc. Keras està construïda sobre la plataforma TensorFlow, per tant, és possible executar un model de Keras sobre TensorFlow. I a més a més, és possible fer-ho de manera senzilla.\\
+La següent llibreria és \href{https://docs.python.org/3/library/datetime.html}{\underline{\textit{datetime}}}. Aquesta llibreria proporciona una àmplia varietat de classes per representar i manipular dates i temps com, també, donar-los-hi el format desitjat i transforma'ls en una gran varietat de formats.\\
+A continuació, la llibreria \href{https://docs.python.org/3/library/os.html}{\underline{os}}, que és una llibreria que permet als programes de Python realitzar interaccions amb el Sistema operatiu. Es podria comparar l'ús d'aquesta llibreria, d'alguna manera, amb treballar, directament, sobre la \textit{Command line}, però amb la diferència que la llibreria és una eina programàtica i, per tant, té la seva sintaxi i la \textit{Command line} té comandes específiques del sistema operatiu.\\
+Seguidament, la llibreria \href{https://lime-ml.readthedocs.io/en/latest/}{\underline{\textit{Lime}}}. Aquesta llibreria permet donar una explicació a les prediccions dels models d'aprenentatge automàtic d'una manera molt senzilla i ràpida per a les persones. En el moment de fer una predicció i treure l'explicació per pantalla, es podrà veure la imatge que s'ha predit i unes zones acolorides. Aquestes zones acolorides són l'explicació.\\
+La llibreria \href{https://numpy.org}{\underline{Numpy}}, és una llibreria de Python enfocada a oferir implementacions d'operacions bàsiques en la computació. Aquestes operacions inclouen: operacions matricials, creació i manipulació d'\textit{arrays} multidimensionals, operacions d'àlgebra lineal, operacions de lectura i escriptura de dades, transformades de Fourier, operacions estadístiques, etc. I tot d'una manera senzilla i ràpida.
 \subsection*{Anàlisi de resultats}
 \addcontentsline{toc}{subsection}{Anàlisi de resultats}
 
@@ -728,6 +746,12 @@ a
 \subsection*{Annex LVIII: Xarxes bayesianes}
 \addcontentsline{toc}{subsection}{Annex LVIII: Xarxes bayesianes}
 a
+\subsection*{Annex LIX: \textit{Command Line}}
+\addcontentsline{toc}{subsection}{Annex LIX: \textit{Command Line}}
+a
+\subsection*{Annex LX: Programari de codi obert}
+\addcontentsline{toc}{subsection}{Annex LX: Programari de codi obert}
+a
 \section*{Agraïments}
 \addcontentsline{toc}{section}{Agraïments}
 Abans de donar per finalitzada aquesta investigació, m'agradaria donar les gràcies a certes persones que m'han ajudat en el transcurs del treball ja sigui com a consellers, aportant informació...
@@ -773,14 +797,6 @@ Finalment, vull fer una menció especial a les meves amistats més íntimes: Joe
     \item Alzheimer’s association, Información bàsica sobre la enfermedad de Alzheimer. Qué es y que se puede hacer, 2016
     \item \href{https://www.iberdrola.com/innovacion/machine-learning-aprendizaje-automatico}{\underline{Descubre los principales beneficios del "Machine Learning"}}
     \item \href{https://aws.amazon.com/es/what-is/neural-network/}{\underline{What is a neural network?}}
-    \item \href{https://www.tensorflow.org/?hl=es-419}{\underline{TensorFlow}}
-    \item \href{https://keras.io/}{\underline{Keras}}
-    \item \href{https://www.w3schools.com/python/python_datetime.asp}{\underline{Datetime}}
-    \item \href{https://docs.python.org/3/library/os.html}{\underline{OS}}
-    \item \href{https://pypi.org/project/opencv-python/}{\underline{CV2}}
-    \item \href{https://towardsdatascience.com/lime-how-to-interpret-machine-learning-models-with-python-94b0e7e4432e}{\underline{Lime}}
-    \item \href{https://numpy.org/}{\underline{Numpy}}
-    \item \href{https://matplotlib.org/}{\underline{Matplotlib}}
     \item \href{https://colab.research.google.com/}{\underline{Google Colab}}
     \item \href{https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg}{\underline{Retrat d'Alan Turing}}
     \item \href{https://cs.berkeley.edu/sites/default/files/news_image/peter_norvig_speaking_at_university_of_california_berkeley_2013.jpg}{\underline{Retarat de \textit{Peter Norvig}}}
