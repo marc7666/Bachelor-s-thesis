@@ -556,12 +556,292 @@ La penúltima llibreria és \href{https://matplotlib.org}{\underline{Matplotlib}
 L'última llibreria utilitzada és \href{https://scikit-image.org}{\underline{scikit-image}} (encara que a la importació es vegi com \textit{skimage}). Aquesta llibreria conté una àmplia varietat d'eines per al tractament i maneig d'imatges. Algunes d'aquestes eines són el processament bàsic d'imatges, la seva segmentació, la detecció dels límits de les imatges i extracció de característiques, entre moltes altres operacions. 
 \subsection*{Anàlisi de resultats}
 \addcontentsline{toc}{subsection}{Anàlisi de resultats}
-
 \subsubsection*{Graficació de la \textit{accuracy} i de la pèrdua}
 \addcontentsline{toc}{subsubsection}{Graficació de la \textit{accuracy} i de la pèrdua}
-En primer lloc, es presenten les gràfiques de la precisió de la pèrdua del conjunt de dades d'entrenament.
+En primer lloc, es presenten les gràfiques de la precisió del conjunt de dades d'entrenament. Abans, però, cal remarcar que les dades del model 1 no han estat representades atès que el primer model que es va generar és considerat com a nul perquè hi havia configurats malament els paràmetres corresponents a les mides de les imatges i, per tant, els resultats no serien verídics.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.7]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5099)(2, 0.5437)(3, 0.5740)(4, 0.5951)(5, 0.6337)(6, 0.6511)(7, 0.6694)(8, 0.7084)(9, 0.7427)(10, 0.7720)(11, 0.8002)(12, 0.8325)(13, 0.8650)(14, 0.8739)(15, 0.8865)
+        };
+        \addlegendentry{Model 2}
+    
+    \addplot[
+        color = green,
+    ]
+    coordinates { 
+        (1, 0.6290)(2, 0.7893)(3, 0.8759)(4, 0.9106)(5, 0.9558)(6, 0.9717)(7, 0.9731)(8, 0.9771)(9, 0.9877)(10, 0.9926)(11, 0.9928)(12, 0.9964)(13, 0.9914)(14, 0.9930)(15, 0.9932)
+        };
+        \addlegendentry{Model 3}
+
+    \addplot[
+        color = red,
+    ]
+    coordinates { 
+        (1, 0.5233)(2, 0.6832)(3, 0.7903)(4, 0.8647)(5, 0.9240)(6, 0.9535)(7, 0.9659)(8, 0.9728)(9, 0.9752)(10, 0.9811)(11, 0.9880)(12, 0.9931)(13, 0.9951)(14, 0.9935)(15, 0.9937)       
+        };
+        \addlegendentry{Model 4}
+
+    \addplot[
+        color = olive,
+    ]
+    coordinates { 
+        (1, 0.5544)(2, 0.6905)(3, 0.8040)(4, 0.8696)(5, 0.9117)(6, 0.9471)(7, 0.9756)(8, 0.9714)(9, 0.9716)(10, 0.9704)(11, 0.9769)(12, 0.9873)(13, 0.9911)       
+        };
+        \addlegendentry{Model 5}
+
+    \addplot[
+        color = magenta,
+    ]
+    coordinates { 
+        (1, 0.6374)(2, 0.8332)(3, 0.9030)      
+        };
+        \addlegendentry{Model 6}
+
+    \addplot[
+        color = teal,
+    ]
+    coordinates { 
+        (1, 0.6347)(2, 0.8170)(3, 0.8869)(4, 0.9138)      
+        };
+        \addlegendentry{Model 7}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament, dels models al llarg de les èpoques}
+    \label{fig:trainingAcc}
+\end{figure}
+Com s'observa la gràfica anterior en el conjunt de dades d'entrenament, la precisió augmenta de manera molt significativa a partir del model 3 (inclòs). Tot i que no es realitzarà un un canvi de \textit{dataset} per un amb més dades (més imatges) fins al model 6, la precisió augmenta de manera significativa quan es "juga" amb els hiperparàmetres. En aquest cas la \textit{batch size}. Ara bé, no tot és positiu, perquè, com es veurà posteriorment, en alguns dels models s'ha hagut de batallar amb \textit{overfitting}. Abans, però, es presenta la representació gràfica de la pèrdua de les dades d'entrenament.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.7]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Loss$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 2,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2},
+        legend pos = north east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 1.1591)(2, 1.0109)(3, 0.920)(4, 0.8734)(5, 0.7996)(6, 0.7675)(7, 0.7202)(8, 0.6708)(9, 0.5895)(10, 0.5269)(11, 0.4759)(12, 0.4092)(13, 0.3347)(14, 0.3147)(15, 0.2810)
+        };
+        \addlegendentry{Model 2}
+    
+    \addplot[
+        color = green,
+    ]
+    coordinates { 
+        (1, 1.0919)(2, 0.4924)(3, 0.3310)(4, 0.2370)(5, 0.1293)(6, 0.0889)(7, 0.0842)(8, 0.0661)(9, 0.0409)(10, 0.0268)(11, 0.0236)(12, 0.0172)(13, 0.0273)(14, 0.0287)(15, 0.0203)
+        };
+        \addlegendentry{Model 3}
+
+    \addplot[
+        color = red,
+    ]
+    coordinates { 
+        (1, 1.7039)(2, 0.7287)(3, 0.5146)(4, 0.3451)(5, 0.2037)(6, 0.1331)(7, 0.0973)(8, 0.0826)(9, 0.0712)(10, 0.0572)(11, 0.0358)(12, 0.0243)(13, 0.0185)(14, 0.0211)(15, 0.0213)       
+        };
+        \addlegendentry{Model 4}
+
+    \addplot[
+        color = olive,
+    ]
+    coordinates { 
+        (1, 1.2818)(2, 0.6979)(3, 0.4848)(4, 0.3233)(5, 0.2412)(6, 0.1458)(7, 0.0730)(8, 0.0788)(9, 0.0788)(10, 0.0929)(11, 0.0684)(12, 0.0433)(13, 0.0297)       
+        };
+        \addlegendentry{Model 5}
+
+    \addplot[
+        color = magenta,
+    ]
+    coordinates { 
+        (1, 0.8833)(2, 0.4093)(3, 0.2470)      
+        };
+        \addlegendentry{Model 6}
+
+    \addplot[
+        color = teal,
+    ]
+    coordinates { 
+        (1, 0.9037)(2, 0.4491)(3, 0.2868)(4, 0.2224)      
+        };
+        \addlegendentry{Model 7}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la pèrdua, en el conjunt d'entrenament, dels models al llarg de les èpoques}
+    \label{fig:trainingLoss}
+\end{figure}
+De la mateixa manera que el canvi en els valors dels hiperparàmetres i el canvi \textit{dataset} afecten la precisió del model, també afecta la pèrdua. Com s'observa, en el model 2 la pèrdua baixa de manera lenta, però en modificar la \textit{batch size}, els valors de la pèrdua descendeixen més ràpidament i també s'observa una millora en el moment del canvi del conjunt de dades.\\
+Un cop vist com queden les dades del, tant de precisió com de pèrdua, del conjunt d'entrenament, cal veure com queden representades les dades del conjunt de validació o \textit{testing}. En primer lloc, s'observen les dades de precisió del conjunt de \textit{testing}.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.7]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5)(2, 0.5425)(3, 0.5225)(4, 0.5942)(5, 0.5908)(6, 0.5933)(7, 0.59)(8, 0.5667)(9, 0.52)(10, 0.5092)(11, 0.6242)(12, 0.4642)(13, 0.6067)(14, 0.6417)(15, 0.6467)
+        };
+        \addlegendentry{Model 2}
+    
+    \addplot[
+        color = green,
+    ]
+    coordinates { 
+        (1, 0.5083)(2, 0.5733)(3, 0.5725)(4, 0.44)(5, 0.6792)(6, 0.6008)(7, 0.7050)(8, 0.4542)(9, 0.4483)(10, 0.5)(11, 0.71)(12, 0.6608)(13, 0.7317)(14, 0.7358)(15, 0.7483)
+        };
+        \addlegendentry{Model 3}
+
+    \addplot[
+        color = red,
+    ]
+    coordinates { 
+        (1, 0.5425)(2, 0.4992)(3, 0.5025)(4, 0.5075)(5, 0.5008)(6, 0.5167)(7, 0.5858)(8, 0.6158)(9, 0.68)(10, 0.4117)(11, 0.6083)(12, 0.7342)(13, 0.7350)(14, 0.4992)(15, 0.7642)       
+        };
+        \addlegendentry{Model 4}
+
+    \addplot[
+        color = olive,
+    ]
+    coordinates { 
+        (1, 0.5)(2, 0.5032)(3, 0.4992)(4, 0.5540)(5, 0.5524)(6, 0.5730)(7, 0.6778)(8, 0.5683)(9, 0.7183)(10, 0.6817)(11, 0.6278)(12, 0.5905)(13, 0.7246)       
+        };
+        \addlegendentry{Model 5}
+
+    \addplot[
+        color = magenta,
+    ]
+    coordinates { 
+        (1, 0.7644)(2, 0.7342)(3, 0.8819)      
+        };
+        \addlegendentry{Model 6}
+
+    \addplot[
+        color = teal,
+    ]
+    coordinates { 
+        (1, 0.7011)(2, 0.8480)(3, 0.8793)(4, 0.8667)      
+        };
+        \addlegendentry{Model 7}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt de validació o \textit{testing}, dels models al llarg de les èpoques}
+    \label{fig:trainingTest}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.7]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Loss$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 50,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50},
+        legend style = {font = \tiny},
+        legend pos = north east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 2.0039)(2, 1.4819)(3, 1.2021)(4, 0.9902)(5, 0.8969)(6, 0.9364)(7, 1.0665)(8, 1.4156)(9, 1.5385)(10, 3.2025)(11, 1.0272)(12, 2.1315)(13, 1.1760)(14, 1.1101)(15, 1.1737)
+        };
+        \addlegendentry{Model 2}
+    
+    \addplot[
+        color = green,
+    ]
+    coordinates { 
+        (1, 4.4761)(2, 1.3275)(3, 1.1014)(4, 1.6528)(5, 0.9941)(6, 1.1488)(7, 0.8777)(8, 2.0580)(9, 1.9746)(10, 1.9909)(11, 1.0453)(12, 1.3177)(13, 0.9788)(14, 0.9775)(15, 0.8344)
+        };
+        \addlegendentry{Model 3}
+
+    \addplot[
+        color = red,
+    ]
+    coordinates { 
+        (1, 120.6232)(2, 41.8699)(3, 27.8643)(4, 9.2361)(5, 14.2197)(6, 10.8540)(7, 2.5288)(8, 3.0448)(9, 1.5349)(10, 5.0062)(11, 1.8873)(12, 1.0586)(13, 1.2090)(14, 3.1265)(15, 1.0675)       
+        };
+        \addlegendentry{Model 4}
+
+    \addplot[
+        color = olive,
+    ]
+    coordinates { 
+        (1, 113.3310)(2, 17.4925)(3, 16.6645)(4, 1.6575)(5, 4.0960)(6, 1.8877)(7, 1.0401)(8, 3.6329)(9, 1.4190)(10, 1.9452)(11, 2.7462)(12, 3.7571)(13, 1.2337)       
+        };
+        \addlegendentry{Model 5}
+
+    \addplot[
+        color = magenta,
+    ]
+    coordinates { 
+        (1, 0.5418)(2, 0.7958)(3, 0.3437)      
+        };
+        \addlegendentry{Model 6}
+
+    \addplot[
+        color = teal,
+    ]
+    coordinates { 
+        (1, 0.7667)(2, 0.3816)(3, 0.2932)(4, 0.3458)      
+        };
+        \addlegendentry{Model 7}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la pèrdua, en el conjunt de validació o \textit{testing}, dels models al llarg de les èpoques}
+    \label{fig:testingLoss}
+\end{figure}
+En l'última gràfica, s'observa que hi ha dos valors corresponents a les èpoques número 1 dels models 4 i 5 que estan fora del rang del gràfic. El fet que s'hagin deixat fora de rang és perquè són valors superiors a 100 que, si es posessin dins del rang de la gràfica, dificultaria la lectura dels valors inferiors a 5 i, en el cas dels models 6 i 7, en dificultaria la lectura de tot l'entrenament atès que en ambdós models no s'arriba mai a un valor de 1 en la pèrdua.
 \subsubsection*{Anàlisi de prediccions amb Lime}
 \addcontentsline{toc}{subsubsection}{Anàlisi de prediccions amb Lime}
+
+\subsubsection*{Detalls tècnics d'implementació}
+\addcontentsline{toc}{subsubsection}{Detalls tècnics d'implementació}
 
 \section*{Conclusions}
 \addcontentsline{toc}{section}{Conclusions}
