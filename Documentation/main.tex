@@ -2,18 +2,18 @@
 \usepackage[catalan]{varioref}
 \usepackage{setspace}
 \input{sections/packages}
-%\input{sections/fronPage}
 \onehalfspacing
 
 \begin{document}
-\thispagestyle{empty}
+\pagestyle{empty}
 \includepdf{Portada-TFG}
-\thispagestyle{empty}
+\pagestyle{empty}
 \tableofcontents
-\thispagestyle{empty}
+\pagestyle{empty}
 \listoffigures
+\pagestyle{empty}
 \listoftables
-\thispagestyle{empty}
+\pagestyle{empty}
 
 \newpage
 \setcounter{page}{1}
@@ -181,7 +181,7 @@ Un assaig clínic de fase 3 va demostrar que el Lecanemab va reduïr en un 27\% 
 La FDA està avaluant el Lecanemab. A més, s'està duent a terme un altre estudi per a determinar la seva eficàcia en persones de risc de desenvolupar Alzheimer, incloent aquelles amb familiars propers afectats per la malaltia.
 \subsection*{Estadístiques d'afectats en l'àmbit nacional i autonòmic}
 \addcontentsline{toc}{subsection}{Estadístiques d'afectats a en l'àmbit nacional i autonòmic}
-A continuació, es presenten les dades enregistrades per CEAFA en l'estudi que va realitzar l'any 2019 dels casos diagnosticats d'Alzheimer a Espanya.
+A continuació, es presenten les dades enregistrades per CEAFA en l'estudi que va realitzar l'any 2019 dels casos diagnosticats de demència a Espanya.
 \begin{table}[h]
     \centering
     \begin{tabular}{ |c | c | c | c | c| } 
@@ -229,7 +229,7 @@ A continuació, es presenten les dades enregistrades per CEAFA en l'estudi que v
         Total & 458.869 & 49.937.060 & 1\% & 100\% \\
           \hline
     \end{tabular}
-    \caption{Distribució territorial dels casos enregistrats de persones amb demència l'any 2019}
+    \caption{Distribució territorial dels casos enregistrats de persones amb demència l'any 2019 en la BDCAP}
     \label{tab:taula1}
 \end{table}
 
@@ -237,13 +237,13 @@ Seguidament i per tenir una visió una mica més gràfica, es posaran sobre el m
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.6]{images/distribucio territorial en base a percentatge.jpg}
-    \caption{Coloració geogràfica dels casos enregistrats de persones amb Alzheimer l'any 2019 segons el tant per cent respecte a la població de cada comunitat autònoma.}
+    \caption{Coloració geogràfica dels casos enregistrats de persones amb demència l'any 2019 (en la BDCAP) segons el tant per cent respecte a la població de cada comunitat autònoma.}
     \label{fig:colorpercent}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.6]{images/distribucio territorial en base a casos.jpg}
-    \caption{Coloració geogràfica dels casos enregistrats de persones amb Alzheimer l'any 2019 segons el nombre de casos.}
+    \caption{Coloració geogràfica dels casos enregistrats de persones amb demència l'any 2019 (en la BDCAP) segons el nombre de casos.}
     \label{fig:colorcasos}
 \end{figure}
 Si es fa una comparació entre els dos mapes, s'observa que la coloració de moltes de les comunitats autònomes canvia, perquè no totes les comunitats autònomes tenen el mateix nombre d'habitants.\\
@@ -295,10 +295,11 @@ Abans de finalitzar aquesta secció, és necessari donar les dades de la taula \
         Total & 140.248 & 30,6\% & 318.621 & 69,4\% & 458.869\\
         \hline
     \end{tabular}
-    \caption{Distribució territorial i per sexe dels casos enregistrats de persones amb demència l'any 2019}
+    \caption{Distribució territorial i per sexe dels casos enregistrats de persones amb demència l'any 2019 en la BDCAP}
     \label{tab:taula2}
 \end{table}
 \newpage
+Un cop conegudes les dades del cens de persones amb demència, es pot saber fàcilment, quin és el rang de persones amb Alzheimer per cada comunitat autònoma i sexe. El nombre de casos d'Alzheimer estarà comprès entre el 60\% i el 80\% dels casos de demència que figuren a la taula \ref{tab:taula2}. Per tant, a Espanya, dels 140.248 casos de demència en homes, entre 84.149 i 112.199 seran causats per l'Alzheimer. En el cas de les dones, hi haurà entre  191.173 i 254.897 casos d'Alzheimer. En el cas del total hi haurà entre 275.322 i 367.096 casos demència causats per Alzheimer.
 \subsection*{Principals associacions de lluita contra l'Alzheimer}
 \addcontentsline{toc}{subsection}{Principals associacions de lluita contra l'Alzheimer}
 A escala de tota Espanya hi ha moltes associacions sense ànim de lucre que es dediquen a lluitar per trobar un remei a aquesta malaltia que cada dia afecta a més gent. Com és molt difícil poder anomenar totes les associacions del país, només es llistaran les més importants.
@@ -443,41 +444,632 @@ La capa d'entrada, com el seu nom indica, representa tots els camps que s'entren
 En segon lloc, estan les capes ocultes. Cal remarcar que aquest tipus de capes, poden no existir en la xarxa, és a dir, és possible que la xarxa estigui composta, exclusivament, per una capa d'entrada i una capa de sortida (xarxa monocapa). També existeix la possibilitat que, en comptes d'haver-hi diverses capes ocultes, solament n'hi hagi una. Cada capa oculta estarà formada per una o més neurones.\\
 Finalment, la capa de sortida, és una capa que tindrà tantes neurones com resultats puguin tenir les dades processades. És a dir, en el cas d'aquest treball, la xarxa s'encarrega de classificar imatges entre quatre nivells diferents d'Alzheimer, per tant, la xarxa tindrà una totalitat de 4 neurones a la capa de sortida.\\
 Com s'ha esmentat, les neurones estan organitzades per capes. Cada neurona es relaciona mitjançant "pesos" amb algunes (o totes) les neurones de la següent capa, així, les dades es presenten en la primera capa (la d'entrada) i els valors es propaguen des de la neurona en la qual es troben en aquell moment fins a totes aquelles neurones de la capa següent amb les quals hi hagi una relació. Finalment, els resultats arribaran a la capa de sortida, on es podran observar els resultats.
-\subsubsection*{Com aprèn una xarxa neuronal?}
-\addcontentsline{toc}{subsubsection}{Com aprèn una xarxa neuronal?}
-Per entrenar una xarxa neuronal, cal exposar una gran quantitat d'entrades amb les seves respectives sortides. Durant l'entrenament, la xarxa anirà ajustant els pesos de les connexions entre neurones per tal de millorar el rendiment i poder prediccions en el futur. Per ajustar els pesos, la xarxa realitza complexos càlculs matemàtics que generen una sortida a partir d'una entrada per a posteriorment realitzar una comparació del càlcul obtingut amb la sortida real. Amb aquesta comparació de resultats s'obté un error que és l'utilitzat per ajustar els pesos de les connexions de la xarxa.\\
-Aquest procés es repeteix un elevat nombre de vegades però no sempre amb la mateixa entrada i la mateixa sortida, sinó que les parelles \textit{input - output}, canvien. D'aquesta manera, al llarg del temps, la xarxa podrà ser capaç de realitzar, de manera precisa, prediccions amb dades d'entrada que no ha vist mai, és a dir, amb dades que no s'han utilitzat en el moment de l'entrenament.
 \subsection*{Xarxes neuronals convolucionals (CNN)}
 \addcontentsline{toc}{subsection}{Xarxes neuronals convolucionals (CNN)}
-
+Les xarxes neuronals convolucionals són, un algorisme de \textit{deep learning} que estan dissenyades per l'anàlisi d'atributs visuals de grans quantitats de dades. Tot i que, normalment, s'utilitzen en aspectes relacionats amb les imatges, les CNN tenen més aplicacions dins del món de la intel·ligència artificial. Aquests altres menesters inclouen el processament del llenguatge natural, per exemple.\\
+Com tota xarxa utilitzada per a classificar, aquestes xarxes, en primer lloc, han de realitzar una fase d'extracció de característiques. D'aquesta fase se n'encarreguen les neurones convolucionals. Seguidament, es realitza una reducció per mostreig (\textit{pooling} en aquest cas) i finalment, es troben una sèrie de neurones més senzilles que permeten realitzar la classificació de les característiques que s'han extret prèviament.\\
+En aquesta fase d'extracció de característiques es pot trobar una similitud molt elevada amb el procés d'estimulació cel·lular del còrtex visual del cervell humà.\\
+Per dur a terme amb èxit aquesta fase, es van alternant capes de convolució i capes de reducció (\textit{pooling}). A mesura que les dades avancen cap a la sortida, cada cop es van fent més i més petites. D'aquesta manera les primeres capes són menys sensibles a canvis mentre que les capes finals són extremadament sensibles a qualsevol canvi i a qualsevol pertorbació en les dades d'entrada.
 \subsection*{Entrenament de xarxes neuronals}
 \addcontentsline{toc}{subsection}{Entrenament de xarxes neuronals}
-
+Per entrenar una xarxa neuronal, cal exposar una gran quantitat d'entrades amb les seves respectives sortides. Durant l'entrenament, la xarxa anirà ajustant els pesos de les connexions entre neurones per tal de millorar el rendiment i poder prediccions en el futur. Per ajustar els pesos, la xarxa realitza complexos càlculs matemàtics que generen una sortida a partir d'una entrada per a posteriorment realitzar una comparació del càlcul obtingut amb la sortida real. Amb aquesta comparació de resultats s'obté un error que és l'utilitzat per ajustar els pesos de les connexions de la xarxa.\\
+Aquest procés es repeteix un elevat nombre de vegades però no sempre amb la mateixa entrada i la mateixa sortida, sinó que les parelles \textit{input - output}, canvien. D'aquesta manera, al llarg del temps, la xarxa podrà ser capaç de realitzar, de manera precisa, prediccions amb dades d'entrada que no ha vist mai, és a dir, amb dades que no s'han utilitzat en el moment de l'entrenament.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.5]{images/CNN.png}
+    \caption{Exemple d'esquema d'una CNN}
+    \label{fig:cnn}
+\end{figure}
+\section*{La IA en la lluita contra l'Alzheimer}
+\addcontentsline{toc}{section}{La IA en la lluita contra l'Alzheimer}
+En aquesta secció es presentaran una sèrie d'articles periodístics que mostres que, no solament és possible que la IA ajudi en la batalla contra l'Alzheimer, sinó que ho fa de manera molt efectiva.\\
+La primera notícia es publica a \href{https://neurohouse.es/espacio-reimagine/la-inteligencia-artificial-una-nueva-aliada-contra-el-alzheimer}{\underline{\textit{Neuro House}}} el 22-10-2020 i es titula "\textit{La inteligencia artificial, una nueva aliada contra el Alzheimer}".
+\begin{center}
+    \begin{minipage}{0.9\linewidth}
+        \vspace{5pt}
+        {\small
+            Gràcies als progressos tan grans que està havent-hi en el camp de la IA, és possible detectar casos d'Alzheimer fins amb quinze anys d'antelació, mitjançant l'estudi genètic i el monitoratge dels pacients. A més, està previst que de manera futura, la IA pugui servir per a la detecció d'altres afectacions mentals de caràcter mortal com podria ser, per exemple, la depressió.\\
+            Investigadors de la Universitat de Califòrnia, han desenvolupat una IA que és capaç de detectar la disminució del consum de glucosa, un dels primers símptomes de la malaltia d'Alzheimer.
+        }
+        \vspace{5pt}
+    \end{minipage}
+\end{center}
 \newpage
-
-\section*{La intel·ligència artificial en la salut}
-\addcontentsline{toc}{section}{La intel·ligència artificial en la salut}
+El segon article va ser publicat al diari \href{https://www.lavanguardia.com/vida/20220427/8225520/inteligencia-artificial-ver-deterioro-cognitivo-acabara-alzheimer.html}{\underline{La Vanguardia}} el 27-04-2022 i porta per títol "\textit{Inteligencia artificial para ver si deterioro cognitivo acabará en Alzheimer}".
+\begin{center}
+    \begin{minipage}{0.9\linewidth}
+        \vspace{5pt}
+        {\small
+            Alguns científics de la UOC han desenvolupat una IA que permet diagnosticar si el deteriorament cognitiu lleu progressarà fins a arribar a convertir-se en Alzheimer.\\
+            Aquesta IA utilitza mètodes molt específics per reconèixer imatges de MRI i supera l'eficàcia de tots els mètodes emprats fins al moment, segons la investigadora Mona Ashtari-Majlan.\\
+            Per desenvolupar aquesta intel·ligència, els investigadors, han fet servir el mètode de les xarxes neuronals convolucionals de múltiples fluxes, que és una tècnica d'intel·ligència artificial i de \textit{deep learning} molt útil per la classificació d'imatges.\\
+            En primer lloc, l'equip d'investigació, va comprar imatges de MRI de persones amb Alzheimer i de persones sanes, cosa que va permetre buscar diferents punts de referència. Després d'entrenar el model, van realitzar un ajustament d'aquest amb imatges de persones amb una diagnosi de deteriorament cognitiu lleu.\\
+            Amb un total de quasi 700 imatges de bases de dades públiques, el model és capaç de diferenciar si el deteriorament cognitiu lleu arribarà a ser Alzheimer, o no, amb un 85\% de precisió.
+        }
+        \vspace{5pt}
+    \end{minipage}
+\end{center}
+\newpage
+La tercera, i última, notícia es va publicar al diari \href{https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html}{\underline{\textit{La Razón}}} el 7-11-2022 i es titula "\textit{Una nueva prueba para el diagnóstico precoz del Alzheimer logra una efectividad del 98\%}".
+\begin{center}
+    \begin{minipage}{0.9\linewidth}
+        \vspace{5pt}
+        {\small
+            Un grup d'investigadors de l'\textit{Imperial College of London} han combinat un sistema d'aprenentatge automàtic amb una imatge d'un MRI cerebral per crear un sistema intel·ligent que és capaç de detectar l'Alzheimer en el 98\% dels casos. En el Regne Unit s'ha dut a terme una prova amb 400 individus i l'algorisme ha diagnosticat correctament la malaltia en el 98\% dels casos i, inclús, ha estat capaç de diferenciar l'etapa primerenca de l'etapa avançada de l'Alzheimer en un 79\% dels pacients.\\
+            Aquesta tecnologia, molt més senzilla d'usar que les proves actuals, és capaç d'identificar la malaltia d'Alzheimer en les etapes primerenques, quan encara la patologia és molt difícil de diagnosticar. Aquesta tecnologia, inclús, es fixa en zones de l'estructura cerebral que mai han estat associades amb la malaltia.\\
+            \begin{center}
+                \begin{minipage}{0.9\linewidth}
+                    \vspace{5pt}
+                    {\small \textit{Waiting for a diagnosis can be a horrible experience for patients and their families. If we could reduce the amount of time they have to wait, make the diagnosis a simpler process and reduce some of the uncertainity, it would be helpful.}
+                    }
+                    \vspace{20pt}
+                \end{minipage}
+            \end{center}
+            Aquestes van ser les paraules del professor de farmacologia del càncer en l'\textit{Imperial College of London} i investigador del projecte \textit{Eric Aboagye} en un comunicat de premsa.\\
+            \begin{center}
+                \begin{minipage}{0.9\linewidth}
+                    \vspace{5pt}
+                    {\small \textit{While neuroradiologists interpret the MRI to help to diagnose the AD, It's probable that are some characteristics that are not visible in the explorations, even for the specialists. Using an algorithm able to select subtle textures and structural characteristics on the brain that are affected because of the Alzheimer, actually could improve the information that we can obtain in the standard-imaging techniques.}
+                    }
+                    \vspace{20pt}
+                \end{minipage}
+            \end{center}
+            Afirma el neuròleg \textit{Paresh Mahotra}, investigador del departament de ciències del cervell.\\
+            Els científics han adaptat a un MRI cerebral un algorisme que va ser dissenyat per detectar tumors cancerosos. Per fer-ho van dividir el cervell en 115 regions i depenent d'aspectes com la mida, la forma i la textura, van assignar fins a 660 característiques diferents.\\
+            En el moment de l'entrenament, els investigadors, van ensenyar al model a diferenciar entre les característiques que apunten a la malaltia d'Alzheimer i les que no.\\
+            Els autors del projecte, afirmen que aquest nou enfocament podria identificar l'Alzheimer en pacients que estan en l'etapa primerenca per a assaigs clínics de nous tractaments farmacològics o canvis en l'estil de vida, cosa que actualment és molt difícil de fer.
+        }
+        \vspace{5pt}
+    \end{minipage}
+\end{center}
 
 \section*{Implementació de la proposta de treball i anàlisi de resultats}
 \addcontentsline{toc}{section}{Implementació de la proposta de treball i anàlisi de resultats}
-
 \subsection*{Disseny dels experiments}
 \addcontentsline{toc}{subsection}{Disseny dels experiments}
-
-\subsubsection*{Característiques de la màquina on s'han dut a terme els experiments}
-\addcontentsline{toc}{subsubsection}{Característiques de la màquina on s'han dut a terme els experiments}
-
+ En aquesta secció hi haurà continguts diversos aspectes com: aclariments del codi, les característiques de la màquina i de l'entorn de programació on s'han realitzat tant els entrenaments de la xarxa com les proves, les llibreries utilitzades, anàlisis gràfiques i numèriques i l'anàlisi de les prediccions de manera gràfica.
+\subsubsection*{Característiques de la màquina i de l'entorn de programació}
+\addcontentsline{toc}{subsubsection}{Característiques de la màquina i de l'entorn de programació}
+\textbf{\underline{Característiques del PC:}}
+\begin{itemize}
+    \item Sistema operatiu: Windows 10 Pro 64-bit
+    \item CPU: Intel Core i7-3770K (8 CPUs) ~3.5GHz
+    \item RAM: 8GB
+    \item Disc: Western Digital Blue WD10EZEX 1TB
+\end{itemize}
+\textbf{\underline{Característiques de l'entorn de programació:}}
+L'entorn de programació utilitzat és una llibreta \textit{Google Colab} que usa el \textit{backend} de \textit{Google Compute Engine} i inclou els següents recursos:
+\begin{itemize}
+    \item RAM: 12.7 GB
+    \item Disc: 107.7GB
+\end{itemize}
 \subsubsection*{Llibreries de Python utilitzades}
 \addcontentsline{toc}{subsubsection}{Llibreries de Python utilitzades}
-
+A continuació s'especificaran les llibreries utilitzades per implementar la proposta de treball, tot donant una petita explicació de l'especialització de cada llibreria.\\
+La primera, i principal, llibreria utilitzada és \href{https://www.tensorflow.org/?hl=es-419}{\underline{TensorFlow}}. Aquesta és una llibreria de codi obert que permet detectar i desxifrar patrons i correlacions, d'un conjunt de dades, de manera que aquests es corresponguin a patrons i correlacions similars al raonament humà.\\
+La segona llibreria és \href{https://keras.io}{\underline{Keras}}. Keras és un programari que té implementades moltes eines de treball necessàries per poder crear una xarxa neuronal com: capes, optimitzadors, funcions d'activació, etc. Keras està construïda sobre la plataforma TensorFlow, per tant, és possible executar un model de Keras sobre TensorFlow. I a més a més, és possible fer-ho de manera senzilla.\\
+La següent llibreria és \href{https://docs.python.org/3/library/datetime.html}{\underline{\textit{datetime}}}. Aquesta llibreria proporciona una àmplia varietat de classes per representar i manipular dates i temps com, també, donar-los-hi el format desitjat i transforma'ls en una gran varietat de formats.\\
+A continuació, la llibreria \href{https://docs.python.org/3/library/os.html}{\underline{os}}, que és una llibreria que permet als programes de Python realitzar interaccions amb el Sistema operatiu. Es podria comparar l'ús d'aquesta llibreria, d'alguna manera, amb treballar, directament, sobre la \textit{Command line}, però amb la diferència que la llibreria és una eina programàtica i, per tant, té la seva sintaxi i la \textit{Command line} té comandes específiques del sistema operatiu.\\
+Seguidament, la llibreria \href{https://lime-ml.readthedocs.io/en/latest/}{\underline{\textit{Lime}}}. Aquesta llibreria permet donar una explicació a les prediccions dels models d'aprenentatge automàtic d'una manera molt senzilla i ràpida per a les persones. En el moment de fer una predicció i treure l'explicació per pantalla, es podrà veure la imatge que s'ha predit i unes zones acolorides. Aquestes zones acolorides són l'explicació.\\
+La llibreria \href{https://numpy.org}{\underline{Numpy}}, és una llibreria de Python enfocada a oferir implementacions d'operacions bàsiques en la computació. Aquestes operacions inclouen: operacions matricials, creació i manipulació d'\textit{arrays} multidimensionals, operacions d'àlgebra lineal, operacions de lectura i escriptura de dades, transformades de Fourier, operacions estadístiques, etc. I tot d'una manera senzilla i ràpida.\\
+Una altra llibreria utilitzada és la llibreria \href{https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html}{\underline{OpenCV}}. Aquesta llibreria s'especialitza en la visió artificial (entendre les característiques d'una imatge) en temps real. De fet, el nom de la llibreria, precisament, significa "Visió artificial oberta" (\textit{Open Computer Vision} en anglès). Algunes de les aplicacions d'aquesta llibreria són el reconeixement facial, la interacció persona-ordinador, la realitat augmentada, el reconeixement d'objectes, entre d'altres.\\
+La penúltima llibreria és \href{https://matplotlib.org}{\underline{Matplotlib}}. Aquesta és una llibreria de codi obert especialitzada en la visualització i representació gràfica de dades en dues dimensions i tres dimensions de dades emmagatzemades en diferents estructures i objectes, com per exemple, llistes, \textit{arrays} NumPy i objectes de tipus \textit{Pandas}.\\
+L'última llibreria utilitzada és \href{https://scikit-image.org}{\underline{scikit-image}} (encara que a la importació es vegi com \textit{skimage}). Aquesta llibreria conté una àmplia varietat d'eines per al tractament i maneig d'imatges. Algunes d'aquestes eines són el processament bàsic d'imatges, la seva segmentació, la detecció dels límits de les imatges i extracció de característiques, entre moltes altres operacions. 
 \subsection*{Anàlisi de resultats}
 \addcontentsline{toc}{subsection}{Anàlisi de resultats}
-
 \subsubsection*{Graficació de la \textit{accuracy} i de la pèrdua}
 \addcontentsline{toc}{subsubsection}{Graficació de la \textit{accuracy} i de la pèrdua}
+En primer lloc, es presenten les gràfiques de la precisió del conjunt de dades d'entrenament. Abans, però, cal remarcar que les dades del model 1 no han estat representades atès que el primer model que es va generar és considerat com a nul perquè hi havia configurats malament els paràmetres corresponents a les mides de les imatges i, per tant, els resultats no serien verídics.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5099)(2, 0.5437)(3, 0.5740)(4, 0.5951)(5, 0.6337)(6, 0.6511)(7, 0.6694)(8, 0.7084)(9, 0.7427)(10, 0.7720)(11, 0.8002)(12, 0.8325)(13, 0.8650)(14, 0.8739)(15, 0.8865)
+        };
+        \addlegendentry{Model 2}
+    
+    \addplot[
+        color = green,
+    ]
+    coordinates { 
+        (1, 0.6290)(2, 0.7893)(3, 0.8759)(4, 0.9106)(5, 0.9558)(6, 0.9717)(7, 0.9731)(8, 0.9771)(9, 0.9877)(10, 0.9926)(11, 0.9928)(12, 0.9964)(13, 0.9914)(14, 0.9930)(15, 0.9932)
+        };
+        \addlegendentry{Model 3}
 
+    \addplot[
+        color = red,
+    ]
+    coordinates { 
+        (1, 0.5233)(2, 0.6832)(3, 0.7903)(4, 0.8647)(5, 0.9240)(6, 0.9535)(7, 0.9659)(8, 0.9728)(9, 0.9752)(10, 0.9811)(11, 0.9880)(12, 0.9931)(13, 0.9951)(14, 0.9935)(15, 0.9937)       
+        };
+        \addlegendentry{Model 4}
+
+    \addplot[
+        color = olive,
+    ]
+    coordinates { 
+        (1, 0.5544)(2, 0.6905)(3, 0.8040)(4, 0.8696)(5, 0.9117)(6, 0.9471)(7, 0.9756)(8, 0.9714)(9, 0.9716)(10, 0.9704)(11, 0.9769)(12, 0.9873)(13, 0.9911)       
+        };
+        \addlegendentry{Model 5}
+
+    \addplot[
+        color = magenta,
+    ]
+    coordinates { 
+        (1, 0.6374)(2, 0.8332)(3, 0.9030)      
+        };
+        \addlegendentry{Model 6}
+
+    \addplot[
+        color = teal,
+    ]
+    coordinates { 
+        (1, 0.6347)(2, 0.8170)(3, 0.8869)(4, 0.9138)      
+        };
+        \addlegendentry{Model 7}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament, dels models al llarg de les èpoques}
+    \label{fig:trainingAcc}
+\end{figure}
+Com s'observa la gràfica anterior en el conjunt de dades d'entrenament, la precisió augmenta de manera molt significativa a partir del model 3 (inclòs). Tot i que no es realitzarà un un canvi de \textit{dataset} per un amb més dades (més imatges) fins al model 6, la precisió augmenta de manera significativa quan es "juga" amb els hiperparàmetres. En aquest cas la \textit{batch size}. Ara bé, no tot és positiu, perquè, com es veurà posteriorment, en alguns dels models s'ha hagut de batallar amb \textit{overfitting}. Abans, però, es presenta la representació gràfica de la pèrdua de les dades d'entrenament.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Loss$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 2,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2},
+        legend pos = north east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 1.1591)(2, 1.0109)(3, 0.920)(4, 0.8734)(5, 0.7996)(6, 0.7675)(7, 0.7202)(8, 0.6708)(9, 0.5895)(10, 0.5269)(11, 0.4759)(12, 0.4092)(13, 0.3347)(14, 0.3147)(15, 0.2810)
+        };
+        \addlegendentry{Model 2}
+    
+    \addplot[
+        color = green,
+    ]
+    coordinates { 
+        (1, 1.0919)(2, 0.4924)(3, 0.3310)(4, 0.2370)(5, 0.1293)(6, 0.0889)(7, 0.0842)(8, 0.0661)(9, 0.0409)(10, 0.0268)(11, 0.0236)(12, 0.0172)(13, 0.0273)(14, 0.0287)(15, 0.0203)
+        };
+        \addlegendentry{Model 3}
+
+    \addplot[
+        color = red,
+    ]
+    coordinates { 
+        (1, 1.7039)(2, 0.7287)(3, 0.5146)(4, 0.3451)(5, 0.2037)(6, 0.1331)(7, 0.0973)(8, 0.0826)(9, 0.0712)(10, 0.0572)(11, 0.0358)(12, 0.0243)(13, 0.0185)(14, 0.0211)(15, 0.0213)       
+        };
+        \addlegendentry{Model 4}
+
+    \addplot[
+        color = olive,
+    ]
+    coordinates { 
+        (1, 1.2818)(2, 0.6979)(3, 0.4848)(4, 0.3233)(5, 0.2412)(6, 0.1458)(7, 0.0730)(8, 0.0788)(9, 0.0788)(10, 0.0929)(11, 0.0684)(12, 0.0433)(13, 0.0297)       
+        };
+        \addlegendentry{Model 5}
+
+    \addplot[
+        color = magenta,
+    ]
+    coordinates { 
+        (1, 0.8833)(2, 0.4093)(3, 0.2470)      
+        };
+        \addlegendentry{Model 6}
+
+    \addplot[
+        color = teal,
+    ]
+    coordinates { 
+        (1, 0.9037)(2, 0.4491)(3, 0.2868)(4, 0.2224)      
+        };
+        \addlegendentry{Model 7}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la pèrdua, en el conjunt d'entrenament, dels models al llarg de les èpoques}
+    \label{fig:trainingLoss}
+\end{figure}
+De la mateixa manera que el canvi en els valors dels hiperparàmetres i el canvi \textit{dataset} afecten la precisió del model, també afecta la pèrdua. Com s'observa, en el model 2 la pèrdua baixa de manera lenta, però en modificar la \textit{batch size}, els valors de la pèrdua descendeixen més ràpidament i també s'observa una millora en el moment del canvi del conjunt de dades.\\
+Un cop vist com queden les dades del, tant de precisió com de pèrdua, del conjunt d'entrenament, cal veure com queden representades les dades del conjunt de validació o \textit{testing}. En primer lloc, s'observen les dades de precisió del conjunt de \textit{testing}.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5)(2, 0.5425)(3, 0.5225)(4, 0.5942)(5, 0.5908)(6, 0.5933)(7, 0.59)(8, 0.5667)(9, 0.52)(10, 0.5092)(11, 0.6242)(12, 0.4642)(13, 0.6067)(14, 0.6417)(15, 0.6467)
+        };
+        \addlegendentry{Model 2}
+    
+    \addplot[
+        color = green,
+    ]
+    coordinates { 
+        (1, 0.5083)(2, 0.5733)(3, 0.5725)(4, 0.44)(5, 0.6792)(6, 0.6008)(7, 0.7050)(8, 0.4542)(9, 0.4483)(10, 0.5)(11, 0.71)(12, 0.6608)(13, 0.7317)(14, 0.7358)(15, 0.7483)
+        };
+        \addlegendentry{Model 3}
+
+    \addplot[
+        color = red,
+    ]
+    coordinates { 
+        (1, 0.5425)(2, 0.4992)(3, 0.5025)(4, 0.5075)(5, 0.5008)(6, 0.5167)(7, 0.5858)(8, 0.6158)(9, 0.68)(10, 0.4117)(11, 0.6083)(12, 0.7342)(13, 0.7350)(14, 0.4992)(15, 0.7642)       
+        };
+        \addlegendentry{Model 4}
+
+    \addplot[
+        color = olive,
+    ]
+    coordinates { 
+        (1, 0.5)(2, 0.5032)(3, 0.4992)(4, 0.5540)(5, 0.5524)(6, 0.5730)(7, 0.6778)(8, 0.5683)(9, 0.7183)(10, 0.6817)(11, 0.6278)(12, 0.5905)(13, 0.7246)       
+        };
+        \addlegendentry{Model 5}
+
+    \addplot[
+        color = magenta,
+    ]
+    coordinates { 
+        (1, 0.7644)(2, 0.7342)(3, 0.8819)      
+        };
+        \addlegendentry{Model 6}
+
+    \addplot[
+        color = teal,
+    ]
+    coordinates { 
+        (1, 0.7011)(2, 0.8480)(3, 0.8793)(4, 0.8667)      
+        };
+        \addlegendentry{Model 7}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt de validació o \textit{testing}, dels models al llarg de les èpoques}
+    \label{fig:trainingTest}
+\end{figure}
+A primer cop d'ull, es pot veure que les gràfiques dels models 2, 3, 4 i 5 presenten moltes irregularitats en el conjunt de dades de validació. Caldrà fer una comparació més exhaustiva, però tot apunta al fet que aquests models presentaran el que s'anomena \textit{overfitting} i que, per tant, no seran models vàlids com a resultat final.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Loss$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 50,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50},
+        legend style = {font = \tiny},
+        legend pos = north east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 2.0039)(2, 1.4819)(3, 1.2021)(4, 0.9902)(5, 0.8969)(6, 0.9364)(7, 1.0665)(8, 1.4156)(9, 1.5385)(10, 3.2025)(11, 1.0272)(12, 2.1315)(13, 1.1760)(14, 1.1101)(15, 1.1737)
+        };
+        \addlegendentry{Model 2}
+    
+    \addplot[
+        color = green,
+    ]
+    coordinates { 
+        (1, 4.4761)(2, 1.3275)(3, 1.1014)(4, 1.6528)(5, 0.9941)(6, 1.1488)(7, 0.8777)(8, 2.0580)(9, 1.9746)(10, 1.9909)(11, 1.0453)(12, 1.3177)(13, 0.9788)(14, 0.9775)(15, 0.8344)
+        };
+        \addlegendentry{Model 3}
+
+    \addplot[
+        color = red,
+    ]
+    coordinates { 
+        (1, 120.6232)(2, 41.8699)(3, 27.8643)(4, 9.2361)(5, 14.2197)(6, 10.8540)(7, 2.5288)(8, 3.0448)(9, 1.5349)(10, 5.0062)(11, 1.8873)(12, 1.0586)(13, 1.2090)(14, 3.1265)(15, 1.0675)       
+        };
+        \addlegendentry{Model 4}
+
+    \addplot[
+        color = olive,
+    ]
+    coordinates { 
+        (1, 113.3310)(2, 17.4925)(3, 16.6645)(4, 1.6575)(5, 4.0960)(6, 1.8877)(7, 1.0401)(8, 3.6329)(9, 1.4190)(10, 1.9452)(11, 2.7462)(12, 3.7571)(13, 1.2337)       
+        };
+        \addlegendentry{Model 5}
+
+    \addplot[
+        color = magenta,
+    ]
+    coordinates { 
+        (1, 0.5418)(2, 0.7958)(3, 0.3437)      
+        };
+        \addlegendentry{Model 6}
+
+    \addplot[
+        color = teal,
+    ]
+    coordinates { 
+        (1, 0.7667)(2, 0.3816)(3, 0.2932)(4, 0.3458)      
+        };
+        \addlegendentry{Model 7}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la pèrdua, en el conjunt de validació o \textit{testing}, dels models al llarg de les èpoques}
+    \label{fig:testingLoss}
+\end{figure}
+En l'última gràfica, s'observa que hi ha dos valors corresponents a les èpoques número 1 dels models 4 i 5 que estan fora del rang del gràfic. El fet que s'hagin deixat fora de rang és perquè són valors superiors a 100 que, si es posessin dins del rang de la gràfica, dificultaria la lectura dels valors inferiors a 5 i, en el cas dels models 6 i 7, en dificultaria la lectura de tot l'entrenament atès que en ambdós models no s'arriba mai a un valor d'1 en la pèrdua.\\
+Anteriorment, s'ha comentat que alguns dels models han resultat en \textit{overfitting}. Per comprovar quins són aquests models, cal representar, gràficament, les dades de la precisió de l'entrenament i del \textit{testing} dels diferents models per poder fer les comprovacions oportunes i extreure les conclusions que corresponguin en cada cas.\\
+Abans, però, cal especificar que s'entén per \textit{overfitting}. S'entén per \textit{overfitting} que el tant per cent de la precisió del conjunt de dades de validació estigui molt per sota al tant per cent del conjunt de dades de l'entrenament. És a dir si el conjunt de dades d'entrenament té una precisió del 95\% i el conjunt de dades de validació solament aconsegueix una precisió del 60\%, es pot afirmar que el model es troba en situació d'\textit{overfitting}. Els percentatges, però, són la "façana" del problema. És a dir, si s'inspecciona que succeeix, en un nivell superior de profunditat, es podrà observar que la xarxa neuronal ha perdut la capacitat de trobar patrons i generalitzar, és a dir, s'observarà que ha memoritzat les dades d'entrenament i que si es vol fer una predicció amb una dada que la xarxa no ha vist durant l'entrenament, aquesta predicció no serà fiable.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5)(2, 0.5425)(3, 0.5225)(4, 0.5942)(5, 0.5908)(6, 0.5933)(7, 0.59)(8, 0.5667)(9, 0.52)(10, 0.5092)(11, 0.6242)(12, 0.4642)(13, 0.6067)(14, 0.6417)(15, 0.6467)
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.5099)(2, 0.5437)(3, 0.5740)(4, 0.5951)(5, 0.6337)(6, 0.6511)(7, 0.6694)(8, 0.7084)(9, 0.7427)(10, 0.7720)(11, 0.8002)(12, 0.8325)(13, 0.8650)(14, 0.8739)(15, 0.8865)
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 2}
+    \label{fig:model2}
+\end{figure}
+Com s'observa a la gràfica anterior, pertanyent a les puntuacions de l'\textit{accuracy} en la part del \textit{training} i de la validació, del model 2, fins a la quarta època, ambdues precisions van, més o menys parelles. A partir de la quarta època en endavant, la precisió de les dades de validació comença a decaure de manera estrepitosa mentre que la de les dades d'entrenament continua pujant cada cop més fins a completar les quinze èpoques. Per tant, tenint en compte les representacions gràfiques de les puntuacions en els dos \textit{datasets} i tenint en compte que la diferència de les precisions és elevada, es pot afirmar que aquest model es troba en situació d'\textit{overfitting}.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5083)(2, 0.5733)(3, 0.5725)(4, 0.44)(5, 0.6792)(6, 0.6008)(7, 0.7050)(8, 0.4542)(9, 0.4483)(10, 0.5)(11, 0.71)(12, 0.6608)(13, 0.7317)(14, 0.7358)(15, 0.7483)
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.6290)(2, 0.7893)(3, 0.8759)(4, 0.9106)(5, 0.9558)(6, 0.9717)(7, 0.9731)(8, 0.9771)(9, 0.9877)(10, 0.9926)(11, 0.9928)(12, 0.9964)(13, 0.9914)(14, 0.9930)(15, 0.9932)
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 3}
+    \label{fig:model3}
+\end{figure}
+Si s'observa la gràfica corresponent al model 3, es pot observar que no tan sols no s'ha solucionat l'\textit{overfitting} sinó que, en aquest model, encara hi ha un \textit{overfitting} més exagerat. Per tant, el model 3 tampoc serveix com a solució definitiva a la proposta de treball d'aquesta investigació.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5425)(2, 0.4992)(3, 0.5025)(4, 0.5075)(5, 0.5008)(6, 0.5167)(7, 0.5858)(8, 0.6158)(9, 0.68)(10, 0.4117)(11, 0.6083)(12, 0.7342)(13, 0.7350)(14, 0.4992)(15, 0.7642) 
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.5233)(2, 0.6832)(3, 0.7903)(4, 0.8647)(5, 0.9240)(6, 0.9535)(7, 0.9659)(8, 0.9728)(9, 0.9752)(10, 0.9811)(11, 0.9880)(12, 0.9931)(13, 0.9951)(14, 0.9935)(15, 0.9937)
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 4}
+    \label{fig:model4}
+\end{figure}
+Com s'observa, en aquesta quarta versió del model, la situació continua sent excepcional i amb un \textit{overfitting} molt elevat, per tant, aquesta quarta versió del model tampoc serveix com a solució a la proposta.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+         (1, 0.5)(2, 0.5032)(3, 0.4992)(4, 0.5540)(5, 0.5524)(6, 0.5730)(7, 0.6778)(8, 0.5683)(9, 0.7183)(10, 0.6817)(11, 0.6278)(12, 0.5905)(13, 0.7246)
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.5544)(2, 0.6905)(3, 0.8040)(4, 0.8696)(5, 0.9117)(6, 0.9471)(7, 0.9756)(8, 0.9714)(9, 0.9716)(10, 0.9704)(11, 0.9769)(12, 0.9873)(13, 0.9911) 
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 5}
+    \label{fig:model5}
+\end{figure}
+Observant la gràfica del cinquè model també es pot assegurar que el model continua en excepcionalitat d'\textit{overfitting} i que, per tant, tampoc serveix com a solució per la proposta de la investigació.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 4,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+         (1, 0.7644)(2, 0.7342)(3, 0.8819) 
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.6374)(2, 0.8332)(3, 0.9030)
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 6}
+    \label{fig:model6}
+\end{figure}
+Amb aquest sisè model, tal com s'ha esmentat amb anterioritat en aquest document, arriba un canvi de \textit{dataset} per un de més gran, és a dir amb més imatges. Com s'observa a la gràfica, en aquesta ocasió, s'han fusionat dues de les tècniques que ajuden a reduir l'\textit{overfitting}. Tal com s'observa en la gràfica, l'objectiu d'eliminar la situació d'excepcionalitat, s'ha complert, i no tan sols això, sinó que a més s'ha aconseguit un augment de l'\textit{accuracy}. Per tant, atès que aquest model no té \textit{overfitting} i que el resultat de la crida a la funció \textit{model.evaluate()} és d'un 88\%, es pot afirmar que aquesta versió del model pot donar-se com a possible solució a la proposta de treball.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 5,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+         (1, 0.7011)(2, 0.8480)(3, 0.8793)(4, 0.8667) 
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.6347)(2, 0.8170)(3, 0.8869)(4, 0.9138) 
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 7}
+    \label{fig:model7}
+\end{figure}
+Si s'observa la gràfica del model 7, es pot veure com al principi de l'entrenament el model té més precisió en les dades de validació que en les dades d'entrenament, cosa que podria desembocar en \textit{overfitting}, però es pot observar que entre les èpoques 2 i 3 la precisió de l'entrenament es torna superior cosa que es bona senyal i, com la diferència de les \textit{accuracy} és ínfima (no arriba a 0.1) es pot concloure que el model no pateix \textit{overfitting}. Per tant, atès que aquest model no té \textit{overfitting} i que el resultat de la crida a la funció \textit{model.evaluate()} és d'un 86\%, es pot afirmar que aquesta versió del model pot donar-se com a possible solució a la proposta de treball.\\
+Finalitzada la comparació de les gràfiques dels models i l'anàlisi individual de cada un d'ells, cal triar com a solució definitiva a la proposta de treball aquells models que, no pateixen \textit{overfitting} i tinguin un percentatge d'\textit{accuracy} el més elevat possible. Com s'ha vist en l'anàlisi individualitzada de cada model, les versions que no es troben en situació d'\textit{overfitting} són les versions 6 i 7. Atès aquest fet i que el model 6 presenta un 88\% de precisió enfront del 86\% del model 7, es dona com a resposta definitiva a la proposta de treball, el model 6.\\
+Cal posar èmfasi que sempre que es duu a terme una tasca com la d'aquest treball, la precisió ha de ser major al 50\% perquè, en cas contrari, es consideraria el model com a aleatori, i per considerar un model com a bo cal que la precisió sigui de 70\% o més. Però també cal remarcar que, depenent de la situació i la finalitat del model, un 70\% de precisió pot no ser suficient, ni tan sols un 90\% seria acceptable en segons quines situacions.
 \subsubsection*{Anàlisi de prediccions amb Lime}
 \addcontentsline{toc}{subsubsection}{Anàlisi de prediccions amb Lime}
+
+\subsubsection*{Detalls tècnics d'implementació}
+\addcontentsline{toc}{subsubsection}{Detalls tècnics d'implementació}
 
 \section*{Conclusions}
 \addcontentsline{toc}{section}{Conclusions}
@@ -488,9 +1080,206 @@ Aquest procés es repeteix un elevat nombre de vegades però no sempre amb la ma
 \section*{Annexs}
 \addcontentsline{toc}{section}{Annexs}
 
+\subsection*{Annex I: Síndrome plurietològic}
+\addcontentsline{toc}{subsection}{Annex I: Síndrome plurietològic}
+a
+\subsection*{Annex II: Acetilcolina}
+\addcontentsline{toc}{subsection}{Annex II: Acetilcolina}
+a
+\subsection*{Annex III: Arrítmia cardíaca}
+\addcontentsline{toc}{subsection}{Annex III: Arrítmia cardíaca}
+a
+\subsection*{Annex IV: Neurotransmissor}
+\addcontentsline{toc}{subsection}{Annex IV: Neurotransmissor}
+a
+\subsection*{Annex V: FDA}
+\addcontentsline{toc}{subsection}{Annex V: FDA}
+a
+\subsection*{Annex VI: Glutamat}
+\addcontentsline{toc}{subsection}{Annex VI: Glutamat}
+a
+\subsection*{Annex VII: Proteïna beta-amiloide}
+\addcontentsline{toc}{subsection}{Annex VII: Proteïna beta-amiloide}
+a
+\subsection*{Annex VIII: Edema cerebral}
+\addcontentsline{toc}{subsection}{Annex VIII: Edema cerebral}
+a
+\subsection*{Annex IX: Hemosiderina}
+\addcontentsline{toc}{subsection}{Annex IX: Hemosiderina}
+a
+\subsection*{Annex X: MRI}
+\addcontentsline{toc}{subsection}{Annex X: MRI}
+a
+\subsection*{Annex XI: Historial clínic}
+\addcontentsline{toc}{subsection}{Annex XI: Historial clínic}
+a
+\subsection*{Annex XII: Emil Kraepelin}
+\addcontentsline{toc}{subsection}{Annex XII: Emil Kraepelin}
+a
+\subsection*{Annex XIII: Espaitemps}
+\addcontentsline{toc}{subsection}{Annex XIII: Espaitemps}
+a
+\subsection*{Annex XIV: Autòpsia}
+\addcontentsline{toc}{subsection}{Annex XIV: Autòpsia}
+a
+\subsection*{Annex XV: Proteïna tau}
+\addcontentsline{toc}{subsection}{Annex XV: Proteïna tau}
+a
+\subsection*{Annex XVI: Biomedicina}
+\addcontentsline{toc}{subsection}{Annex XVI: Biomedicina}
+a
+\subsection*{Annex XVII: APO E-4}
+\addcontentsline{toc}{subsection}{Annex XVII: APO E-4}
+a
+\subsection*{Annex XVIII: Gen}
+\addcontentsline{toc}{subsection}{Annex XVIII: Gen}
+a
+\subsection*{Annex XIX: Mutació genètica}
+\addcontentsline{toc}{subsection}{Annex XIX: Mutació genètica}
+a
+\subsection*{Annex XX: Traumatisme cranial}
+\addcontentsline{toc}{subsection}{Annex XX: Traumatisme cranial}
+a
+\subsection*{Annex XXI: Desordre neurodegeneratiu}
+\addcontentsline{toc}{subsection}{Annex XXI: Desordre neurodegeneratiu}
+a
+\subsection*{Annex XXII: Simptomatologia}
+\addcontentsline{toc}{subsection}{Annex XXII: Simptomatologia}
+a
+\subsection*{Annex XXIII: Demència vascular}
+\addcontentsline{toc}{subsection}{Annex XXIII: Demència vascular}
+a
+\subsection*{Annex XXIV: Demència amb cossos de Lewy}
+\addcontentsline{toc}{subsection}{Annex XXIV: Demència amb cossos de Lewy}
+a
+\subsection*{Annex XXV: Demència frontotemporal}
+\addcontentsline{toc}{subsection}{Annex XXV: Demència frontotemporal}
+a
+\subsection*{Annex XXVI: Demència mixta}
+\addcontentsline{toc}{subsection}{Annex XXVI: Demència mixta}
+a
+\subsection*{Annex XXVII: Deteriorament cognitiu}
+\addcontentsline{toc}{subsection}{Annex XXVII: Deteriorament cognitiu}
+a
+\subsection*{Annex XXVIII: Dieta mediterrània}
+\addcontentsline{toc}{subsection}{Annex XXVIII: Dieta mediterrània}
+a
+\subsection*{Annex XXIX: Dieta DASH}
+\addcontentsline{toc}{subsection}{Annex XXIX: Dieta DASH}
+a
+\subsection*{Annex XXX: Metge de capçalera}
+\addcontentsline{toc}{subsection}{Annex XXX: Metge de capçalera}
+a
+\subsection*{Annex XXXI: Diagnòstic diferencial}
+\addcontentsline{toc}{subsection}{Annex XXXI: Diagnòstic diferencial}
+a
+\subsection*{Annex XXXII: Neurologia}
+\addcontentsline{toc}{subsection}{Annex XXXII: Neurologia}
+a
+\subsection*{Annex XXXIII: Psiquiatria}
+\addcontentsline{toc}{subsection}{Annex XXXIII: Psiquiatria}
+a
+\subsection*{Annex XXXIV: Psicologia}
+\addcontentsline{toc}{subsection}{Annex XXXIV: Psicologia}
+a
+\subsection*{Annex XXXV: Patologia}
+\addcontentsline{toc}{subsection}{Annex XXXV: Patologia}
+a
+\subsection*{Annex XXXVI: Stuart Russell}
+\addcontentsline{toc}{subsection}{Annex XXXVI: Stuart Russell}
+a
+\subsection*{Annex XXXVII: Peter Norvig}
+\addcontentsline{toc}{subsection}{Annex XXXVII: Peter Norvig}
+a
+\subsection*{Annex XXXVIII: Sistemes experts}
+\addcontentsline{toc}{subsection}{Annex XXXVIII: Sistemes experts}
+a
+\subsection*{Annex IXL: Agents intel·ligents}
+\addcontentsline{toc}{subsection}{Annex IXL: Agents intel·ligents}
+a
+\subsection*{Annex XL: Operació de \textit{Pooling}}
+\addcontentsline{toc}{subsection}{Annex XL: Operació de \textit{Pooling}}
+a
+\subsection*{Annex XLI: Còrtex visual}
+\addcontentsline{toc}{subsection}{Annex XLI: Còrtex visual}
+a
+\subsection*{Annex XLII: Pneumònia}
+\addcontentsline{toc}{subsection}{Annex XLII: Pneumònia}
+a
+\subsection*{Annex XLIII: Ulceració}
+\addcontentsline{toc}{subsection}{Annex XLIII: Ulceració}
+a
+\subsection*{Annex XLIV: Infecció}
+\addcontentsline{toc}{subsection}{Annex XLIV: Infecció}
+a
+\subsection*{Annex XLV: Rigidesa física}
+\addcontentsline{toc}{subsection}{Annex XLV: Rigidesa física}
+a
+\subsection*{Annex XLVI: Reflexos neurològics infantils}
+\addcontentsline{toc}{subsection}{Annex XLVI: Reflexos neurològics infantils}
+a
+\subsection*{Annex XLVII: Contractura}
+\addcontentsline{toc}{subsection}{Annex XLVII: Contractura}
+a
+\subsection*{Annex XLVIII: Hipertensió}
+\addcontentsline{toc}{subsection}{Annex XLVIII: Hipertensió}
+a
+\subsection*{Annex XLIX: Obesitat}
+\addcontentsline{toc}{subsection}{Annex XLIX: Obesitat}
+a
+\subsection*{Annex L: Omega-3}
+\addcontentsline{toc}{subsection}{Annex L: Omega-3}
+a
+\subsection*{Annex L: Omega-6}
+\addcontentsline{toc}{subsection}{Annex L: Omega-6}
+a
+\subsection*{Annex LI: Depressió}
+\addcontentsline{toc}{subsection}{Annex LI: Depressió}
+a
+\subsection*{Annex LII: Ansietat}
+\addcontentsline{toc}{subsection}{Annex LII: Ansietat}
+a
+\subsection*{Annex LIII: Estrès}
+\addcontentsline{toc}{subsection}{Annex LIII: Estrès}
+a
+\subsection*{Annex LIV: Anèmia}
+\addcontentsline{toc}{subsection}{Annex LIV: Anèmia}
+a
+\subsection*{Annex LV: Tiroides}
+\addcontentsline{toc}{subsection}{Annex LV: Tiroides}
+a
+\subsection*{Annex LVI: Vasos sanguinis}
+\addcontentsline{toc}{subsection}{Annex LVI: Vasos sanguinis}
+a
+\subsection*{Annex LVII: \textit{CT scan}}
+\addcontentsline{toc}{subsection}{Annex LVII: \textit{CT scan}}
+a
+\subsection*{Annex LVIII: Xarxes bayesianes}
+\addcontentsline{toc}{subsection}{Annex LVIII: Xarxes bayesianes}
+a
+\subsection*{Annex LIX: \textit{Command Line}}
+\addcontentsline{toc}{subsection}{Annex LIX: \textit{Command Line}}
+a
+\subsection*{Annex LX: Programari de codi obert}
+\addcontentsline{toc}{subsection}{Annex LX: Programari de codi obert}
+a
+\subsection*{Annex LXI: Processament bàsic d'imatges}
+\addcontentsline{toc}{subsection}{Annex LXI: Processament bàsic d'imatges}
+a
+\subsection*{Annex LXII: \textit{Base de datos clínicos de atención primaria}}
+\addcontentsline{toc}{subsection}{Annex LXII: \textit{Base de datos clínicos de atención primaria}}
+a
 \section*{Agraïments}
 \addcontentsline{toc}{section}{Agraïments}
-Jordi Planes (tutor i director del TFG), Nacho Lopez (Coordinador del GEI i encarregat d'acceptar el meu TFG), Joana Cervera (proporcionadora de informació a través d'xperiència personal), Esteban Cervera (proporcionador de informació a través d'xperiència personal), Sergi Cervera (conseller informàtic), Nuria Rosell (consellera d'estil), Nikita Deinega (conseller mèdic), 
+Abans de donar per finalitzada aquesta investigació, m'agradaria donar les gràcies a certes persones que m'han ajudat en el transcurs del treball ja sigui com a consellers, aportant informació...
+\begin{itemize}
+    \item Dr. Jordi Planes. Tutor i director del treball. Sense els seus consells i recomanacions no hauria estat possible la realització d'aquesta investigació.
+    \item  Dr. Ignacio López. Coordinador del grau en enginyeria informàtica i encarregat d'aprovar el meu TFG. Sense l'Ignacio, o com el coneixem tots, el Nacho, no hauria estat possible donar el tret de sortida a aquest treball.
+    \item Joana Cervera, Esteban Cervera i Núria Rosell. La meva tieta, el meu pare i la meva mare han estat proporcionadors d'informació sobre la malaltia gràcies a l'experiència personal. En el cas del meu pare i la meva tieta, l'experiència prové del seu pare (el meu avi). En el cas de la meva mare, l'experiència no prové, només, del seu sogre sinó també de la seva padrina.
+    \item Sergi Cervera. El meu germà ha estat un gran conseller informàtic en el moment de la redacció d'aquesta memòria en LaTeX i en el període de programació en Python tot donant-me consells per fer un "codi bonic".
+    \item Nikita Deinega. Sense el meu amic fent-me de conseller mèdic (atès que està estudiant medicina), molts conceptes clínics haurien estat molt difícils de comprendre.
+\end{itemize}
+Finalment, vull fer una menció especial a les meves amistats més íntimes: Joel Farré, David Morea, Gabriel Garcia, Roger Castellví, Joel Aumedes, Armand Ciutat, Albert Duch, Ilyass Mahdiyan, Moises Bernaus i Oriol Llobera. Ells han estat el meu suport moral durant tota la investigació i la implementació del projecte.
 
 \section*{Bibliografia i webgrafia}
 \addcontentsline{toc}{section}{Bibliografia i webgrafia}
@@ -502,7 +1291,6 @@ Jordi Planes (tutor i director del TFG), Nacho Lopez (Coordinador del GEI i enca
     \item \href{https://www.mayoclinic.org/es-es/diseases-conditions/alzheimers-disease/in-depth/alzheimers/art-20048103}{\underline{Enfermedad de Alzheimer: los medicamentos ayudan a controlar los síntomas}}
     \item \href{http://www.alzfae.org/fundacion/549/medicamentos-autorizados}{\underline{Medicamentos autorizados}}
     \item \href{https://aiudo.es/asociaciones-de-alzheimer-y-centros/#asociaciones-de-alzheimer}{\underline{Asociaciones de Alzheimer y centros de ayuda en toda España}}
-    \item \href{https://neurohouse.es/espacio-reimagine/la-inteligencia-artificial-una-nueva-aliada-contra-el-alzheimer}{\underline{La inteligencia artificial, una nueva aliada contra el Alzheimer}}
     \item \href{https://www.aecoc.es/innovation-hub-noticias/la-inteligencia-artificial-puede-detectar-signos-de-alzheimer-antes-que-nuestra-propia-familia/}{\underline{La inteligencia artificial puede detectar signos de Alzheimer antes que nuestra propia familia}}
     \item \href{https://www.lavanguardia.com/vida/20220427/8225520/inteligencia-artificial-ver-deterioro-cognitivo-acabara-alzheimer.html}{\underline{Inteligencia artficial para ver si deterioro cognitivo acabará en Alzheimer}}
     \item \href{https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html}{\underline{Una nueva prueba para el diagnóstico precoz del alzhéimer logra una efectividad del 98\%}}
@@ -526,14 +1314,6 @@ Jordi Planes (tutor i director del TFG), Nacho Lopez (Coordinador del GEI i enca
     \item Alzheimer’s association, Información bàsica sobre la enfermedad de Alzheimer. Qué es y que se puede hacer, 2016
     \item \href{https://www.iberdrola.com/innovacion/machine-learning-aprendizaje-automatico}{\underline{Descubre los principales beneficios del "Machine Learning"}}
     \item \href{https://aws.amazon.com/es/what-is/neural-network/}{\underline{What is a neural network?}}
-    \item \href{https://www.tensorflow.org/?hl=es-419}{\underline{TensorFlow}}
-    \item \href{https://keras.io/}{\underline{Keras}}
-    \item \href{https://www.w3schools.com/python/python_datetime.asp}{\underline{Datetime}}
-    \item \href{https://docs.python.org/3/library/os.html}{\underline{OS}}
-    \item \href{https://pypi.org/project/opencv-python/}{\underline{CV2}}
-    \item \href{https://towardsdatascience.com/lime-how-to-interpret-machine-learning-models-with-python-94b0e7e4432e}{\underline{Lime}}
-    \item \href{https://numpy.org/}{\underline{Numpy}}
-    \item \href{https://matplotlib.org/}{\underline{Matplotlib}}
     \item \href{https://colab.research.google.com/}{\underline{Google Colab}}
     \item \href{https://upload.wikimedia.org/wikipedia/commons/a/a1/Alan_Turing_Aged_16.jpg}{\underline{Retrat d'Alan Turing}}
     \item \href{https://cs.berkeley.edu/sites/default/files/news_image/peter_norvig_speaking_at_university_of_california_berkeley_2013.jpg}{\underline{Retarat de \textit{Peter Norvig}}}
@@ -543,7 +1323,6 @@ Jordi Planes (tutor i director del TFG), Nacho Lopez (Coordinador del GEI i enca
     \item \href{https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/S/amzn-author-media-prod/b2a43a485uokuohjp5l7peo9f0.jpg}{\underline{Retrat de \textit{Jeff Hawkins}}}
     \item \href{https://keepcoding.io/blog/redes-neuronales-convolucionales/#Que_son_las_Redes_Neuronales_Convolucionales}{\underline{Informació sobre les xarxes neuronals convolucionals}}
     \item \href{https://m.media-amazon.com/images/S/amzn-author-media-prod/b2a43a485uokuohjp5l7peo9f0._SX450_.jpg}{\underline{Retrat de \textit{Jeff Hawkins}}}
+    \item \href{https://editor.analyticsvidhya.com/uploads/25366Convolutional_Neural_Network_to_identify_the_image_of_a_bird.png}{\underline{Imatge d'exemple d'una CNN}}
 \end{itemize}
-
-
 \end{document}
