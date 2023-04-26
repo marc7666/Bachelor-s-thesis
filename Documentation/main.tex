@@ -181,7 +181,7 @@ Un assaig clínic de fase 3 va demostrar que el Lecanemab va reduïr en un 27\% 
 La FDA està avaluant el Lecanemab. A més, s'està duent a terme un altre estudi per a determinar la seva eficàcia en persones de risc de desenvolupar Alzheimer, incloent aquelles amb familiars propers afectats per la malaltia.
 \subsection*{Estadístiques d'afectats en l'àmbit nacional i autonòmic}
 \addcontentsline{toc}{subsection}{Estadístiques d'afectats a en l'àmbit nacional i autonòmic}
-A continuació, es presenten les dades enregistrades per CEAFA en l'estudi que va realitzar l'any 2019 dels casos diagnosticats d'Alzheimer a Espanya.
+A continuació, es presenten les dades enregistrades per CEAFA en l'estudi que va realitzar l'any 2019 dels casos diagnosticats de demència a Espanya.
 \begin{table}[h]
     \centering
     \begin{tabular}{ |c | c | c | c | c| } 
@@ -229,7 +229,7 @@ A continuació, es presenten les dades enregistrades per CEAFA en l'estudi que v
         Total & 458.869 & 49.937.060 & 1\% & 100\% \\
           \hline
     \end{tabular}
-    \caption{Distribució territorial dels casos enregistrats de persones amb demència l'any 2019}
+    \caption{Distribució territorial dels casos enregistrats de persones amb demència l'any 2019 en la BDCAP}
     \label{tab:taula1}
 \end{table}
 
@@ -237,13 +237,13 @@ Seguidament i per tenir una visió una mica més gràfica, es posaran sobre el m
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.6]{images/distribucio territorial en base a percentatge.jpg}
-    \caption{Coloració geogràfica dels casos enregistrats de persones amb Alzheimer l'any 2019 segons el tant per cent respecte a la població de cada comunitat autònoma.}
+    \caption{Coloració geogràfica dels casos enregistrats de persones amb demència l'any 2019 (en la BDCAP) segons el tant per cent respecte a la població de cada comunitat autònoma.}
     \label{fig:colorpercent}
 \end{figure}
 \begin{figure}[H]
     \centering
     \includegraphics[scale = 0.6]{images/distribucio territorial en base a casos.jpg}
-    \caption{Coloració geogràfica dels casos enregistrats de persones amb Alzheimer l'any 2019 segons el nombre de casos.}
+    \caption{Coloració geogràfica dels casos enregistrats de persones amb demència l'any 2019 (en la BDCAP) segons el nombre de casos.}
     \label{fig:colorcasos}
 \end{figure}
 Si es fa una comparació entre els dos mapes, s'observa que la coloració de moltes de les comunitats autònomes canvia, perquè no totes les comunitats autònomes tenen el mateix nombre d'habitants.\\
@@ -295,10 +295,11 @@ Abans de finalitzar aquesta secció, és necessari donar les dades de la taula \
         Total & 140.248 & 30,6\% & 318.621 & 69,4\% & 458.869\\
         \hline
     \end{tabular}
-    \caption{Distribució territorial i per sexe dels casos enregistrats de persones amb demència l'any 2019}
+    \caption{Distribució territorial i per sexe dels casos enregistrats de persones amb demència l'any 2019 en la BDCAP}
     \label{tab:taula2}
 \end{table}
 \newpage
+Un cop conegudes les dades del cens de persones amb demència, es pot saber fàcilment, quin és el rang de persones amb Alzheimer per cada comunitat autònoma i sexe. El nombre de casos d'Alzheimer estarà comprès entre el 60\% i el 80\% dels casos de demència que figuren a la taula \ref{tab:taula2}. Per tant, a Espanya, dels 140.248 casos de demència en homes, entre 84.149 i 112.199 seran causats per l'Alzheimer. En el cas de les dones, hi haurà entre  191.173 i 254.897 casos d'Alzheimer. En el cas del total hi haurà entre 275.322 i 367.096 casos demència causats per Alzheimer.
 \subsection*{Principals associacions de lluita contra l'Alzheimer}
 \addcontentsline{toc}{subsection}{Principals associacions de lluita contra l'Alzheimer}
 A escala de tota Espanya hi ha moltes associacions sense ànim de lucre que es dediquen a lluitar per trobar un remei a aquesta malaltia que cada dia afecta a més gent. Com és molt difícil poder anomenar totes les associacions del país, només es llistaran les més importants.
@@ -561,7 +562,7 @@ L'última llibreria utilitzada és \href{https://scikit-image.org}{\underline{sc
 En primer lloc, es presenten les gràfiques de la precisió del conjunt de dades d'entrenament. Abans, però, cal remarcar que les dades del model 1 no han estat representades atès que el primer model que es va generar és considerat com a nul perquè hi havia configurats malament els paràmetres corresponents a les mides de les imatges i, per tant, els resultats no serien verídics.
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[scale = 1.7]
+    \begin{tikzpicture}[scale = 1.6]
     \begin{axis} [
         xlabel = {$Epoch$},
         ylabel = {$Accuracy$},
@@ -630,7 +631,7 @@ En primer lloc, es presenten les gràfiques de la precisió del conjunt de dades
 Com s'observa la gràfica anterior en el conjunt de dades d'entrenament, la precisió augmenta de manera molt significativa a partir del model 3 (inclòs). Tot i que no es realitzarà un un canvi de \textit{dataset} per un amb més dades (més imatges) fins al model 6, la precisió augmenta de manera significativa quan es "juga" amb els hiperparàmetres. En aquest cas la \textit{batch size}. Ara bé, no tot és positiu, perquè, com es veurà posteriorment, en alguns dels models s'ha hagut de batallar amb \textit{overfitting}. Abans, però, es presenta la representació gràfica de la pèrdua de les dades d'entrenament.
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[scale = 1.7]
+    \begin{tikzpicture}[scale = 1.6]
     \begin{axis} [
         xlabel = {$Epoch$},
         ylabel = {$Loss$},
@@ -700,7 +701,7 @@ De la mateixa manera que el canvi en els valors dels hiperparàmetres i el canvi
 Un cop vist com queden les dades del, tant de precisió com de pèrdua, del conjunt d'entrenament, cal veure com queden representades les dades del conjunt de validació o \textit{testing}. En primer lloc, s'observen les dades de precisió del conjunt de \textit{testing}.
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[scale = 1.7]
+    \begin{tikzpicture}[scale = 1.6]
     \begin{axis} [
         xlabel = {$Epoch$},
         ylabel = {$Accuracy$},
@@ -767,9 +768,10 @@ Un cop vist com queden les dades del, tant de precisió com de pèrdua, del conj
     \caption{Representació gràfica de la precisió, en el conjunt de validació o \textit{testing}, dels models al llarg de les èpoques}
     \label{fig:trainingTest}
 \end{figure}
+A primer cop d'ull, es pot veure que les gràfiques dels models 2, 3, 4 i 5 presenten moltes irregularitats en el conjunt de dades de validació. Caldrà fer una comparació més exhaustiva, però tot apunta al fet que aquests models presentaran el que s'anomena \textit{overfitting} i que, per tant, no seran models vàlids com a resultat final.
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}[scale = 1.7]
+    \begin{tikzpicture}[scale = 1.6]
     \begin{axis} [
         xlabel = {$Epoch$},
         ylabel = {$Loss$},
@@ -836,7 +838,233 @@ Un cop vist com queden les dades del, tant de precisió com de pèrdua, del conj
     \caption{Representació gràfica de la pèrdua, en el conjunt de validació o \textit{testing}, dels models al llarg de les èpoques}
     \label{fig:testingLoss}
 \end{figure}
-En l'última gràfica, s'observa que hi ha dos valors corresponents a les èpoques número 1 dels models 4 i 5 que estan fora del rang del gràfic. El fet que s'hagin deixat fora de rang és perquè són valors superiors a 100 que, si es posessin dins del rang de la gràfica, dificultaria la lectura dels valors inferiors a 5 i, en el cas dels models 6 i 7, en dificultaria la lectura de tot l'entrenament atès que en ambdós models no s'arriba mai a un valor de 1 en la pèrdua.
+En l'última gràfica, s'observa que hi ha dos valors corresponents a les èpoques número 1 dels models 4 i 5 que estan fora del rang del gràfic. El fet que s'hagin deixat fora de rang és perquè són valors superiors a 100 que, si es posessin dins del rang de la gràfica, dificultaria la lectura dels valors inferiors a 5 i, en el cas dels models 6 i 7, en dificultaria la lectura de tot l'entrenament atès que en ambdós models no s'arriba mai a un valor d'1 en la pèrdua.\\
+Anteriorment, s'ha comentat que alguns dels models han resultat en \textit{overfitting}. Per comprovar quins són aquests models, cal representar, gràficament, les dades de la precisió de l'entrenament i del \textit{testing} dels diferents models per poder fer les comprovacions oportunes i extreure les conclusions que corresponguin en cada cas.\\
+Abans, però, cal especificar que s'entén per \textit{overfitting}. S'entén per \textit{overfitting} que el tant per cent de la precisió del conjunt de dades de validació estigui molt per sota al tant per cent del conjunt de dades de l'entrenament. És a dir si el conjunt de dades d'entrenament té una precisió del 95\% i el conjunt de dades de validació solament aconsegueix una precisió del 60\%, es pot afirmar que el model es troba en situació d'\textit{overfitting}. Els percentatges, però, són la "façana" del problema. És a dir, si s'inspecciona que succeeix, en un nivell superior de profunditat, es podrà observar que la xarxa neuronal ha perdut la capacitat de trobar patrons i generalitzar, és a dir, s'observarà que ha memoritzat les dades d'entrenament i que si es vol fer una predicció amb una dada que la xarxa no ha vist durant l'entrenament, aquesta predicció no serà fiable.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5)(2, 0.5425)(3, 0.5225)(4, 0.5942)(5, 0.5908)(6, 0.5933)(7, 0.59)(8, 0.5667)(9, 0.52)(10, 0.5092)(11, 0.6242)(12, 0.4642)(13, 0.6067)(14, 0.6417)(15, 0.6467)
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.5099)(2, 0.5437)(3, 0.5740)(4, 0.5951)(5, 0.6337)(6, 0.6511)(7, 0.6694)(8, 0.7084)(9, 0.7427)(10, 0.7720)(11, 0.8002)(12, 0.8325)(13, 0.8650)(14, 0.8739)(15, 0.8865)
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 2}
+    \label{fig:model2}
+\end{figure}
+Com s'observa a la gràfica anterior, pertanyent a les puntuacions de l'\textit{accuracy} en la part del \textit{training} i de la validació, del model 2, fins a la quarta època, ambdues precisions van, més o menys parelles. A partir de la quarta època en endavant, la precisió de les dades de validació comença a decaure de manera estrepitosa mentre que la de les dades d'entrenament continua pujant cada cop més fins a completar les quinze èpoques. Per tant, tenint en compte les representacions gràfiques de les puntuacions en els dos \textit{datasets} i tenint en compte que la diferència de les precisions és elevada, es pot afirmar que aquest model es troba en situació d'\textit{overfitting}.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5083)(2, 0.5733)(3, 0.5725)(4, 0.44)(5, 0.6792)(6, 0.6008)(7, 0.7050)(8, 0.4542)(9, 0.4483)(10, 0.5)(11, 0.71)(12, 0.6608)(13, 0.7317)(14, 0.7358)(15, 0.7483)
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.6290)(2, 0.7893)(3, 0.8759)(4, 0.9106)(5, 0.9558)(6, 0.9717)(7, 0.9731)(8, 0.9771)(9, 0.9877)(10, 0.9926)(11, 0.9928)(12, 0.9964)(13, 0.9914)(14, 0.9930)(15, 0.9932)
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 3}
+    \label{fig:model3}
+\end{figure}
+Si s'observa la gràfica corresponent al model 3, es pot observar que no tan sols no s'ha solucionat l'\textit{overfitting} sinó que, en aquest model, encara hi ha un \textit{overfitting} més exagerat. Per tant, el model 3 tampoc serveix com a solució definitiva a la proposta de treball d'aquesta investigació.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+        (1, 0.5425)(2, 0.4992)(3, 0.5025)(4, 0.5075)(5, 0.5008)(6, 0.5167)(7, 0.5858)(8, 0.6158)(9, 0.68)(10, 0.4117)(11, 0.6083)(12, 0.7342)(13, 0.7350)(14, 0.4992)(15, 0.7642) 
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.5233)(2, 0.6832)(3, 0.7903)(4, 0.8647)(5, 0.9240)(6, 0.9535)(7, 0.9659)(8, 0.9728)(9, 0.9752)(10, 0.9811)(11, 0.9880)(12, 0.9931)(13, 0.9951)(14, 0.9935)(15, 0.9937)
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 4}
+    \label{fig:model4}
+\end{figure}
+Com s'observa, en aquesta quarta versió del model, la situació continua sent excepcional i amb un \textit{overfitting} molt elevat, per tant, aquesta quarta versió del model tampoc serveix com a solució a la proposta.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 20,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+         (1, 0.5)(2, 0.5032)(3, 0.4992)(4, 0.5540)(5, 0.5524)(6, 0.5730)(7, 0.6778)(8, 0.5683)(9, 0.7183)(10, 0.6817)(11, 0.6278)(12, 0.5905)(13, 0.7246)
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.5544)(2, 0.6905)(3, 0.8040)(4, 0.8696)(5, 0.9117)(6, 0.9471)(7, 0.9756)(8, 0.9714)(9, 0.9716)(10, 0.9704)(11, 0.9769)(12, 0.9873)(13, 0.9911) 
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 5}
+    \label{fig:model5}
+\end{figure}
+Observant la gràfica del cinquè model també es pot assegurar que el model continua en excepcionalitat d'\textit{overfitting} i que, per tant, tampoc serveix com a solució per la proposta de la investigació.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 4,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+         (1, 0.7644)(2, 0.7342)(3, 0.8819) 
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.6374)(2, 0.8332)(3, 0.9030)
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 6}
+    \label{fig:model6}
+\end{figure}
+Amb aquest sisè model, tal com s'ha esmentat amb anterioritat en aquest document, arriba un canvi de \textit{dataset} per un de més gran, és a dir amb més imatges. Com s'observa a la gràfica, en aquesta ocasió, s'han fusionat dues de les tècniques que ajuden a reduir l'\textit{overfitting}. Tal com s'observa en la gràfica, l'objectiu d'eliminar la situació d'excepcionalitat, s'ha complert, i no tan sols això, sinó que a més s'ha aconseguit un augment de l'\textit{accuracy}. Per tant, atès que aquest model no té \textit{overfitting} i que el resultat de la crida a la funció \textit{model.evaluate()} és d'un 88\%, es pot afirmar que aquesta versió del model pot donar-se com a possible solució a la proposta de treball.
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[scale = 1.6]
+    \begin{axis} [
+        xlabel = {$Epoch$},
+        ylabel = {$Accuracy$},
+        xmin = 0, xmax = 5,
+        ymin = 0, ymax = 1.1,
+        xtick = {1, 2, 3, 4, 5},
+        xticklabel style = {rotate = 75, anchor = east},
+        ytick = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1},
+        legend style = {font = \tiny},
+        legend pos = south east,
+        ymajorgrids = true,
+        xmajorgrids = true,
+        grid style = dashed,
+    ]
+    \addplot [
+        color = blue,
+    ]
+    coordinates {
+         (1, 0.7011)(2, 0.8480)(3, 0.8793)(4, 0.8667) 
+        };
+        \addlegendentry{Validació}
+    \addplot [
+        color = green,
+    ]
+    coordinates {
+        (1, 0.6347)(2, 0.8170)(3, 0.8869)(4, 0.9138) 
+        };
+        \addlegendentry{Entrenament}
+    \end{axis}
+    \end{tikzpicture}
+    \caption{Representació gràfica de la precisió, en el conjunt d'entrenament i validació o \textit{testing}, del model 7}
+    \label{fig:model7}
+\end{figure}
+Si s'observa la gràfica del model 7, es pot veure com al principi de l'entrenament el model té més precisió en les dades de validació que en les dades d'entrenament, cosa que podria desembocar en \textit{overfitting}, però es pot observar que entre les èpoques 2 i 3 la precisió de l'entrenament es torna superior cosa que es bona senyal i, com la diferència de les \textit{accuracy} és ínfima (no arriba a 0.1) es pot concloure que el model no pateix \textit{overfitting}. Per tant, atès que aquest model no té \textit{overfitting} i que el resultat de la crida a la funció \textit{model.evaluate()} és d'un 86\%, es pot afirmar que aquesta versió del model pot donar-se com a possible solució a la proposta de treball.\\
+Finalitzada la comparació de les gràfiques dels models i l'anàlisi individual de cada un d'ells, cal triar com a solució definitiva a la proposta de treball aquells models que, no pateixen \textit{overfitting} i tinguin un percentatge d'\textit{accuracy} el més elevat possible. Com s'ha vist en l'anàlisi individualitzada de cada model, les versions que no es troben en situació d'\textit{overfitting} són les versions 6 i 7. Atès aquest fet i que el model 6 presenta un 88\% de precisió enfront del 86\% del model 7, es dona com a resposta definitiva a la proposta de treball, el model 6.\\
+Cal posar èmfasi que sempre que es duu a terme una tasca com la d'aquest treball, la precisió ha de ser major al 50\% perquè, en cas contrari, es consideraria el model com a aleatori, i per considerar un model com a bo cal que la precisió sigui de 70\% o més. Però també cal remarcar que, depenent de la situació i la finalitat del model, un 70\% de precisió pot no ser suficient, ni tan sols un 90\% seria acceptable en segons quines situacions.
 \subsubsection*{Anàlisi de prediccions amb Lime}
 \addcontentsline{toc}{subsubsection}{Anàlisi de prediccions amb Lime}
 
@@ -1037,6 +1265,9 @@ a
 a
 \subsection*{Annex LXI: Processament bàsic d'imatges}
 \addcontentsline{toc}{subsection}{Annex LXI: Processament bàsic d'imatges}
+a
+\subsection*{Annex LXII: \textit{Base de datos clínicos de atención primaria}}
+\addcontentsline{toc}{subsection}{Annex LXII: \textit{Base de datos clínicos de atención primaria}}
 a
 \section*{Agraïments}
 \addcontentsline{toc}{section}{Agraïments}
