@@ -75,7 +75,7 @@ Ara per ara, estan establerts deu símptomes que són senyals d'alarma per una p
 \textbf{L'última alarma són els canvis d'humor o de personalitat}. Les persones amb la malaltia d'Alzheimer poden arribar a sospitar de tothom, ser persones agressives, temoroses o ansioses.
 \subsection*{Quines fases té la malaltia?}
 \addcontentsline{toc}{subsection}{Quines fases te la malaltia?}
-En tot el món, professionals i cuidadors utilitzen l'escala de deteriorament global, desenvolupada pel Dr. Barry Reisberg, director del programa d'educació i investigació de la infermetat d'Alzheimer. Aquesta escala serveix per determinar en quin nivell de demència en què es troba la persona afectada d'Alzheimer.\\
+En tot el món, professionals i cuidadors utilitzen l'escala de deteriorament global, desenvolupada pel Dr. Barry Reisberg, director del programa d'educació i investigació de la infermetat d'Alzheimer. Aquesta escala serveix per determinar en quin nivell de demència es troba la persona afectada d'Alzheimer.\\
 Dividida en dos grans blocs; predemència (estadis 1 a 3) i demència (estadis 4 a 7), l'escala consta de set estadis clínics diferents.\\
 El punt d'inflexió on la persona ja no pot viure sense assistència continuada, és l'estadi 5.
 \subsubsection*{Llistat d'estadis}
@@ -1067,7 +1067,131 @@ Finalitzada la comparació de les gràfiques dels models i l'anàlisi individual
 Cal posar èmfasi que sempre que es duu a terme una tasca com la d'aquest treball, la precisió ha de ser major al 50\% perquè, en cas contrari, es consideraria el model com a aleatori, i per considerar un model com a bo cal que la precisió sigui de 70\% o més. Però també cal remarcar que, depenent de la situació i la finalitat del model, un 70\% de precisió pot no ser suficient, ni tan sols un 90\% seria acceptable en segons quines situacions.
 \subsubsection*{Anàlisi de prediccions amb Lime}
 \addcontentsline{toc}{subsubsection}{Anàlisi de prediccions amb Lime}
+Per tal d'analitzar millor els resultats de les prediccions del model intel·ligent, s'ha utilitzat la llibreria \textit{Lime} per poder obtenir una interpretació visual d'en quines coses es fixa el model a l'hora de fer les prediccions i classificar la imatge en una categoria o una altra.\\
+Per dur a terme l'anàlisi, s'han realitzat dues prediccions per cada classe i s'han guardat tant els resultats visuals com els resultats numèrics.\\
+\textbf{Proves en la categoria \textit{Non demented}}:
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{images/Non-demented.png}
+        \caption{Interpretació de la categoria \textit{Non-demented} (I)}
+        \label{fig:ND1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \raisebox{1.5cm}{
+        \includegraphics[width=\linewidth]{images/Non demented1.jpg}}
+        \caption{Resultats numèrics de la categoria \textit{Non-demented} (I)}
+        \label{fig:ClassificacioND1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{images/Non 2.png}
+        \caption{Interpretació de la categoria \textit{Non-demented} (II)}
+        \label{fig:ND2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \raisebox{1.5cm}{
+        \includegraphics[width=\linewidth]{images/Non 2.1.jpg}}
+        \caption{Resultats numèrics de la categoria \textit{Non-demented} (II)}
+        \label{fig:ClassificacioND1}
+    \end{subfigure}
+    \caption{Interpretacions i resultats de classificació de la classe \textit{Non demented}}
+    \label{fig:NDInterpretacions}
+\end{figure}
 
+Com es pot observar en els resultats numèrics de la classificació, la xarxa neuronal està segura, quasi al 100\%, que les imatges utilitzades per fer la predicció corresponen a la classe \textit{Non demented}, atès que en ambdós casos els percentatges de classificació són superiors al 99\%.\\
+En la interpretació gràfica feta amb la llibreria \textit{Lime}, es pot veure com la xarxa a més de fixar-se en parts interiors del cervell, també es fixa en parts de l'escorça cerebral, però en grau més baix i, finalment, també es fixa en parts que no corresponen al cervell. Com es pot saber a quines parts dona més importància la xarxa per fer una predicció? Per saber-ho solament cal parar compte amb els colors de la interpretació. El color verd indica un nivell d'importància molt elevat per la xarxa, el color groc indica un nivell d'importància mig i el color vermell un nivell d'importància baix.\\
+\textbf{Proves en la categoria \textit{Very mild demented}}:
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{images/Very mildly.png}
+        \caption{Interpretació de la categoria \textit{Very-mild demented} (I)}
+        \label{fig:VMD1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \raisebox{1.5cm}{
+        \includegraphics[width=\linewidth]{images/Very mildly1.jpg}}
+        \caption{Resultats numèrics de la categoria \textit{Very-mild demented} (I)}
+        \label{fig:ClassificacioVMD1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{images/Very mild 2.png}
+        \caption{Interpretació de la categoria \textit{Very-mild demented} (II)}
+        \label{fig:VMD2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \raisebox{1.5cm}{
+        \includegraphics[width=\linewidth]{images/Very mild 2.1.jpg}}
+        \caption{Resultats numèrics de la categoria \textit{Very-mild demented} (II)}
+        \label{fig:ClassificacioVMD1}
+    \end{subfigure}
+    \caption{Interpretacions i resultats de classificació de la classe \textit{Very-mild demented}}
+    \label{fig:VMDInterpretacions}
+\end{figure}
+
+En aquesta segona classe de classificació, \textit{Very-mild demented}, es pot observar un petit descens en els resultats numèrics de les classificacions, cosa que indica que la xarxa pot predir, de manera errònia, imatges de MRI d'aquesta categoria amb una mica més de facilitat.\\
+En l'anàlisi de les interpretacions gràfiques, es pot observar un augment de les zones cerebrals a les quals, la xarxa, dona importància. En la imatge \ref{fig:VMD1} és on més es nota aquest augment de zones verdes. De la mateixa manera que en la categoria classificatòria anterior, es pot observar que la xarxa també dona importància a zones corresponents a l'escorça cerebral i, més o menys, si es compara, les zones importants de l'escorça del cervell són les mateixes.\\
+\textbf{Proves en la categoria \textit{Mild demented}}:
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{images/Mild.png}
+        \caption{Interpretació de la categoria \textit{Mild demented} (I)}
+        \label{fig:MD1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \raisebox{1.5cm}{
+        \includegraphics[width=\linewidth]{images/Mild1.jpg}}
+        \caption{Resultats numèrics de la categoria \textit{Mild demented} (I)}
+        \label{fig:ClassificacioMD1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{images/Mild 2.png}
+        \caption{Interpretació de la categoria \textit{Mild demented} (II)}
+        \label{fig:MD2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \raisebox{1.5cm}{
+        \includegraphics[width=\linewidth]{images/Mild 2.1.jpg}}
+        \caption{Resultats numèrics de la categoria \textit{Mild demented} (II)}
+        \label{fig:ClassificacioMD1}
+    \end{subfigure}
+    \caption{Interpretacions i resultats de classificació de la classe \textit{Mild demented}}
+    \label{fig:MDInterpretacions}
+\end{figure}
+
+En aquesta ocasió, els percentatges de classificació tornen a enfilar-se cap als 99 alts, quasi arribant al 100\%, però si s'analitzen les interpretacions, es pot observar (sobretot en la imatge \ref{fig:MD1}), un augment significatiu de les zones negres com a zones importants per la xarxa (zones verdes). Cal remarcar que en la imatge \ref{fig:MD2} no hi ha, quasi, zones negres marcades com zones importants, però en altres proves aleatòries que s'han fet, l'augment de les zones negres s'ha pogut observar de manera empírica. Un altre aspecte que cal remarcar és que la xarxa també dona una importància molt alta a determinades zones de l'escorça cerebral per fer les prediccions.\\
+\textbf{Proves en la categoria \textit{Moderate demented}}:
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{images/Moderately demented.png}
+        \caption{Interpretació de la categoria \textit{Moderate demented demented} (I)}
+        \label{fig:ModD1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \raisebox{1.5cm}{
+        \includegraphics[width=\linewidth]{images/Moderately demented1.jpg}}
+        \caption{Resultats numèrics de la categoria \textit{Moderate demented demented} (I)}
+        \label{fig:ClassificacioModD1}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \includegraphics[width=\linewidth]{images/Moderate 2.png}
+        \caption{Interpretació de la categoria \textit{Moderate demented demented} (II)}
+        \label{fig:ModD2}
+    \end{subfigure}
+    \begin{subfigure}[b]{0.40\linewidth}
+        \raisebox{1.5cm}{
+        \includegraphics[width=\linewidth]{images/Moderate 2.1.jpg}}
+        \caption{Resultats numèrics de la categoria \textit{Moderate demented demented} (II)}
+        \label{fig:ClassificacioModD1}
+    \end{subfigure}
+    \caption{Interpretacions i resultats de classificació de la classe \textit{Moderate demented demented}}
+    \label{fig:ModDInterpretacions}
+\end{figure}
+
+En aquest últim cas de classificació, es poden observar un altre cop prediccions fregant el 100\% en la classificació. En les interpretacions gràfiques s'observa un augment d'importància en zones de l'escorça cerebral que arriben a profunditzar una mica en la imatge del cervell.\\
+Tot i que les zones negres quasi no són rellevants en la interpretació de les prediccions d'aquesta classe classificatòria, la importància d'aquestes zones continua present i, per tant, pot indicar una mala predicció que podria desembocar en un diagnòstic erroni si no és duen a terme les proves mèdiques pertinents.
 \subsubsection*{Detalls tècnics d'implementació}
 \addcontentsline{toc}{subsubsection}{Detalls tècnics d'implementació}
 
