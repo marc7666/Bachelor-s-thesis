@@ -1069,7 +1069,7 @@ Cal posar èmfasi que sempre que es duu a terme una tasca com la d'aquest trebal
 \addcontentsline{toc}{subsubsection}{Anàlisi de prediccions amb Lime}
 Per tal d'analitzar millor els resultats de les prediccions del model intel·ligent, s'ha utilitzat la llibreria \textit{Lime} per poder obtenir una interpretació visual d'en quines coses es fixa el model a l'hora de fer les prediccions i classificar la imatge en una categoria o una altra.\\
 Per dur a terme l'anàlisi, s'han realitzat dues prediccions per cada classe i s'han guardat tant els resultats visuals com els resultats numèrics.\\
-\textbf{Proves en la categoria \textit{Non demented}}:
+\textbf{Proves en la categoria \textit{Non-demented}}:
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.40\linewidth}
@@ -1094,13 +1094,13 @@ Per dur a terme l'anàlisi, s'han realitzat dues prediccions per cada classe i s
         \caption{Resultats numèrics de la categoria \textit{Non-demented} (II)}
         \label{fig:ClassificacioND1}
     \end{subfigure}
-    \caption{Interpretacions i resultats de classificació de la classe \textit{Non demented}}
+    \caption{Interpretacions i resultats de classificació de la classe \textit{Non-demented}}
     \label{fig:NDInterpretacions}
 \end{figure}
 
 Com es pot observar en els resultats numèrics de la classificació, la xarxa neuronal està segura, quasi al 100\%, que les imatges utilitzades per fer la predicció corresponen a la classe \textit{Non demented}, atès que en ambdós casos els percentatges de classificació són superiors al 99\%.\\
 En la interpretació gràfica feta amb la llibreria \textit{Lime}, es pot veure com la xarxa a més de fixar-se en parts interiors del cervell, també es fixa en parts de l'escorça cerebral, però en grau més baix i, finalment, també es fixa en parts que no corresponen al cervell. Com es pot saber a quines parts dona més importància la xarxa per fer una predicció? Per saber-ho solament cal parar compte amb els colors de la interpretació. El color verd indica un nivell d'importància molt elevat per la xarxa, el color groc indica un nivell d'importància mig i el color vermell un nivell d'importància baix.\\
-\textbf{Proves en la categoria \textit{Very mild demented}}:
+\textbf{Proves en la categoria \textit{Very-mild demented}}:
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.40\linewidth}
@@ -1166,27 +1166,27 @@ En aquesta ocasió, els percentatges de classificació tornen a enfilar-se cap a
     \centering
     \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{images/Moderately demented.png}
-        \caption{Interpretació de la categoria \textit{Moderate demented demented} (I)}
+        \caption{Interpretació de la categoria \textit{Moderate demented} (I)}
         \label{fig:ModD1}
     \end{subfigure}
     \begin{subfigure}[b]{0.40\linewidth}
         \raisebox{1.5cm}{
         \includegraphics[width=\linewidth]{images/Moderately demented1.jpg}}
-        \caption{Resultats numèrics de la categoria \textit{Moderate demented demented} (I)}
+        \caption{Resultats numèrics de la categoria \textit{Moderate demented} (I)}
         \label{fig:ClassificacioModD1}
     \end{subfigure}
     \begin{subfigure}[b]{0.40\linewidth}
         \includegraphics[width=\linewidth]{images/Moderate 2.png}
-        \caption{Interpretació de la categoria \textit{Moderate demented demented} (II)}
+        \caption{Interpretació de la categoria \textit{Moderate demented} (II)}
         \label{fig:ModD2}
     \end{subfigure}
     \begin{subfigure}[b]{0.40\linewidth}
         \raisebox{1.5cm}{
         \includegraphics[width=\linewidth]{images/Moderate 2.1.jpg}}
-        \caption{Resultats numèrics de la categoria \textit{Moderate demented demented} (II)}
+        \caption{Resultats numèrics de la categoria \textit{Moderate demented} (II)}
         \label{fig:ClassificacioModD1}
     \end{subfigure}
-    \caption{Interpretacions i resultats de classificació de la classe \textit{Moderate demented demented}}
+    \caption{Interpretacions i resultats de classificació de la classe \textit{Moderate demented}}
     \label{fig:ModDInterpretacions}
 \end{figure}
 
