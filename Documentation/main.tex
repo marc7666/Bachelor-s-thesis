@@ -1191,13 +1191,83 @@ En aquesta ocasió, els percentatges de classificació tornen a enfilar-se cap a
 \end{figure}
 
 En aquest últim cas de classificació, es poden observar un altre cop prediccions fregant el 100\% en la classificació. En les interpretacions gràfiques s'observa un augment d'importància en zones de l'escorça cerebral que arriben a profunditzar una mica en la imatge del cervell.\\
-Tot i que les zones negres quasi no són rellevants en la interpretació de les prediccions d'aquesta classe classificatòria, la importància d'aquestes zones continua present i, per tant, pot indicar una mala predicció que podria desembocar en un diagnòstic erroni si no és duen a terme les proves mèdiques pertinents.
+Tot i que les zones negres quasi no són rellevants en la interpretació de les prediccions d'aquesta classe classificatòria, la importància d'aquestes zones continua present i, per tant, pot indicar una mala predicció que podria desembocar en un diagnòstic erroni si no es duen a terme les proves mèdiques pertinents.
 \subsubsection*{Detalls tècnics d'implementació}
 \addcontentsline{toc}{subsubsection}{Detalls tècnics d'implementació}
-
+Abans de concloure aquesta secció del document cal que s'expliqui l'estructura del codi que s'ha seguit per implementar la proposta de treball des del preprocessament de les dades fins a la conversió del model en un format apte per la seva utilització en un futur sistema.\\
+Com s'ha especificat anteriorment, el codi pertanyent a aquest treball de final de grau s'ha realitzat en una llibreta de \textit{Jupyter} a \textit{Google Drive}.\\
+El primer pas, un cop carregat el \textit{dataset} a l'entorn de treball, és descomprimir-lo atès que solament es poden carregar fitxers comprimits. Per fer-ho es farà servir una comanda típica de línia de comandes (\textit{CMD}) del sistema operatiu.
+\begin{lstlisting}
+    !unrar x -Y "content/dataset.rar" "/content/"
+\end{lstlisting}
+El signe d'exclamació, és un indicador, com s'ha esmentat abans, que aquesta comanda és una comanda que s'executa en una \textit{CMD}. La \textit{option} "x" indica a la comanda que es vol extreure el fitxer del qual s'especifica el \textit{path} complet. La \textit{flag} "-Y" indica que durant la descompressió, se sobreescriuran totes les dades a la ruta de destinació.\\
+Seguidament, s'instal·la la dependència necessària per poder fer una interpretació de les prediccions que fa el model un cop aquest estigui entrenat.\\
+Un cop les dades estan descomprimides, les dependències instal·lades i importades i les rutes als fitxers d'entrenament i validació definides, cal definir una sèrie de paràmetres com les dimensions de les imatges, el nombre de classes de classificació, el nombre d'èpoques que s'entrenarà el model, el paràmetre \textit{batch\_size} i caldrà posar en una llista els noms de les etiquetes. A continuació es mostra un exemple del fragment de codi.
+\begin{lstlisting}
+    width_shape = 200
+    height_shape = 190
+    num_labels = 4
+    epochs = x
+    batch_size = y
+    label_names = ["MildDemented", "ModerateDemented", "NonDemented", "VeryMildDemented"]
+\end{lstlisting}
+on,
+    \[epochs, batch\_size = \{x, y \forall x \in \mathbf{N} > 0 \land t \in \mathbf{N} > 0\}\]
+A continuació es creen dos \textit{ImageDataGenerator()}. Un per l'entrenament i l'altre per a la validació. En aquests \textit{ImageDataGenerator()} s'introdueixen les dades de les imatges del directori que correspongui. Aquestes dades són un total de sis: la ruta al directori, les mides, la \textit{batch\_size}, el color, el \textit{class\_mode} i el booleà de mescla.\\
+Quan ja estan els paràmetres definits i les imatges preprocessades, arriba el moment de configurar el model.\\
+El model està definit amb una arquitectura seqüencial per tres raons. La primera és que un model d'arquitectura permet una major flexibilitat que un model d'arquitectura convolucional. És a dir, el fet d'utilitzar diferents tipus de capes, permet construir models complexos i, si s'escau, adaptar-los a altres tasques que no siguin la classificació. La segona raó, és la capacitat de processar seqüències. És a dir, aquests tipus de models són molt útils per dur a terme tasques de processament de seqüències, com per exemple, el reconeixement de veu. La utilització de capes convolucionals, juntament amb altres tipus de capes especialitzades a processar seqüències, dona com a resultat un model capaç d'extreure patrons en els seus \textit{inputs}. La tercera, i última, raó per la qual l'arquitectura del model és seqüencial és la reducció de la complexitat. Els models d'arquitectura convolucional, necessiten molts paràmetres cosa que desemboca en una complexitat elevada, un temps d'entrenament molt prolongat i un major risc d'\textit{overffiting}. Els models seqüencials redueixen aquesta complexitat gràcies a l'ús de les capes de \textit{pooling}. L'ús d'aquestes capes no solament redueix la complexitat del model, sinó que també redueix el temps d'entrenament i millora el rendiment del model.\\
+Un cop definida l'arquitectura, es van afegint les diferents capes de convolució, de normalització, de \textit{pooling} i de regularització. Aquesta combinació de capes es realitza quatre cops i seguidament s'afegeix una capa d'aplanament seguida d'una capa densa, una de normalització, una d'activació, una de regularització i una classificació també densa.\\
+En aquest punt, el model ja està definit i llest per la compilació i l'entrenament, per tant, en primer lloc, es compilarà el model amb la crida \textit{model.compile()} i l'optimitzador Adam. Aquest optimitzador combina les propietats dels optimitzadors de descens de gradient estocàstic (SGD) i de l'estimador adaptatiu de moments (RMSProp). Adam, en primer lloc, inicialitza una taxa d'aprenentatge i els pesos inicials del model intel·ligent. Seguidament, realitza el càlcul dels gradients (necessàri per aplicar els pesos a les neurones) del model basant-se en la funció de pèrdua utilitzant la tècnica de retropropagació. El funcionament d'aquesta tècnica costa de quatre passos bàsics:
+\begin{enumerate}
+    \item La capa d'entrada rep l'\textit{input} que ha de ser processat.
+    \item Els pesos de les connexions interneuronals s'inicialitzen de manera aleatòria a menys que s'especifiqui algun mètode concret.
+    \item Les capes ocultes del model processen la sortida de l'element que s'ha entrat al pas 1. Les sortides s'anomenen "Error" i són la diferència entre la sortida real i la sortida del model.
+    \item L'algorisme torna cap enrere a les capes ocultes i optimitza els pesos interneuronals per reduir la dimensió de l'error.
+\end{enumerate}
+Quan la tècnica de retropropagació ja ha estat aplicada, el següent pas és calcular la mitjana mòbil del gradient i el gradient al quadrat. El quart pas és calcular les mitjanes mòbils corregides pel biaix. Per biaix s'entén la tendència que té el model a fer suposicions sobre una entrada.\\
+El cinquè i últim pas de treball de l'optimitzador Adam, es actualitzar els pesos del model utilitzant el càlcul del pas anterior.\\
+Amb la crida a la funció \textit{model.fit()} es duu a terme l'entrenament del model.\\
+Després d'entrenar el model, mitjançant una crida a la funció \textit{model.evaluate()} es treu per pantalla tant la precisió del model com la seva pèrdua. Cal remarcar que la funció de pèrdua utilitzada és \textit{categorical crossentropy}, atès que s'està portant a cap una tasca de classificació multiclasse.\\
+Tot seguit es realitza un test amb una imatge aleatòria. Per dur a terme aquest test se selecciona una imatge, aleatòria i, abans de fer la predicció es fan un seguit d'operacions per adaptar la imatge al format que el model espera.
+\begin{lstlisting}
+    test_brains = []
+    pic_path = "path/to/image"
+    test_brain = cv2.cvtColor(cv2.imread(pic_path), cv2.COLOR_BGR2GRAY)
+    test_brain = cv2.resize(test_brain, (190, 200))
+    test_brain2 = img_to_array(test_brain)
+    test_brain2 = np.expand_dims(test_brain2, axis=0)
+    test_brains.append(test_brain2)
+    prediction = model.predict(test_brains)
+    print("Top prediction; " + label_names[np.argmax(prediction)] + "\n"]
+    percentages = []
+    for i in range(0, len(prediction[0])):
+        percentages.append(round(prediction[0][i] * 100, 2))
+    print("Scorings: " + "\n")
+    print("Mildly demented: " + str(percentages[0] + "%")
+    print("Moderately demented: " + str(percentages[1] + "%")
+    print("Non-demented: " + str(percentages[2] + "%")
+    print("Very mildly demented: " + str(percentages[3] + "%")
+\end{lstlisting}
+\newpage
+Primerament, la imatge seleccionada es converteix en una imatge en escala de grisos. En segon lloc, es redimensiona a les mides esperades pel model. Seguidament, es transforma la imatge en un \textit{numpy-array} perquè el model la pugui processar. La quarta operació que es realitza abans de fer la predicció és afegir una nova dimensió en la posició 0 del \textit{numpy-array} (axis = 0) que prendrà per valor el de la \textit{batch\_size} atès que el model espera una entrada del tipus: (\textit{batch\_size}, \textit{height}, \textit{width}, \textit{channels}), on el paràmetre \textit{channels} és un identificador que especifica si la imatge és en blanc i negre (1) o en color (3). Un cop fetes totes aquestes operacions, la imatge de test ja està adaptada al tipus d'entrada que espera el model i, per tant, ja es pot fer la predicció. Finalment, es treu per pantalla la predicció més elevada, juntament amb el tant per cent. A més de treure la predicció més alta, també es treuen per pantalla la resta de les possibles classificacions juntament amb els tant per cent que la xarxa els hi ha atorgat.
+Finalment, abans de guardar el model en un fitxer per la seva posterior integració en un sistema, per tenir una mica més clar com fa les prediccions el model s'utilitza la llibreria \textit{Lime} per obtenir una interpretació gràfica de les prediccions.\\
+Aquest pas es basa en, un cop creat l'explicador, preprocessar l'entrada de la qual es vol obtenir l'explicació realitzar i realitzar la predicció tot aplicant una màscara desitjada. Per fer obtenir l'explicació s'usarà la funció \textit{explain\_instance()} i per obtenir la imatge amb la màscara s'usarà la funció \textit{get\_image\_and\_mask()} El resultat es veurà com les imatges \ref{fig:NDInterpretacions}, \ref{fig:VMDInterpretacions}, \ref{fig:MDInterpretacions} i \ref{fig:ModDInterpretacions}.\\
+Finalment, el model es guardarà en un fitxer \textit{.h5} que servirà per integrar-lo en un sistema. Aquest tipus de fitxer guarda totes les dades necessàries del model per poder-lo utilitzar en un futur.
 \section*{Conclusions}
 \addcontentsline{toc}{section}{Conclusions}
-
+Per concloure aquesta investigació, cal presentar quines conclusions s'han extret d'aquesta.\\
+La primera de les conclusions és, que la malaltia d'Alzheimer és una malaltia molt més comuna del que una persona es pot pensar i que tot i tenir una llarga història d'investigació i dures batalles per trobar-ne totes les causes, en ple segle XXI després de més de cent anys del seu descobriment, aquesta malaltia continua sent una gran desconeguda en alguns aspectes referents a factors condicionants a patir-la.\\
+La segona conclusió, és que tot i que des de l'any 1901 s'ha avançat molt en la lluita contra l'Alzheimer, encara no hi ha cap medicina específica per tractar la malaltia, solament hi ha medicines per tractar els símptomes.\\
+Com a tercera conclusió s'extreu que, tant l'herència genètica com l'estil de vida són factors molt importants per saber si una persona té un risc superior, al de la resta de la població, de patir Alzheimer.\\ 
+La quarta conclusió extreta d'aquesta recerca és que tot i haver tingut familiars amb aquesta malaltia, els símptomes del cas familiar són solament una petita gota en l'estany que representa el conjunt de símptomes.\\
+La conclusió número cinc és que el món de la medicina coneix bastant bé com evoluciona la malaltia i, per tant, sap dividir les diferents etapes de la malaltia segons el dany cerebral que presenta la persona.\\
+En sisè lloc, cal remarcar que el procés de diagnosi de la malaltia és un procés llarg i complex atès que cal realitzar moltes proves i estudis abans d'establir l'Alzheimer com a diagnòstic final d'un pacient.\\
+Abandonant les conclusions clíniques i començant a abordar les conclusions computacionals, la setena conclusió que es pot extreure d'aquesta recerca és que el senyor Alan Turing, a més d'establir les bases informàtiques sense les quals molts aspectes, com la IA, de la informàtica actual no serien possibles. Sense saber-ho, Alan Turing va establir les bases d'una tècnica (la intel·ligència artificial) que avui dia s'utilitza, de manera experimental, per la diagnosi no solament de l'Alzheimer sinó d'altres afeccions com el càncer.\\
+La vuitena conclusió és que gràcies a grans informàtics com \textit{Stuart Russell} i \textit{Peter Norvig}, les bases que va assentar el senyor Turing sobre la intel·ligència artificial, han pogut ser desenvolupades profundament, dividides en categories i millorades.\\
+La conclusió número deu és que la IA té molts avantatges i facilita i accelera molts processos que als humans ens porten un determinat temps i un determinat esforç mental. Tot i que aquesta tècnica de voler reproduir la intel·ligència humana en màquines té una part bona molt extensa, també té la seva part fosca i existeix la possibilitat futura que quan els sistemes intel·ligents desenvolupin una consciència pròpia, els humans siguem incapaços de controlar aquests sistemes.\\
+L'onzena conclusió és que per molt que una persona tingui coneixements sobre un tema concret, mai es té prou saber per a dur a terme una investigació sense trobar-se amb algun repte pel camí. En el cas d'aquesta investigació es poden observar els reptes trobats en la següent secció d'aquest document.\\
+En dotzè lloc, es pot extreure la conclusió que de vegades és més senzill interpretar els resultats d'un experiment determinat de manera gràfica que de manera numèrica. En el cas d'aquesta recerca, fins que no s'han observat, de manera gràfica, les dades resultants dels entrenaments dels diferents experiments, no s'ha pogut assegurar quines versions dels models estaven en situació d'\textit{overffiting}.\\
+Seguint amb les conclusions de la part computacional d'aquest treball de final de grau, la tretzena, i última, conclusió extreta, és que un petit canvi en algun dels paràmetres del model, siguin hiperparàmetres, un canvi del conjunt de dades, un canvi de les funcions d'activació de les capes, un canvi en el nombre de filtres de les capes convolucionals, etc., comporta un canvi notable en el rendiment final del model.
 \section*{Reptes i dificultats durant la realització del TFG}
 \addcontentsline{toc}{section}{Reptes i dificultats durant la realització del TFG}
 La realització d'aquesta investigació no ha estat del tot fàcil atès que s'ha hagut de batallar amb alguns problemes tant pel que fa a informació teòrica, com a escala d'implementació com en l'àmbit de redacció.\\
@@ -1543,5 +1613,7 @@ Finalment, vull fer una menció especial a les meves amistats més íntimes: Joe
     \item \href{https://es.wikipedia.org/wiki/Interfaz_de_línea_de_comandos}{\underline{Definició de \textit{Command Line}}}
     \item \href{https://www.ibm.com/es-es/topics/open-source}{\underline{Definició de programari obert}}
     \item \href{https://www.sanidad.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/SIAP/home.htm}{\underline{Definició de \textit{Base de datos clínicos de atención primaria}}}
+    \item \href{https://www.askpython.com/python/examples/adam-optimizer}{\underline{Optmitzador Adam}}
+    \item \href{https://www.askpython.com/python/examples/backpropagation-in-python}{\underline{Algorisme de retropropagació}}
 \end{itemize}
 \end{document}
