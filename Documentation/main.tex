@@ -1,45 +1,44 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper,12pt]{report}
 \usepackage[catalan]{varioref}
 \usepackage{setspace}
 \input{sections/packages}
 \onehalfspacing
 
 \begin{document}
-\pagestyle{empty}
+\thispagestyle{empty}
+\pagenumbering{gobble}
 \includepdf{Portada-TFG}
-\pagestyle{empty}
+\thispagestyle{empty}
 \tableofcontents
-\pagestyle{empty}
+\thispagestyle{empty}
 \listoffigures
-\pagestyle{empty}
+\thispagestyle{empty}
 \listoftables
-\pagestyle{empty}
-
+\thispagestyle{empty}
 \newpage
-\setcounter{page}{1}
-\pagestyle{plain}
-\section*{Introducció}
-\addcontentsline{toc}{section}{Introducció}
+\pagenumbering{arabic}
+\chapter*{Introducció}
+\addcontentsline{toc}{chapter}{Introducció}
 Detectar de manera precoç l'Alzheimer en una persona és un dels desafiaments que enfronta la medicina del segle XXI. Els mètodes utilitzats avui dia per a la detecció precoç d'aquesta malaltia són molt costosos i requereixen una copiosa inversió de temps i recursos. Tot i que la detecció d'aquesta afecció és un desafiament realment complicat, és crucial per poder garantir un tractament i una qualitat de vida adequats per als pacients que, per desgràcia, pateixen els efectes d'aquesta malura.\\
 Durant la realització d'aquest treball de final de grau, s'investigarà de quina manera pot ajudar la intel·ligència artificial en la detecció primerenca de la malaltia d'Alzheimer a partir d'imatges de ressonància magnètica cerebral (MRI en anglès). L'aplicació del \textit{Machine Learning} en el camp de la salut, i més concretament en el cas que tracta aquest treball (l'Alzheimer), és una tècnica que augura moltes esperances de facilitar la detecció precoç d'aquesta terrible malaltia. Les esperances es basen en el fet que l'ús de la intel·ligència artificial pot ajudar, com s'ha esmentat, a detectar de manera primerenca aquesta malaltia d'una manera no invasiva ni dolorosa per al pacient, cosa que podria millorar molt significativament la qualitat de vida i reduir els costos que suposa el diagnòstic tardà i el tractament.\\
 Com s'explicarà més endavant en aquest document, les xarxes neuronals convolucionals, s'han convertit en la tècnica que proporciona més esperances a les comunitats científica i sanitària, perquè són capaces d'extreure les característiques complexes d'una ressonància magnètica i utilitzar-les per ajudar al professional mèdic corresponent a confirmar o descartar el diagnòstic d'Alzheimer.\\
 Per dur a terme l'objectiu principal d'aquest treball de final de grau, es farà ús de la tècnica d'aprenentatge supervisat, per entrenar una sèrie de dades etiquetades que “ensenyaran” a la xarxa convolucional a diferenciar entre quatre nivells possibles de demència per Alzheimer. Aquests quatre nivells són; no dement, dement molt lleu, dement lleu, dement moderat.\\
-L'estructura que seguirà el treball consta de vuit blocs, el primer dels quals contindrà informació sobre la malaltia d'Alzheimer. El segon, conformarà el bloc del marc teòric computacional, en el qual constarà informació detallada sobre la tecnologia emprada en la realització del treball. El tercer bloc tractarà sobre les aplicacions de la intel·ligència artificial en el camp de la salut. Concretament, es comentaran diversos aspectes relacionats amb l'aplicació de la tecnologia per al diagnòstic i tractament de la malaltia. El següent bloc contindrà informació sobre el desenvolupament de la proposta, tot mostrant anàlisis gràfiques de les mètriques de rendiment de la xarxa neuronal com una anàlisi exhaustiva d'en quines parts de les imatges es fixa el model en el moment de fer la classificació de la imatge d'input. Seguidament, el cinquè bloc contindrà les conclusions extretes després de realitzar la investigació. El sisè bloc contindrà els annexos del treball on es definiran alguns conceptes que no hagin pogut quedar clars en el moment de la redacció d'aquest document. En el penúltim bloc, constaran els agraïments a les persones que han fet possible la realització i la finalització exitosa d'aquest treball. Finalment, el vuitè i últim bloc, especificarà les referències bibliogràfiques que han estat necessàries per a la recerca.
-\section*{\textit{Abstract}}
-\addcontentsline{toc}{section}{Abstract}
+L'estructura que seguirà el treball consta de vuit blocs, el primer dels quals contindrà informació sobre la malaltia d'Alzheimer. El segon, conformarà el bloc del marc teòric computacional, en el qual constarà informació detallada sobre la tecnologia emprada en la realització del treball. El tercer bloc tractarà sobre les aplicacions de la intel·ligència artificial en el camp de la salut. Concretament, es comentaran diversos aspectes relacionats amb l'aplicació de la tecnologia per al diagnòstic i tractament de la malaltia. El següent bloc contindrà informació sobre el desenvolupament de la proposta, tot mostrant anàlisis gràfiques de les mètriques de rendiment de la xarxa neuronal com una anàlisi exhaustiva d'en quines parts de les imatges es fixa el model en el moment de fer la classificació de la imatge d'input. Seguidament, el cinquè bloc contindrà les conclusions extretes després de realitzar la investigació. El sisè bloc contindrà els glossaris del treball on es definiran alguns conceptes que no hagin pogut quedar clars en el moment de la redacció d'aquest document. En el penúltim bloc, constaran els agraïments a les persones que han fet possible la realització i la finalització exitosa d'aquest treball. Finalment, el vuitè i últim bloc, especificarà les referències bibliogràfiques que han estat necessàries per a la recerca.
+\chapter*{\textit{Abstract}}
+\addcontentsline{toc}{chapter}{Abstract}
 \textit{This document will explain the development process of an artificial intelligence model able to identify up to four levels of dementia caused by Alzheimer's disease. These levels are; “non-demented”, “ver mild demented”, “mild demented” and “moderate demented”.\\
 The main aim of this thesis is to give to the health workers a new tool to get helped to confirm or discart the Alzheimer's diagnosis, but the most important is not to give a diagnosis tool. The most essential, is to give a new tool that allows early diagnosis to give to the patients the best life quality and reduce the costs of late diagnosis.}
-\section*{Marc teòric clínic}
-\addcontentsline{toc}{section}{Marc teòric clínic}
-\subsection*{Quan i qui va descobrir l'Alzheimer?}
-\addcontentsline{toc}{subsection}{Quan i qui va descobrir l'Alzheimer?}
+\chapter*{Marc teòric clínic}
+\addcontentsline{toc}{chapter}{Marc teòric clínic}
+\section*{Quan i qui va descobrir l'Alzheimer?}
+\addcontentsline{toc}{section}{Quan i qui va descobrir l'Alzheimer?}
 Abans d'entrar de ple en què és l'Alzheimer, quins símptomes presenta, etc. cal fer una mica la vista enrere a la història per saber qui i quan va descobrir aquesta malaltia.\\
 A principis del segle XX, concretament l'any 1901, el psiquiatre alemany \textit{Alois Alzheimer}, es va topar amb uns estranys símptomes en una pacient anomenada \textit{Auguste Deter} de cinquanta-un anys. Aquesta dona patia pèrdua de memòria a curt termini i al·lucinacions auditives, cosa que va deixar perplex al doctor \textit{Alzheimer}. Descobrir els motius del comportament de la seva pacient, es va convertir en l'obsessió del doctor i, cinc anys després, quan la pacient \textit{Auguste Deter} va morir en un asil de la ciutat de \textit{Frankfurt}, \textit{Alzheimer} va conservar dues coses que van ser elements clau en la història d'aquesta malaltia. Els elements conservats pel doctor, varen ser l'historial clínic de la pacient i estudis del seu cervell. El Dr. \textit{Alzheimer} va portar a \textit{Munich}, concretament al laboratori d'\textit{Emil Kraepelin} un pioner en l'àrea psiquiàtrica, els seus descobriments amb la finalitat de poder començar una investigació encara més rigorosa.\\
 Durant l'autòpsia del cervell de la seva pacient, el doctor \textit{Alzheimer} va descobrir que l'escorça cerebral era més estreta del normal i hi havia dos tipus d'anomalies notables: plaques d'amiloide, que són acumulacions de proteïnes entre les neurones, i cabdells d'una altra proteïna anomenada tau. Aquestes anomalies estan relacionades amb la disminució de la funció neuronal.\\
 El doctor va presentar el cas de la seva pacient en una reunió de psiquiatria, però no va generar molt interès. No obstant això, l'any 1910, el Dr. \textit{Kraepelin} va començar a referir-se a aquella malaltia com la “malaltia d'Alzheimer”. El Dr. \textit{Alzheimer} no podia imaginar que aquell primer contacte amb aquella dona de cinquanta-un anys iniciaria una llarga i difícil batalla (batalla que avui dia encara continua amb investigadors a primera línia de batalla) per descobrir tots els símptomes i una cura per la causa de demència més comuna.\\
 El Dr. \textit{Alois Alzheimer} va morir l'any 1915, però el seu llegat en el camp de la biomedicina encara és viu. El doctor és reconegut no solament per la seva descripció inicial d'una afecció, sinó també per ser un exemple d'investigador clínic. Va establir un estàndard per comprendre els desordres neurodegeneratius en mantenir una estreta relació amb els seus pacients i utilitzar eines científiques per explicar com els símptomes es relacionen amb els canvis físics del cervell.
-\subsection*{Qué és l'Alzheimer i quins factors contribueixen a la seva aparició?}
-\addcontentsline{toc}{subsection}{Qué és l'Alzheimer i quins factors contribueixen a la seva aparició?}
+\section*{Qué és l'Alzheimer i quins factors contribueixen a la seva aparició?}
+\addcontentsline{toc}{section}{Qué és l'Alzheimer i quins factors contribueixen a la seva aparició?}
 Atès que l'Alzheimer és la causa més comuna de demència, abans de definir res sobre la malaltia d'Alzheimer cal definir de manera clara que és la demència.\\
 La demència, també coneguda com a trastorn neurocognitiu major, per definició, és un conjunt de símptomes que causen diverses infermetats. Aquests símptomes inclouen: afectacions en la memòria, afectacions en el comportament i afectacions en les habilitats socials de tal manera que dificulten les activitats quotidianes i la independència social.\\
 Moltes de les infermetats que causen demència provoquen simptomatologia similar com pèrdua de la memòria i de l'orientació, comportament agressiu, problemes de parla i diverses afectacions a escala física. Cal remarcar que aquests símptomes es poden manifestar en moltes maneres, tot depenent de la persona afectada.\\
@@ -51,16 +50,15 @@ L'Alzheimer és un tipus de demència que causa problemes amb la memòria, el pe
     \caption{Gràfic de les demències més comunes}
     \label{fig:demències}
 \end{figure}
-De tots els casos de demència que es diagnostiquen, s'atribueix un percentatge d'entre un 60\% i un 80\% a l'Alzheimer.\\
-En cap cas aquesta malaltia és quelcom normal de l'envelliment, tot i que el factor de risc més important sigui el pas del temps, fet que implica fer-se gran. La majoria de les persones diagnosticades amb Alzheimer són majors de seixanta-cinc anys. Tot i que, cal assenyalar que la infermetat d'Alzheimer no afecta només a persones d'avançada edat, ja que al voltant de dues-centes mil persones, solament als Estats Units, menors de seixanta-cinc anys pateixen, de manera primerenca, aquesta malaltia.\\
+De tots els casos de demència que es diagnostiquen, s'atribueix un percentatge d'entre un 60\% i un 80\% a l'Alzheimer. En cap cas aquesta malaltia és quelcom normal de l'envelliment, tot i que el factor de risc més important sigui el pas del temps, fet que implica fer-se gran. La majoria de les persones diagnosticades amb Alzheimer són majors de seixanta-cinc anys. Tot i que, cal assenyalar que la infermetat d'Alzheimer no afecta només a persones d'avançada edat, ja que al voltant de dues-centes mil persones, solament als Estats Units, menors de seixanta-cinc anys pateixen, de manera primerenca, aquesta malaltia.\\
 L'Alzheimer és una infermetat progressiva. Això significa que empitjora amb el pas del temps. En les seves primeres etapes la pèrdua de memòria és lleu, però en l'etapa final, les persones perden la capacitat de mantenir una conversa i respondre a l'entorn.\\
 Tenint en compte el factor de l'edat, existeixen una totalitat de quatre factors de risc.\\
 El primer factor de risc, és l'herència. La malaltia pot ser hereditària on la meitat o més de cada generació està afectada per un gen dominant. En famílies on hi ha dues generacions consecutives amb membres afectats, els fills tenen un 50\% de probabilitats de patir Alzheimer, si viuen fins als vuitanta-cinc anys. En la forma esporàdica de l'infermetat el risc no es pot determinar, però augmenta si la persona té una constitució genètica amb el gen APOE E-4. El risc solament augmenta en un 20\% sense la mutació del gen, un 47\% per aquells amb una mutació i un 91\% per aquelles persones amb dues mutacions del gen.\\
 El segon factor de risc que pot contribuir a l'aparició d'Alzheimer, és un traumatisme cranial. Cal remarcar que els danys cerebrals en un pacient d'Alzheimer són majors, però el fet de patir un traumatisme cranial pot ser un factor desencadenant de la malaltia, tot i que la majoria de traumatismes cranials no són Alzheimer ni desencadenen la infermetat.
 Un altre factor molt important a tenir en compte és el sexe. Com es veurà en la posteriorment a la secció d'estadístiques d'afectats per la infermetat, les dones són molt més propenses a tenir Alzheimer que els homes. De fet, s'estima només a Espanya, que en el 69\% dels casos d'Alzheimer el sexe afectat, és el sexe femení.\\
 Com s'ha comentat anteriorment, els anys de vida és el factor més influent, però aquest deixa de ser un element dominant a partir dels noranta anys. A partir d'aquesta edat, el risc de patir Alzheimer disminueix, normalment. És capital posar en rellevància que, en cap cas, el nivell educatiu o intel·lectual, l'exposició continuada a l'alumini, els virus lents, les infeccions o viure en una zona rural o urbana són considerats factors de risc.
-\subsection*{Quina simptomatologia ens ha de posar en alerta?}
-\addcontentsline{toc}{subsection}{Quina simptomatologia ens ha de posar en alerta?}
+\section*{Quina simptomatologia ens ha de posar en alerta?}
+\addcontentsline{toc}{section}{Quina simptomatologia ens ha de posar en alerta?}
 Cent vint-i-dos anys després del descobriment de l'infermetat d'Alzheimer, per part del Dr. \textit{Alois Alzheimer}, la batalla per descobrir tots els símptomes de la malaltia continua. Avui en dia, encara no es coneix tota la simptomatologia que presenta la malaltia d'Alzheimer, però sí que hi ha determinats signes que han de posar en alerta a una persona i als seus familiars i amics.\\
 Ara per ara, estan establerts deu símptomes que són senyals d'alarma per una possible demència per Alzheimer.\\
 \textbf{La primera alarma és la pèrdua de memòria}. Especialment en els primers estadis de la infermetat, un dels principals senyals és oblidar informació recent, oblidar dates o esdeveniments importants, demanar la mateixa informació de manera reiterada, etc.\\
@@ -73,13 +71,12 @@ Ara per ara, estan establerts deu símptomes que són senyals d'alarma per una p
 \textbf{L'antepenúltim senyal d'alarma és la disminució o la falta de judici}. La disminució de l'activitat cerebral pot provocar alteracions en la capacitat de jutjar el perill que comporta una acció i també pot provocar una alteració en la capacitat de prendre decisions.\\
 \textbf{Com a penúltima alerta es troba la pèrdua d'iniciativa}. Cal subratllar, que aquest senyal és un “dels menys importants”, ja que la pèrdua d'iniciativa per participar en passatemps, activitats socials, projectes de treball o esports també es pot donar en altres malalties completament diferents de l'Alzheimer, com per exemple, la depressió.\\
 \textbf{L'última alarma són els canvis d'humor o de personalitat}. Les persones amb la malaltia d'Alzheimer poden arribar a sospitar de tothom, ser persones agressives, temoroses o ansioses.
-\subsection*{Quines fases té la malaltia?}
-\addcontentsline{toc}{subsection}{Quines fases te la malaltia?}
+\section*{Quines fases té la malaltia?}
+\addcontentsline{toc}{section}{Quines fases te la malaltia?}
 En tot el món, professionals i cuidadors utilitzen l'escala de deteriorament global, desenvolupada pel Dr. Barry Reisberg, director del programa d'educació i investigació de la infermetat d'Alzheimer. Aquesta escala serveix per determinar en quin nivell de demència es troba la persona afectada d'Alzheimer.\\
-Dividida en dos grans blocs; predemència (estadis 1 a 3) i demència (estadis 4 a 7), l'escala consta de set estadis clínics diferents.\\
-El punt d'inflexió on la persona ja no pot viure sense assistència continuada, és l'estadi 5.
-\subsubsection*{Llistat d'estadis}
-\addcontentsline{toc}{subsubsection}{Llistat d'estadis}
+Dividida en dos grans blocs; predemència (estadis 1 a 3) i demència (estadis 4 a 7), l'escala consta de set estadis clínics diferents. El punt d'inflexió on la persona ja no pot viure sense assistència continuada, és l'estadi 5.
+\subsection*{Llistat d'estadis}
+\addcontentsline{toc}{subsection}{Llistat d'estadis}
 \begin{itemize}
     \item Bloc predemència
     \begin{itemize}
@@ -110,14 +107,14 @@ El punt d'inflexió on la persona ja no pot viure sense assistència continuada,
         \end{itemize}
     \end{itemize}
 \end{itemize}
-\subsubsection*{Característiques de cada estadi}
-\addcontentsline{toc}{subsubsection}{Característiques de cada estadi}
+\subsection*{Característiques de cada estadi}
+\addcontentsline{toc}{subsection}{Característiques de cada estadi}
 \textbf{\underline{Estadi 1}:}\\
 Aquest primer estadi on no es pot observar cap mena de demència és l'estadi que es dona a qualsevol edat i és l'estadi en el qual no es presenta cap símptoma de demència. Aquest és l'anomenat estadi de normalitat.\\
 \textbf{\underline{Estadi 2}:}\\
 El segon estadi, és l'estadi de les pèrdues de memòria relacionades amb l'edat. Les persones de seixanta-cinc anys o més asseguren tenir dificultats cognitives i/o funcionals. Aquestes dificultats inclouen recordar, com ho feien abans, els noms, dates, on han posat un determinat objecte, etc. En el món de la investigació clínica, s'han proposat molts noms per denominar aquesta fase, però el més acceptat és el deteriorament cognitiu subjectiu. Com s'ha demostrat, científicament, que els símptomes d'aquest estadi no són notables per observadors externs, per tant, aquest segon estadi són el que s'anomena “coses de l'edat”. Si la demència ha de continuar avançant, ho farà en un període d'aproximadament quinze anys.\\
 \textbf{\underline{Estadi 3}:}\\
-Aquesta etapa de la malaltia, anomenada deteriorament cognitiu lleu (MCI), es caracteritza per tenir dificultats subtils en la memòria i altres habilitats mentals, que són detectades per persones properes a la persona afectada. Aquests símptomes poden incloure dificultat per planificar esdeveniments socials complexos, disminució del rendiment laboral o problemes per aprendre habilitats noves. És important buscar ajuda mèdica com abans millor per determinar si aquests símptomes són causats per l'Alzheimer o altres condicions. El pronòstic d'aquest estadi és variable, però la duració mitjana és d'uns set anys.\\
+Aquesta etapa de la malaltia, anomenada deteriorament cognitiu lleu (MCI), es caracteritza per tenir dificultats subtils en la memòria i altres habilitats mentals, que són detectades per persones properes a la persona afectada. Aquests símptomes poden incloure dificultat per planificar esdeveniments socials complexos, disminució del rendiment laboral o problemes per aprendre habilitats noves. És important buscar ajuda mèdica com més aviat millor per determinar si aquests símptomes són causats per l'Alzheimer o altres condicions. El pronòstic d'aquest estadi és variable, però la duració mitjana és d'uns set anys.\\
 La gestió de les persones que es troben en aquest estadi inclou l'assessorament sobre la convivència de continuar en un treball exigent i, de vegades, pot incloure una “retirada estratègica” en forma de jubilació per reduir l'estrès i l'ansietat.\\
 \textbf{\underline{Estadi 4}:}\\
 En aquest quart estadi de la malaltia d'Alzheimer, anomenat declivi cognitiu moderat o demència lleu, el dèficit més comú, és la disminució de la capacitat per dur a terme activitats quotidianes, cosa que pot dificultar la independència. Els símptomes de pèrdua de memòria també es fan evidents per als observadors externs. La incapacitat de recordar esdeveniments recents importants i errors en recordar el dia de la setmana o l'estació de l'any són les primeres pèrdues.\\
@@ -134,9 +131,9 @@ Els canvis emocionals també són comuns en aquest estadi, o  poden incloure inq
 \textbf{\underline{Estadi 7}:}\\
 El setè i últim estadi, és l'estadi del declivi cognitiu molt sever o l'estadi de demència severa. En aquest estadi, les persones necessiten assistència contínua amb les activitats bàsiques de la vida diària. Es poden identificar sis subetapes consecutives al llarg d'aquesta etapa final. Al principi d'aquesta etapa, el discurs se circumscriu de tal manera que es limita a aproximadament mitja dotzena de paraules intel·ligibles o menys. A mesura que avança aquesta etapa, la parla es limita com a màxim a una sola paraula intel·ligible. A l'estadi 7C, l'individu perd la capacitat de deambular i asseure's de manera independent i, a l'etapa 7E perd la capacitat de somriure. A l'estadi final 7F, l'individu perd la capacitat d'aixecar el cap de manera independent.\\
 Moltes persones amb Alzheimer sucumbeixen en diversos moments de l'estadi 7 a pneumònia, ulceracions infectades o altres afeccions. En aquest estadi també es fan evidents canvis físics i neurològics, com la rigidesa física i les contractures, que impedeixen el moviment de les articulacions. També apareixen reflexos neurològics infantils o primitius que estan presents en un nadó, però que desapareixen en el desenvolupament normal.
-\subsection*{De quines maneres es pot prevenir l'Alzheimer?}
-\addcontentsline{toc}{subsection}{De quines maneres es pot prevenir l'Alzheimer?}
-Segons CEAFA, la confederació espanyola d'Alzheimer, hi ha nou formes de reduir el risc de patir Alzheimer.\\
+\section*{De quines maneres es pot prevenir l'Alzheimer?}
+\addcontentsline{toc}{section}{De quines maneres es pot prevenir l'Alzheimer?}
+Segons CEAFA, la confederació espanyola d'Alzheimer, hi ha nou formes diferents que ajuden a reduir el risc de patir la malaltia d'Alzheimer. Una manera ràpida i senzilla de resumir aquests nou consells sería el terme "vida sana".\\
 El primer consell és suar, atès que l'exercici cardiovascular que augmenta el ritme cardíac i el flux de sang al cervell i al cos està associat amb una disminució del risc de deteriorament cognitiu.\\
 Com a segon mètode preventiu es troben els desafiaments mentals. La formació en qualsevol etapa de la vida és beneficiosa per la salut mental, sigui en línia, sigui en una institució educativa. Fins i tot les activitats mentals com resoldre trencaclosques, jugar a cartes o prendre classes d'art tenen un impacte positiu.\\
 El tercer consell, encara que és beneficiós per la salut en general, també és un bon preventiu contra l'Alzheimer. Aquest consell és deixar de fumar. Si una persona deixa de fumar, completament, pot arribar a reduir el risc de patir l'infermetat als mateixos nivells que una persona que no ha fumat mai.\\
@@ -146,8 +143,8 @@ El sisè consell que CEAFA posa a disposició de les persones és portar una die
 Infermetats com l'apnea i l'insomni poden causar problemes de memòria i pensament. Per tant dormir suficient és un bon consell de prevenció.\\
 També és un factor reductor del risc el fet de portar una vida social activa. Prestar ajuda a qui ho necessita, fer exercici amb companyia d'amistat, dur a terme activitats d'oci amb familiars i amics, etc. són alguns exemples de vida social activa.\\
 El novè, i últim consell, és la reducció de l'estrès. Alguns estudis associen una història de depressió amb una major probabilitat de disminució cognitiva, per la qual cosa és important buscar ajuda de professionals per a tractar la depressió, l'ansietat, l'estrès i altres problemes de salut mental.
-\subsection*{Quin és el mètode diagnòstic actual?}
-\addcontentsline{toc}{subsection}{Quin és el mètode diagnòstic actual?}
+\section*{Quin és el mètode diagnòstic actual?}
+\addcontentsline{toc}{section}{Quin és el mètode diagnòstic actual?}
 Hi ha persones que no reconeixen que tenen un problema quan es manifesten pèrdues de memòria o altres senyals d'alerta d'Alzheimer. Molts cops aquests símptomes es fan més evidents per la gent de l'entorn com poden ser amics o familiars.\\
 El primer que cal fer en el seguiment de la simptomatologia és, cercar un metge amb el qual la persona se senti còmoda. De fet, no hi ha un sol tipus de metge que la seva especialitat sigui la diagnosi i el tractament de l'Alzheimer. La gran majoria de persones es posen en contacte, en primera instància, amb el metge de capçalera per poder posar de manifest les seves preocupacions. Tot i que, sovint, els metges de capçalera controlen el diagnòstic diferencial per si mateixos, també poden requerir l'ajuda d'especialistes, tals com: neuròlegs, psiquiatres i psicòlegs.\\
 La diagnosi de l'Alzheimer, no es basa en els resultats d'una sola prova, sinó que es realitza un reconeixement complet del pacient per avaluar la salut general i identificar quines poden ser les causes de l'alteració del funcionament normal de la ment. Un cop descartades altres malalties, la persona encarregada de donar el diagnòstic diferencial final pot determinar si realment es tracta d'Alzheimer o si es tracta d'un altre tipus de demència. Per tant, abans de donar com a segur que la persona pateix la malaltia d'Alzheimer, s'han de seguir una sèrie de passos i un cop fetes les proves pertinents caldrà analitzar amb molt detall els seus resultats.\\
@@ -155,32 +152,31 @@ El primer dels passos és entendre el problema, és a dir, s'ha de donar respost
 El segon pas és dur a terme una revisió completa de l'historial clínic. En aquest pas, el metge citarà tant a la persona que se sotmet a les proves com a altres persones properes al pacient per tal de poder reunir tota la informació possible sobre infermetats mentals i físiques tant actuals com passades. El metge també sol·licitarà els antecedents de les malalties de la família, especialment si algun dels membres ha patit o pateix Alzheimer o alguna classe de demència.\\
 Una avaluació de l'estat d'ànim i de l'estat mental serà el proper pas abans de donar l'Alzheimer com a diagnòstic. En aquesta avaluació, es realitzen una sèrie de proves que estan orientades a avaluar la memòria, la capacitat de resoldre problemes senzills i altres tipus d'habilitats. Aquest test dona al metge una idea general de l'estat de consciència del pacient. És a dir, si és conscient de la simptomatologia que està patint, si coneix la data, l'hora i on està, si pot recordar una petita llista de paraules, seguir ordres i fer càlculs matemàtics senzills. Una cosa molt comuna és, preguntar al pacient, coses com la seva direcció, l'any, qui és el president del govern, que va sopar el dia anterior, etc. Després de fer aquestes proves, el metge avaluarà si el pacient pateix depressió o alguna altra afecció que pot causar pèrdues de memòria. Un cop s'hagi fet l'avaluació de l'estat d'ànim i de l'estat mental, serà moment de dur a terme un examen físic i una sèrie de proves de diagnòstic. En aquest punt, el metge avaluarà la dieta i la nutrició, efectuarà una revisió de la pressió arterial, la temperatura i el pols, auscultarà el cor i els pulmons i executarà altres procediments per avaluar la salut general del pacient. També es recol·lectaran mostres de sang i d'orina per identificar malalties com anèmia, infeccions, diabetis, insuficiència renal, infermetats hepàtiques, deficiències vitamíniques, anomalies a la tiroide, problemes cardíacs, problemes dels vasos sanguinis o problemes pulmonars. Els diferents quadres clínics que tenen els símptomes anteriorment descrits poden ser confosos amb els símptomes de la demència.\\
 L'últim pas abans de donar l'Alzheimer com a diagnòstic final, és portar a cap un examen neurològic. En aquesta prova es faran proves per verificar si la persona pateix trastorns cerebrals diferents de la malaltia d'Alzheimer. El metge també avaluarà l'estat dels reflexos, la coordinació, el moviment dels ulls, la parla i la sensació. Abans de concretar un diagnòstic, però, també se cercaran evidències d'accidents vasculars cerebrals, Parkinson, tumors cerebrals, acumulació de líquids al cervell i altres infermetats que poden afectar a la memòria. Normalment, aquests estudis inclouen imatges de \textit{MRI} o \textit{CT scan}. L'estudi de les imatges resultants d'aquestes proves poden revelar la presència de tumors, d'accidents vasculars cerebrals, danys causats per un trauma al cap o acumulació de líquid.
-
-\subsection*{Quin és el tractament actual?}
-\addcontentsline{toc}{subsection}{Quin és el tractament actual?}
+\section*{Quin és el tractament actual?}
+\addcontentsline{toc}{section}{Quin és el tractament actual?}
 Actualment, hi ha molt pocs medicaments aprovats per tractar específicament la infermetat d'Alzheimer. A causa del fet que encara no es coneixen, completament, les causes d'aquesta malaltia, no hi ha medicines que puguin curar o prevenir aquesta forma de demència. Les primeres medicacions que es van desenvolupar per tractar aquesta malaltia van ser els inhibidors de la colinesterasa i la memantina. Aquests medicaments poden endarrerir l'avanç de la simptomatologia, però no poden tractar les lesions cerebrals subjacents ni prolongar la vida dels pacients.\\
 Hi ha dos tipus de medicaments: els que alleugen temporalment els símptomes i els que retarden la malaltia. No obstant això, no són efectius en tots els casos i poden perdre la seva eficàcia amb el temps.\\
 Els medicaments per la malaltia d'Alzheimer estan aprovats per etapes determinades d'aquesta. Aquestes etapes es basen en els resultats de les proves que avaluen la memòria, la consciència de l'espai-temps, el pensament i el raonament.\\
 No obstant això, els metges poden receptar medicines per a tractar la infermetat d'Alzheimer per etapes diferents de les aprovades per les institucions públiques (A Espanya l'AEMPS). Les etapes de la malaltia no són precises, les respostes individuals als medicaments, variables i les opcions de tractament, limitades.\\
-Les medicines aprovades, avui dia, per l'Alzheimer estan pensades per a l'estadi de deteriorament cognitiu lleu. És a dir, són medicines pensades per tractar els signes de la demència en general, no per l'Alzheimer, perquè cal remarcar que en la fase de deteriorament cognitiu lleu, encara no es pot assegurar que la malaltia sigui l'Alzheimer.\\
-\subsubsection*{Inhibidors de la colinesterasa}
-\addcontentsline{toc}{subsubsection}{Inhibidors de la colinesterasa}
-La malaltia d'Alzheimer afecta al cervell reduint els nivells d'acetilcolina, neurotransmissor important per la memòria, la consciència i el pensament. Els inhibidors de colinesterasa funcionen en augmentar la quantitat d'acetilcolina disponible en les cèl·lules nervioses en prevenir la descompensació. No obstant això, els medicaments no poden curar la infermetat ni detenir la destrucció de les cèl·lules nervioses i amb el temps perden efectivitat. Alguns efectes secundaris comuns inclouen nàusees, vòmits i diarrea, però poden ser reduïts amb una dosi baixa a l'inici del tractament i prenent els medicaments amb els aliments.\\
-És important tenir en compte que els inhibidors de la colinesterasa no es recomanen per a persones amb arrítmies cardíaques.
-\subsubsection*{Memantina per a estadis més avançats}
-\addcontentsline{toc}{subsubsection}{Memantina per a estadis més avançats}
+Les medicines aprovades, avui dia, per l'Alzheimer estan pensades per a l'estadi de deteriorament cognitiu lleu. És a dir, són medicines pensades per tractar els signes de la demència en general, no per l'Alzheimer, perquè cal remarcar que en la fase de deteriorament cognitiu lleu, encara no es pot assegurar que la malaltia sigui l'Alzheimer.
+\subsection*{Inhibidors de la colinesterasa}
+\addcontentsline{toc}{subsection}{Inhibidors de la colinesterasa}
+La malaltia d'Alzheimer afecta el cervell reduint els nivells d'acetilcolina, neurotransmissor important per la memòria, la consciència i el pensament. Els inhibidors de colinesterasa funcionen en augmentar la quantitat d'acetilcolina disponible en les cèl·lules nervioses en prevenir la descompensació. No obstant això, els medicaments no poden curar la infermetat ni detenir la destrucció de les cèl·lules nervioses i amb el temps perden efectivitat. Alguns efectes secundaris comuns inclouen nàusees, vòmits i diarrea, però poden ser reduïts amb una dosi baixa a l'inici del tractament i prenent els medicaments amb els aliments.\\
+És important tenir en compte que els inhibidors de la colinesterasa no es recomanen per a persones amb arrítmies cardíaques, per tant, abans de res, cal revisar de manera detallada l'historial clínic del pacient per evitar mals majors.
+\subsection*{Memantina per a estadis més avançats}
+\addcontentsline{toc}{subsection}{Memantina per a estadis més avançats}
 La memantina és l'única medicina aprovada per a etapes avançades de la malaltia d'Alzheimer. Aquest medicament controla l'activitat del glutamat, un neurotransmissor clau en l'aprenentatge i la memòria. Els efectes adversos més comuns són: mareigs, mals de cap, confusió i exaltació.
-\subsubsection*{Aducanumab}
-\addcontentsline{toc}{subsubsection}{Aducanumab}
+\subsection*{Aducanumab}
+\addcontentsline{toc}{subsection}{Aducanumab}
 L'aducanumab és una teràpia intravenosa recentment aprovada per la FDA (l'agència de medicaments dels EUA) per a pacients amb deteriorament cognitiu lleu i demència lleu per l'infermetat d'Alzheimer. S'ha aprovat mitjançant una disposició d'aprovació accelerada a causa de la seva capacitat de reduir la proteïna beta-amiloide, considerada un factor important en el transcurs de la malaltia. No obstant això, el seu efecte en el rendiment diari, la memòria o el raonament no està clar.\\
 Alguns efectes secundaris poden incloure anomalies en les imatges cerebrals relacionades amb l'amiloide. Anomalies com un edema cerebral, dipòsits  d'hemosiderina o microhemorràgies. Aquests canvis s'han de monitorar amb imatges repetides de ressonància magnètica.
-\subsubsection*{Lecanemab}
-\addcontentsline{toc}{subsubsection}{Lecanemab}
+\subsection*{Lecanemab}
+\addcontentsline{toc}{subsection}{Lecanemab}
 El medicament Lecanemab, ha mostrat resultats prometedors en pacients amb una forma lleu de la malaltia d'Alzheimer i deteriorament cognitiu per culpa d'aquesta. la FDA estima que aquest 2023 estigui disponible per al públic.\\
 Un assaig clínic de fase 3 va demostrar que el Lecanemab va reduïr en un 27\% el deteriorament cognitiu en pacients amb Alzheimer primerenc. Actua evitant la formació de plaques amiloides en el cervell. Aquest estudi és el més gran dut a terme fins ara per avaluar si l'eliminació de les plaques amiloides pot endarrerir l'avenç de l'Alzheimer.\\
-La FDA està avaluant el Lecanemab. A més, s'està duent a terme un altre estudi per a determinar la seva eficàcia en persones de risc de desenvolupar Alzheimer, incloent aquelles amb familiars propers afectats per la malaltia.
-\subsection*{Estadístiques d'afectats en l'àmbit nacional i autonòmic}
-\addcontentsline{toc}{subsection}{Estadístiques d'afectats a en l'àmbit nacional i autonòmic}
+La FDA està avaluant el Lecanemab. A més, s'està duent a terme un altre estudi per a determinar la seva eficàcia en persones de risc de desenvolupar Alzheimer, incloent-hi aquelles amb familiars propers afectats per la malaltia.
+\section*{Estadístiques d'afectats en l'àmbit nacional i autonòmic}
+\addcontentsline{toc}{section}{Estadístiques d'afectats a en l'àmbit nacional i autonòmic}
 A continuació, es presenten les dades enregistrades per CEAFA en l'estudi que va realitzar l'any 2019 dels casos diagnosticats de demència a Espanya.
 \begin{table}[h]
     \centering
@@ -222,9 +218,9 @@ A continuació, es presenten les dades enregistrades per CEAFA en l'estudi que v
           \hline
          La Rioja & 2.331 & 313.571 & 0,7\% & 0,5\& \\ 
           \hline
-         Ceuta & 0 & 84.829 & 0\%  & 0\% \\ 
+         Ceuta & NA & 84.829 & NA  & NA \\ 
           \hline
-         Melilla & 0 & 84.689 & 0\%  & 0\% \\
+         Melilla & NA & 84.689 & NA  & NA \\
           \hline
         Total & 458.869 & 49.937.060 & 1\% & 100\% \\
           \hline
@@ -288,9 +284,9 @@ Abans de finalitzar aquesta secció, és necessari donar les dades de la taula \
          \hline
         La Rioja & 767 & 32,9\% & 1.564 & 67,1\% & 2.331\\
          \hline
-        Ceuta & 0 & 0\% & 0 & 0\% & 0\\
+        Ceuta & NA & NA & NA & NA & NA\\
         \hline
-        Melilla & 0 & 0\% & 0 & 0\% & 0\\
+        Melilla & NA & NA & NA & NA & NA\\
         \hline
         Total & 140.248 & 30,6\% & 318.621 & 69,4\% & 458.869\\
         \hline
@@ -300,8 +296,8 @@ Abans de finalitzar aquesta secció, és necessari donar les dades de la taula \
 \end{table}
 \newpage
 Un cop conegudes les dades del cens de persones amb demència, es pot saber fàcilment, quin és el rang de persones amb Alzheimer per cada comunitat autònoma i sexe. El nombre de casos d'Alzheimer estarà comprès entre el 60\% i el 80\% dels casos de demència que figuren a la taula \ref{tab:taula2}. Per tant, a Espanya, dels 140.248 casos de demència en homes, entre 84.149 i 112.199 seran causats per l'Alzheimer. En el cas de les dones, hi haurà entre  191.173 i 254.897 casos d'Alzheimer. En el cas del total hi haurà entre 275.322 i 367.096 casos demència causats per Alzheimer.
-\subsection*{Principals associacions de lluita contra l'Alzheimer}
-\addcontentsline{toc}{subsection}{Principals associacions de lluita contra l'Alzheimer}
+\section*{Principals associacions de lluita contra l'Alzheimer}
+\addcontentsline{toc}{section}{Principals associacions de lluita contra l'Alzheimer}
 A escala de tota Espanya hi ha moltes associacions sense ànim de lucre que es dediquen a lluitar per trobar un remei a aquesta malaltia que cada dia afecta a més gent. Com és molt difícil poder anomenar totes les associacions del país, només es llistaran les més importants.
 \begin{itemize}
     \item \href{https://fpmaragall.org/ca/}{\underline{Fundació Pasqual Maragall}}
@@ -318,16 +314,16 @@ A escala de tota Espanya hi ha moltes associacions sense ànim de lucre que es d
     \item \href{https://afaga.com/es/asociacion/historia/}{\underline{\textit{Asociación de familiares de enfermos de Alzherimer y otras demencias de Galicia}}}
     \item \href{https://www.asociacionalzheimer.com/}{\underline{\textit{Asociación Alzheimer Asturias}}}
 \end{itemize}
-\subsection*{Experiència personal amb la malaltia}
-\addcontentsline{toc}{subsection}{Experiència personal amb la malaltia}
+\section*{Experiència personal amb la malaltia}
+\addcontentsline{toc}{section}{Experiència personal amb la malaltia}
 La meva àvia paterna va morir l'any 2008, des d'aleshores, el meu avi no va tornar a ser el mateix... Va començar a oblidar algunes coses que ell feia de manera diària, on posava segons quines coses, alguna data important, etc. Mentre això no anava a més, a la família no ens preocupava el més mínim aquesta simptomatologia atès que la mort de la meva àvia, la seva dona, va ser el desencadenant perquè el meu avi fos diagnosticat amb depressió. Malgrat això, quan els símptomes es varen anar agreujant, la família ens vam adonar que alguna cosa estranya passava i després d'una sèrie de proves clíniques, el meu avi va ser diagnosticat amb Alzheimer.\\
 Va ser un moment molt dur per la família. Veure que una algú que, durant tota la vida, havia estat molt activa, de fer bromes, de fer plans familiars, cuinar, etc. ara ja només podia anar en caiguda lliure cap a la desconnexió mental total. A mesura que passava el temps, l'actitud del meu avi també va canviar. Al principi, no se'n recordava de dutxar-se, després va començar a oblidar on posava les coses (fet que el va portar a acusar a la família de robar-lo) i va desenvolupar una obsessió molt forta pels diners. Quan la situació es va fer insostenible, el meu pare i les seves dues germanes, amb el diagnòstic d'Alzheimer a la mà varen anar al jutjat a demanar la incapacitació total del meu padrí. Després de revisar l'informe mèdic i fer-li algunes preguntes, la jutgessa va decretar que des d'aquell precís moment, la signatura del meu avi deixava de tenir qualsevol validesa legal.\\
 Mentre la família esperàvem a la concessió d'una plaça pública en una residència, el meu pare i les seves germanes decidiren internar al meu avi en una residència privada. En aquesta residència, feia tota mena d'activitats per potenciar la memòria, però maluradament cap va tenir el més mínim efecte. Al cap de poc temps d'estar en la residència, les visites cada cop es feien més pesades, tristes i difícils, ja que el meu avi va començar a confondre a la família amb altres persones. Per exemple, jo, en comptes del seu nét, era el seu germà. El meu pare, en comptes del seu fill, era el seu pare i les meves tietes les seves cosines. Amb altres membres de la família, com poden ser la meva mare i els meus cosins, la situació era idèntica.\\
 Passats uns anys, la plaça pública va arribar. El meu avi va ser traslladat a una residència d'Alcarràs. La família teníem una petita esperança que el canvi de residència li dones, al meu avi, una mica d'aire i tornés per uns dies al seu ser. Lluny d'aquest desig, el meu avi continuava en caiguda lliure cap a la mort en vida. Poc abans de morir, no era capaç ni d'aixecar-se de la cadira i fer un sol pas sense anar agafat del braç. Els dies previs a la seva mort, ni tan sols es llevava del llit. Els metges decidiren administrar-li morfina i a les sis de la tarda del 17 de novembre de l'any 2015, l'àngel de la mort aparegué a l'habitació i s'endugué la seva ànima.
-\section*{Marc teòric computacional}
-\addcontentsline{toc}{section}{Marc teòric computacional}
-\subsection*{Qué entenem per intel·ligència artificial?}
-\addcontentsline{toc}{subsection}{Que entenem per intel·ligència artificial?}
+\chapter*{Marc teòric computacional}
+\addcontentsline{toc}{chapter}{Marc teòric computacional}
+\section*{Qué entenem per intel·ligència artificial?}
+\addcontentsline{toc}{section}{Que entenem per intel·ligència artificial?}
 La història de la intel·ligència artificial neix l'any 1950, quan Alan Turing publica el llibre "\textit{Computing machinery and intelligence}". En aquest llibre es planteja, per primer cop, que les màquines poden pensar. Des d'aleshores, la IA ha acumulat successos i nefastos fracassos.\\
 \begin{figure}[H]
     \centering
@@ -356,8 +352,8 @@ El primer tipus són aquells sistemes que pensen com els humans, és a dir, són
 A continuació, es troben aquelles IA capaces de recrear el comportament humà. Aquest tipus de sistemes són computadores que duen a terme diferents tasques de la mateixa manera que ho faria un humà. El cas més evident són els robots.\\
 En tercer lloc, es troben els sistemes de pensament racional, que són aquells que intenten copiar la lògica racional del pensament de les persones. Dit en altres paraules, es tracta d'aconseguir màquines que puguin disposar de la capacitat de percebre un estímul, jutjar-lo i actuar conseqüentment a aquell estímul. En aquest grup, s'engloben els sistemes experts. Aquests sistemes poden ser sistemes RBR (\textit{Rule Based Reasoning}), sistemes CBR (\textit{Case Based Reasoning}) o sistemes basats en xarxes bayesianes.\\
 La quarta, i última forma en què es presenta la IA, són els sistemes que actuen de manera racional. Aquests sistemes són aquells que intenten copiar la forma de comportament humana. És el cas dels sistemes intel·ligents.
-\subsection*{Avantatges i desavantatges de la IA}
-\addcontentsline{toc}{subsection}{Avantatges i desavantatges de la IA}
+\section*{Avantatges i desavantatges de la IA}
+\addcontentsline{toc}{section}{Avantatges i desavantatges de la IA}
 Tenint en compte les defenses de la IA per part de \textit{Andy Chan} (Figure \ref{fig:chan}), \textit{Product Manager} de Infinia ML, i \textit{Kai-Fu Lee} (Figura \ref{fig:lee}), fundador del fons de capital de risc Sinovation Ventures, els avantatges de la intel·ligència artificial serien:
 \begin{itemize}
     \item Automatització de processos.
@@ -391,8 +387,8 @@ Un cop vistos els avantatges, toca veure la part dolenta de la intel·ligència 
     \caption{Retrats d'Andy Chan (esquerra) i Kai-Fu Lee (dreta)}
     \label{fig:AndyKai}
 \end{figure}
-\subsection*{Qué és el \textit{Machine Learning}?}
-\addcontentsline{toc}{subsection}{Que és el \textit{Machine Learning}?}
+\section*{Qué és el \textit{Machine Learning}?}
+\addcontentsline{toc}{section}{Que és el \textit{Machine Learning}?}
 Es defineix com \textit{Machine Learning} la disciplina que atorga, als ordinadors, la capacitat d'aprendre de manera autònoma patrons en dades massives i elaborar prediccions.\\
 En paraules de \textit{Jeff Hawkins} (Figura \ref{fig:hawkins}):
 \begin{center}
@@ -410,11 +406,10 @@ En paraules de \textit{Jeff Hawkins} (Figura \ref{fig:hawkins}):
     \caption{Retrat de \textit{Jeff Hawkins}}
     \label{fig:hawkins}
 \end{figure}
-\subsubsection*{Tipus de \textit{Machine Learning}}
-\addcontentsline{toc}{subsubsection}{Tipus de \textit{Machine Learning}}
+\subsection*{Tipus de \textit{Machine Learning}}
+\addcontentsline{toc}{subsection}{Tipus de \textit{Machine Learning}}
 Ara com ara, existeixen quatre tipus diferents d'aprenentatge automàtic.\\
-El primer tipus és, l'aprenentatge supervisat. Aquest tipus d'aprenentatge, és aquell en el qual especifiquem a l'algorisme quina cosa ha d'aprendre i, un cop après, el model intel·ligent u seguirà al peu de la lletra. Dit més formalment, un model intel·ligent que utilitza aprenentatge supervisat és, aquell que ha estat entrenat amb una base de dades perfectament etiquetada i que realitza prediccions molt específiques basant-se en les etiquetes.\\
-Dos exemples d'ús d'aquest tipus d'aprenentatge podrien ser els classificadors d'imatges i els classificadors de so.\\
+El primer tipus és, l'aprenentatge supervisat. Aquest tipus d'aprenentatge, és aquell en el qual especifiquem a l'algorisme quina cosa ha d'aprendre i, un cop après, el model intel·ligent u seguirà al peu de la lletra. Dit més formalment, un model intel·ligent que utilitza aprenentatge supervisat és, aquell que ha estat entrenat amb una base de dades perfectament etiquetada i que realitza prediccions molt específiques basant-se en les etiquetes. Dos exemples d'ús d'aquest tipus d'aprenentatge podrien ser els classificadors d'imatges i els classificadors de so.\\
 El segon tipus d'aprenentatge és el no supervisat. L'objectiu d'aquest tipus d'aprenentatge és, que el programari aprengui per si mateix sense ajuda dels científics de dades a partir d'un conjunt de dades etiquetades. És a dir, aquesta tècnica de \textit{Machine Learning}, es basa en el fet que són els mateixos models els que troben patrons existents en les dades a analitzar.\\
 Dins de l'aprenentatge no supervisat, es poden diferenciar dos subtipus. El primer és el \textit{Clustering} que permet identificar les agrupacions naturals resultants de l'anàlisi de totes les dades i, el segon, és l'\textit{Association} que permet descobrir les relacions entre les variables en un gran volum de dades.\\
 El penúltim tipus de \textit{Machine Learning} és, l'aprenentatge semisupervisat. Aquest tipus d'aprenentatge és, una mescla dels dos anteriors, ja que utilitza un grup mínim d'etiquetes. La gran majoria de les dades són dades que no estan etiquetades, perquè tot i que les dades sense etiquetar augmenten els costos, són útils per aconseguir els objectius.\\
@@ -425,10 +420,10 @@ L'últim tipus d'aprenentatge automàtic és l'aprenentatge per reforç. La prin
 El sistema de recompenses i càstigs comporta, no solament que, el model aprengui de manera immediata sinó que busqui maximitzar la recompensa.
 Un exemple molt clar d'aquest tipus de sistemes són els robots. El robot rebrà una recompensa o un càstig segons realitzi bé, o no, una determinada acció. Un exemple de recompensa, per exemple, podria ser augmentar un punt en un sistema de puntuació. Per contra, el càstig, disminuiria un punt.\\
 Aquest tipus d'aprenentatge també es pot extrapolar a la vida real. L'entrenament de gossos en seria un cas. L'entrenador ensenya una ordre a l'animal i aquest rebrà una galeta com a premi, si ho fa bé, o se li posarà el morrió si ho fa malament.
-\subsection*{Qué és una xarxa neuronal?}
-\addcontentsline{toc}{subsection}{Qué és una xarxa neuronal?}
+\section*{Qué és una xarxa neuronal?}
+\addcontentsline{toc}{section}{Qué és una xarxa neuronal?}
 Les xarxes neuronals són models matemàtics que imiten el processament d'una certa informació tal com ho faria el cervell humà. Atès que el seu objectiu és emular el comportament d'un cervell, una xarxa està composta per neurones i capes (igual que un cervell humà). Les neurones es transmeten senyals entre elles. Aquests senyals es transmeten des de l'entrada fins a la generació d'una sortida.\\
-Segons la topologia de la xarxa, hi ha cinc possibles classificacions de xarxes neuronals artificials (ANN en anglès).\\
+Segons la topologia de la xarxa, hi ha cinc possibles classificacions de xarxes neuronals artificials (ANN en són les sigles en anglès, que es corresponen a \textit{Artifficial Neural Network}).\\
 El primer tipus són les xarxes monocapa. Són les xarxes més senzilles, ja que només consten d'una capa d'entrada i una de sortida.\\
 En segon lloc, hi ha les xarxes multicapa. Aquest tipus de xarxes són, una generalització de l'anterior. Aquestes contenen una sèrie de capes intermèdies entre la capa d'entrada i la de sortida. Aquestes capes intermèdies s'anomenen ocultes.\\
 Depenent del nombre de connexions, la xarxa serà, o bé, completament connectada, o bé, parcialment connectada. Les xarxes completament connectades, són aquelles en les que cada neurona de cada capa està connectada a cada neurona de la següent capa (capes denses). En canvi, les xarxes parcialment connectades, són aquelles en les que no totes les neurones d'una capa estan connectades amb totes les neurones de la següent capa.\\
@@ -436,22 +431,22 @@ Un tercer tipus de xarxes neuronals, són les xarxes convolucionals (tècnica ut
 El quart tipus de xarxes, són les xarxes recurrents. Aquestes xarxes no s'estructuren amb capes. Aquest tipus d'\textit{ANN} permeten connexions aleatòries que poden arribar a crear cicles, fet que permet que la xarxa tingui memòria.\\
 Les dades es transformen i circulen per la xarxa no només en l'instant "t", sinó que també poden circular en l'instant "t + x", essent x un nombre natural.\\
 L'últim tipus de xarxes neuronals són les xarxes de base radial. Aquest tipus de xarxes es caracteritza per tenir una capa d'entrada, una única capa oculta i una capa de sortida. Les neurones d'aquest tipus de xarxes usen les denominades funcions d'activació de base radial i la sortida de la xarxa es calcula com una combinació lineal de les sortides de cada neurona.
-\subsubsection*{Qúe composa una xarxa neurona?}
-\addcontentsline{toc}{subsubsection}{Qúe composa una xarxa neurona?}
-La unitat de processament bàsica d'una xarxa neuronal són les neurones, que s'ordenen en capes.\\
-Normalment, es poden diferenciar tres parts en una xarxa neuronal: la capa d'entrada, les capes ocultes i la capa de sortida.\\
+\subsection*{Qué compon una xarxa neuronal?}
+\addcontentsline{toc}{subsection}{Qué compon una xarxa neuronal?}
+La unitat de processament bàsica d'una xarxa neuronal són les neurones, que s'ordenen en capes. Per tant, es podria veure una capa com una caixa plena de pilotes on cada pilota representa una neurona.\\
+Normalment, en una xarxa neuronal artificial (ANN en anglès), es poden diferenciar tres parts diferents: la capa d'entrada, les capes ocultes (si n'hi ha) i la capa de sortida.\\
 La capa d'entrada, com el seu nom indica, representa tots els camps que s'entren a la xarxa per ser processats. Aquesta capa estarà formada per una o més neurones.\\
 En segon lloc, estan les capes ocultes. Cal remarcar que aquest tipus de capes, poden no existir en la xarxa, és a dir, és possible que la xarxa estigui composta, exclusivament, per una capa d'entrada i una capa de sortida (xarxa monocapa). També existeix la possibilitat que, en comptes d'haver-hi diverses capes ocultes, solament n'hi hagi una. Cada capa oculta estarà formada per una o més neurones.\\
 Finalment, la capa de sortida, és una capa que tindrà tantes neurones com resultats puguin tenir les dades processades. És a dir, en el cas d'aquest treball, la xarxa s'encarrega de classificar imatges entre quatre nivells diferents d'Alzheimer, per tant, la xarxa tindrà una totalitat de 4 neurones a la capa de sortida.\\
 Com s'ha esmentat, les neurones estan organitzades per capes. Cada neurona es relaciona mitjançant "pesos" amb algunes (o totes) les neurones de la següent capa, així, les dades es presenten en la primera capa (la d'entrada) i els valors es propaguen des de la neurona en la qual es troben en aquell moment fins a totes aquelles neurones de la capa següent amb les quals hi hagi una relació. Finalment, els resultats arribaran a la capa de sortida, on es podran observar els resultats.
-\subsection*{Xarxes neuronals convolucionals (CNN)}
-\addcontentsline{toc}{subsection}{Xarxes neuronals convolucionals (CNN)}
+\section*{Xarxes neuronals convolucionals (CNN)}
+\addcontentsline{toc}{section}{Xarxes neuronals convolucionals (CNN)}
 Les xarxes neuronals convolucionals són, un algorisme de \textit{deep learning} que estan dissenyades per l'anàlisi d'atributs visuals de grans quantitats de dades. Tot i que, normalment, s'utilitzen en aspectes relacionats amb les imatges, les CNN tenen més aplicacions dins del món de la intel·ligència artificial. Aquests altres menesters inclouen el processament del llenguatge natural, per exemple.\\
 Com tota xarxa utilitzada per a classificar, aquestes xarxes, en primer lloc, han de realitzar una fase d'extracció de característiques. D'aquesta fase se n'encarreguen les neurones convolucionals. Seguidament, es realitza una reducció per mostreig (\textit{pooling} en aquest cas) i finalment, es troben una sèrie de neurones més senzilles que permeten realitzar la classificació de les característiques que s'han extret prèviament.\\
 En aquesta fase d'extracció de característiques es pot trobar una similitud molt elevada amb el procés d'estimulació cel·lular del còrtex visual del cervell humà.\\
 Per dur a terme amb èxit aquesta fase, es van alternant capes de convolució i capes de reducció (\textit{pooling}). A mesura que les dades avancen cap a la sortida, cada cop es van fent més i més petites. D'aquesta manera les primeres capes són menys sensibles a canvis mentre que les capes finals són extremadament sensibles a qualsevol canvi i a qualsevol pertorbació en les dades d'entrada.
-\subsection*{Entrenament de xarxes neuronals}
-\addcontentsline{toc}{subsection}{Entrenament de xarxes neuronals}
+\section*{Entrenament de xarxes neuronals}
+\addcontentsline{toc}{section}{Entrenament de xarxes neuronals}
 Per entrenar una xarxa neuronal, cal exposar una gran quantitat d'entrades amb les seves respectives sortides. Durant l'entrenament, la xarxa anirà ajustant els pesos de les connexions entre neurones per tal de millorar el rendiment i poder prediccions en el futur. Per ajustar els pesos, la xarxa realitza complexos càlculs matemàtics que generen una sortida a partir d'una entrada per a posteriorment realitzar una comparació del càlcul obtingut amb la sortida real. Amb aquesta comparació de resultats s'obté un error que és l'utilitzat per ajustar els pesos de les connexions de la xarxa.\\
 Aquest procés es repeteix un elevat nombre de vegades però no sempre amb la mateixa entrada i la mateixa sortida, sinó que les parelles \textit{input - output}, canvien. D'aquesta manera, al llarg del temps, la xarxa podrà ser capaç de realitzar, de manera precisa, prediccions amb dades d'entrada que no ha vist mai, és a dir, amb dades que no s'han utilitzat en el moment de l'entrenament.
 \begin{figure}[H]
@@ -460,8 +455,8 @@ Aquest procés es repeteix un elevat nombre de vegades però no sempre amb la ma
     \caption{Exemple d'esquema d'una CNN}
     \label{fig:cnn}
 \end{figure}
-\section*{La IA en la lluita contra l'Alzheimer}
-\addcontentsline{toc}{section}{La IA en la lluita contra l'Alzheimer}
+\chapter*{La IA en la lluita contra l'Alzheimer}
+\addcontentsline{toc}{chapter}{La IA en la lluita contra l'Alzheimer}
 En aquesta secció es presentaran una sèrie d'articles periodístics que mostres que, no solament és possible que la IA ajudi en la batalla contra l'Alzheimer, sinó que ho fa de manera molt efectiva.\\
 La primera notícia es publica a \href{https://neurohouse.es/espacio-reimagine/la-inteligencia-artificial-una-nueva-aliada-contra-el-alzheimer}{\underline{\textit{Neuro House}}} el 22-10-2020 i es titula "\textit{La inteligencia artificial, una nueva aliada contra el Alzheimer}".
 \begin{center}
@@ -489,7 +484,10 @@ El segon article va ser publicat al diari \href{https://www.lavanguardia.com/vid
         \vspace{5pt}
     \end{minipage}
 \end{center}
-\newpage
+Per tal d'obtenir una informació una mica més tècnica sobre aquesta proposta, s'ha consultat la publicació original dels autors. En ella s'observa com la proposta de recerca que fan es basa en 2 passos. El primer dels passos ha consistit a desenvolupar un enfocament basat en les dades. Aquest nou enfocament utilitza una tècnica del camp de l'estadística anomenada \textit{\href{https://www.statisticshowto.com/hotellings-t-squared/}{\underline{Hotelling's T-squared distribution}}} que consisteix a comparar els valors de les mitjanes dels grups de classificació per poder determinar si els diferents grups tenen, en termes de multivariabilitat, diferències estadístiques significatives o, si senzillament, són variacions aleatòries. Gràcies a l'aplicació d'aquesta tècnica, l'equip investigador, aconsegueix crear un mapa en forma de cervell tot identificant diferents aspectes anatòmics. Cadascun d'aquests punts s'associa a una coordenada en 3 dimensions de la qual s'extreu un fragment d'imatge de 19x19x19 píxels.\\
+Per obtenir la mitjana d'un dels anomenats punts anatòmics clau, el que es fa és sumar totes les mesures d'aquell punt i dividir la suma entre el nombre de mostres. Aquest càlcul es realitza per cadascun dels punts clau i per cada possible classe de classificació. Aleshores, un cop obtingudes totes les mitjanes de totes les classes, es pot dur a terme la comparació i concloure si les diferències són aleatòries o no.\\
+El segon pas d'aquesta recerca ha estat implementar una xarxa neuronal convolucional multiflux, on cada flux s'alimenta d'un dels fragments d'imatge de 19x19x19.\\
+Els investigadors han avaluat el rendiment d'aquest mètode en tres passos experimentals (entrenar el model convolucional de flux múltiple amb imatges de MRI, transferir els pesos del model entrenat a una arquitectura idèntica tot ajustant-la amb dades relacionades amb pacients sMCI i pMCI i afegir biomarcadors) i després de realitzar uns quants experiments, els resultats d'aquests demostra que el mètode supera qualsevol altre enfocament existent per la diagnosi de la malaltia.\\
 La tercera, i última, notícia es va publicar al diari \href{https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html}{\underline{\textit{La Razón}}} el 7-11-2022 i es titula "\textit{Una nueva prueba para el diagnóstico precoz del Alzheimer logra una efectividad del 98\%}".
 \begin{center}
     \begin{minipage}{0.9\linewidth}
@@ -514,22 +512,21 @@ La tercera, i última, notícia es va publicar al diari \href{https://www.larazo
                     \vspace{20pt}
                 \end{minipage}
             \end{center}
-            Afirma el neuròleg \textit{Paresh Mahotra}, investigador del departament de ciències del cervell.\\
-            Els científics han adaptat a un MRI cerebral un algorisme que va ser dissenyat per detectar tumors cancerosos. Per fer-ho van dividir el cervell en 115 regions i depenent d'aspectes com la mida, la forma i la textura, van assignar fins a 660 característiques diferents.\\
-            En el moment de l'entrenament, els investigadors, van ensenyar al model a diferenciar entre les característiques que apunten a la malaltia d'Alzheimer i les que no.\\
-            Els autors del projecte, afirmen que aquest nou enfocament podria identificar l'Alzheimer en pacients que estan en l'etapa primerenca per a assaigs clínics de nous tractaments farmacològics o canvis en l'estil de vida, cosa que actualment és molt difícil de fer.
+            Afirma el neuròleg \textit{Paresh Mahotra}, investigador del departament de ciències del cervell.
         }
         \vspace{5pt}
     \end{minipage}
 \end{center}
-
-\section*{Implementació de la proposta de treball i anàlisi de resultats}
-\addcontentsline{toc}{section}{Implementació de la proposta de treball i anàlisi de resultats}
-\subsection*{Disseny dels experiments}
-\addcontentsline{toc}{subsection}{Disseny dels experiments}
+De la mateixa manera que en l'última notícia, s'ha consultat la publicació oficial del grup d'investigació per tal de poder obtenir una informació més detallada de la proposta implementada.\\
+En aquesta recerca, s'ha dissenyat un enfocament d'un operador de selecció i contracció mínima absoluta en dos passos (LASSO son les sigles en anglès). Les imatges seleccionades per l'entrenament del model són imatges per ressonància magnètica del tipus T1w que han estat segmentades en un total de 115 regions mitjançant la funció de reconeixement de \textit{FreeSurfer}. Després de la selecció i estandardització de les imatges s'ha creat un primer operador de contracció i selecció (LASSO1) que s'encarrega de classificar entre les persones amb patologia i sense patologia relacionada amb l'Alzheimer. Dins d'aquest, es crea un segon operador (LASSO2) que s'encarrega de diferenciar entre pacients amb un deteriorament cognitiu lleu causat per Alzheimer i pacients amb Alzheimer. Aquest model també ha estat integrat amb altres puntuacions cognitives com el \textit{Mini-Mental State Examination} (\href{https://www.farmaceuticoscomunitarios.org/anexos/vol11_n1/ANEXO2.pdf}{\underline{MMSE}} en anglès), que és una prova curta, d'uns 10 minuts de llargada, i estructurada de l'estat mental del pacient.\\
+Com el model final, només ha de discriminar entre persones amb patologies relacionades amb la malaltia d'Alzheimer i persones amb patologies no relacionades amb la malaltia d'Alzheimer, es va introduir en un grup de patologies anomenat \textit{non-AD-related} els casos de persones sanes, persones amb Parkinson, demència frontotemporal, etc.
+\chapter*{Implementació de la proposta de treball i anàlisi de resultats}
+\addcontentsline{toc}{chapter}{Implementació de la proposta de treball i anàlisi de resultats}
+\section*{Disseny dels experiments}
+\addcontentsline{toc}{section}{Disseny dels experiments}
  En aquesta secció hi haurà continguts diversos aspectes com: aclariments del codi, les característiques de la màquina i de l'entorn de programació on s'han realitzat tant els entrenaments de la xarxa com les proves, les llibreries utilitzades, anàlisis gràfiques i numèriques i l'anàlisi de les prediccions de manera gràfica.
-\subsubsection*{Característiques de la màquina i de l'entorn de programació}
-\addcontentsline{toc}{subsubsection}{Característiques de la màquina i de l'entorn de programació}
+\subsection*{Característiques de la màquina i de l'entorn de programació}
+\addcontentsline{toc}{subsection}{Característiques de la màquina i de l'entorn de programació}
 \textbf{\underline{Característiques del PC:}}
 \begin{itemize}
     \item Sistema operatiu: Windows 10 Pro 64-bit
@@ -543,8 +540,8 @@ L'entorn de programació utilitzat és una llibreta \textit{Google Colab} que us
     \item RAM: 12.7 GB
     \item Disc: 107.7GB
 \end{itemize}
-\subsubsection*{Llibreries de Python utilitzades}
-\addcontentsline{toc}{subsubsection}{Llibreries de Python utilitzades}
+\subsection*{Llibreries de Python utilitzades}
+\addcontentsline{toc}{subsection}{Llibreries de Python utilitzades}
 A continuació s'especificaran les llibreries utilitzades per implementar la proposta de treball, tot donant una petita explicació de l'especialització de cada llibreria.\\
 La primera, i principal, llibreria utilitzada és \href{https://www.tensorflow.org/?hl=es-419}{\underline{TensorFlow}}. Aquesta és una llibreria de codi obert que permet detectar i desxifrar patrons i correlacions, d'un conjunt de dades, de manera que aquests es corresponguin a patrons i correlacions similars al raonament humà.\\
 La segona llibreria és \href{https://keras.io}{\underline{Keras}}. Keras és un programari que té implementades moltes eines de treball necessàries per poder crear una xarxa neuronal com: capes, optimitzadors, funcions d'activació, etc. Keras està construïda sobre la plataforma TensorFlow, per tant, és possible executar un model de Keras sobre TensorFlow. I a més a més, és possible fer-ho de manera senzilla.\\
@@ -555,10 +552,10 @@ La llibreria \href{https://numpy.org}{\underline{Numpy}}, és una llibreria de P
 Una altra llibreria utilitzada és la llibreria \href{https://docs.opencv.org/4.x/d6/d00/tutorial_py_root.html}{\underline{OpenCV}}. Aquesta llibreria s'especialitza en la visió artificial (entendre les característiques d'una imatge) en temps real. De fet, el nom de la llibreria, precisament, significa "Visió artificial oberta" (\textit{Open Computer Vision} en anglès). Algunes de les aplicacions d'aquesta llibreria són el reconeixement facial, la interacció persona-ordinador, la realitat augmentada, el reconeixement d'objectes, entre d'altres.\\
 La penúltima llibreria és \href{https://matplotlib.org}{\underline{Matplotlib}}. Aquesta és una llibreria de codi obert especialitzada en la visualització i representació gràfica de dades en dues dimensions i tres dimensions de dades emmagatzemades en diferents estructures i objectes, com per exemple, llistes, \textit{arrays} NumPy i objectes de tipus \textit{Pandas}.\\
 L'última llibreria utilitzada és \href{https://scikit-image.org}{\underline{scikit-image}} (encara que a la importació es vegi com \textit{skimage}). Aquesta llibreria conté una àmplia varietat d'eines per al tractament i maneig d'imatges. Algunes d'aquestes eines són el processament bàsic d'imatges, la seva segmentació, la detecció dels límits de les imatges i extracció de característiques, entre moltes altres operacions. 
-\subsection*{Anàlisi de resultats}
-\addcontentsline{toc}{subsection}{Anàlisi de resultats}
-\subsubsection*{Graficació de la \textit{accuracy} i de la pèrdua}
-\addcontentsline{toc}{subsubsection}{Graficació de la \textit{accuracy} i de la pèrdua}
+\section*{Anàlisi de resultats}
+\addcontentsline{toc}{section}{Anàlisi de resultats}
+\subsection*{Representació gràfica de la \textit{accuracy} i de la pèrdua}
+\addcontentsline{toc}{subsection}{Representació gràfica de la \textit{accuracy} i de la pèrdua}
 En primer lloc, es presenten les gràfiques de la precisió del conjunt de dades d'entrenament. Abans, però, cal remarcar que les dades del model 1 no han estat representades atès que el primer model que es va generar és considerat com a nul perquè hi havia configurats malament els paràmetres corresponents a les mides de les imatges i, per tant, els resultats no serien verídics.
 \begin{figure}[H]
     \centering
@@ -1064,9 +1061,34 @@ Amb aquest sisè model, tal com s'ha esmentat amb anterioritat en aquest documen
 \end{figure}
 Si s'observa la gràfica del model 7, es pot veure com al principi de l'entrenament el model té més precisió en les dades de validació que en les dades d'entrenament, cosa que podria desembocar en \textit{overfitting}, però es pot observar que entre les èpoques 2 i 3 la precisió de l'entrenament es torna superior cosa que es bona senyal i, com la diferència de les \textit{accuracy} és ínfima (no arriba a 0.1) es pot concloure que el model no pateix \textit{overfitting}. Per tant, atès que aquest model no té \textit{overfitting} i que el resultat de la crida a la funció \textit{model.evaluate()} és d'un 86\%, es pot afirmar que aquesta versió del model pot donar-se com a possible solució a la proposta de treball.\\
 Finalitzada la comparació de les gràfiques dels models i l'anàlisi individual de cada un d'ells, cal triar com a solució definitiva a la proposta de treball aquells models que, no pateixen \textit{overfitting} i tinguin un percentatge d'\textit{accuracy} el més elevat possible. Com s'ha vist en l'anàlisi individualitzada de cada model, les versions que no es troben en situació d'\textit{overfitting} són les versions 6 i 7. Atès aquest fet i que el model 6 presenta un 88\% de precisió enfront del 86\% del model 7, es dona com a resposta definitiva a la proposta de treball, el model 6.\\
-Cal posar èmfasi que sempre que es duu a terme una tasca com la d'aquest treball, la precisió ha de ser major al 50\% perquè, en cas contrari, es consideraria el model com a aleatori, i per considerar un model com a bo cal que la precisió sigui de 70\% o més. Però també cal remarcar que, depenent de la situació i la finalitat del model, un 70\% de precisió pot no ser suficient, ni tan sols un 90\% seria acceptable en segons quines situacions.
-\subsubsection*{Anàlisi de prediccions amb Lime}
-\addcontentsline{toc}{subsubsection}{Anàlisi de prediccions amb Lime}
+Cal posar èmfasi que sempre que es duu a terme una tasca com la d'aquest treball, la precisió ha de ser major al 50\% perquè, en cas contrari, es consideraria el model com a aleatori, i per considerar un model com a bo cal que la precisió sigui de 70\% o més. Però també cal remarcar que, depenent de la situació i la finalitat del model, un 70\% de precisió pot no ser suficient, ni tan sols un 90\% seria acceptable en segons quines situacions.\\
+Finalment, abans de finalitzar aquesta comparació de tots els models, és necessari especificar en què es diferencien els diferents models. Com ja s'ha comentat a l'inici d'aquesta secció, per generar els diferents resultats obtinguts, s'han anat canviant els hiperparàmetres i, a partir del model 6, el \textit{dataset}. Per tant, per poder observar en què es diferencien, exactament, els diferents models obtinguts cal donar un petit resum dels canvis realitzats en cadascun.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \hline Versió de model & \textit{Epochs} & \textit{batch\_size} & \textit{Dataset}\\
+        \hline
+         Model 1 & N/A & N/A & N/A  \\
+         \hline
+         Model 2 & 15 & 100 & Petit \\
+         \hline
+         Model 3 & 15 & 100 & Petit \\
+         \hline
+         Model 4 & 15 & 200 & Petit \\
+         \hline
+         Model 5 & 13 & 90 & Petit \\
+         \hline
+         Model 6 & 3 & 32 & Gran \\
+         \hline
+         Model 7 & 4 & 32 & Gran \\
+         \hline
+    \end{tabular}
+    \caption{Taula resum de característiques dels models}
+    \label{tab:caractsModels}
+\end{table}
+\subsection*{Anàlisi de prediccions amb Lime}
+\addcontentsline{toc}{subsection}{Anàlisi de prediccions amb Lime}
 Per tal d'analitzar millor els resultats de les prediccions del model intel·ligent, s'ha utilitzat la llibreria \textit{Lime} per poder obtenir una interpretació visual d'en quines coses es fixa el model a l'hora de fer les prediccions i classificar la imatge en una categoria o una altra.\\
 Per dur a terme l'anàlisi, s'han realitzat dues prediccions per cada classe i s'han guardat tant els resultats visuals com els resultats numèrics.\\
 \textbf{Proves en la categoria \textit{Non-demented}}:
@@ -1099,7 +1121,8 @@ Per dur a terme l'anàlisi, s'han realitzat dues prediccions per cada classe i s
 \end{figure}
 
 Com es pot observar en els resultats numèrics de la classificació, la xarxa neuronal està segura, quasi al 100\%, que les imatges utilitzades per fer la predicció corresponen a la classe \textit{Non demented}, atès que en ambdós casos els percentatges de classificació són superiors al 99\%.\\
-En la interpretació gràfica feta amb la llibreria \textit{Lime}, es pot veure com la xarxa a més de fixar-se en parts interiors del cervell, també es fixa en parts de l'escorça cerebral, però en grau més baix i, finalment, també es fixa en parts que no corresponen al cervell. Com es pot saber a quines parts dona més importància la xarxa per fer una predicció? Per saber-ho solament cal parar compte amb els colors de la interpretació. El color verd indica un nivell d'importància molt elevat per la xarxa, el color groc indica un nivell d'importància mig i el color vermell un nivell d'importància baix.\\
+En la interpretació gràfica feta amb la llibreria \textit{Lime}, es pot veure com la xarxa a més de fixar-se en parts interiors del cervell, també es fixa en parts de l'escorça cerebral, però en grau més baix i, finalment, també es fixa en parts que no corresponen al cervell. Com es pot saber a quines parts dona més importància la xarxa per fer una predicció? Per saber-ho solament cal parar compte amb els colors de la interpretació. El color verd indica un nivell d'importància molt elevat per la xarxa, el color groc indica un nivell d'importància mig i el color vermell un nivell d'importància baix.
+\newpage
 \textbf{Proves en la categoria \textit{Very-mild demented}}:
 \begin{figure}[h!]
     \centering
@@ -1131,7 +1154,9 @@ En la interpretació gràfica feta amb la llibreria \textit{Lime}, es pot veure 
 
 En aquesta segona classe de classificació, \textit{Very-mild demented}, es pot observar un petit descens en els resultats numèrics de les classificacions, cosa que indica que la xarxa pot predir, de manera errònia, imatges de MRI d'aquesta categoria amb una mica més de facilitat.\\
 En l'anàlisi de les interpretacions gràfiques, es pot observar un augment de les zones cerebrals a les quals, la xarxa, dona importància. En la imatge \ref{fig:VMD1} és on més es nota aquest augment de zones verdes. De la mateixa manera que en la categoria classificatòria anterior, es pot observar que la xarxa també dona importància a zones corresponents a l'escorça cerebral i, més o menys, si es compara, les zones importants de l'escorça del cervell són les mateixes.\\
-\textbf{Proves en la categoria \textit{Mild demented}}:
+\newpage
+\textbf{Proves en la categoria \textit{Mild demented}}:\\
+En aquesta ocasió, els percentatges de classificació tornen a enfilar-se cap als 99 alts, quasi arribant al 100\%, però si s'analitzen les interpretacions, es pot observar (sobretot en la imatge \ref{fig:MD1}), un augment significatiu de les zones negres com a zones importants per la xarxa (zones verdes). Cal remarcar que en la imatge \ref{fig:MD2} no hi ha, quasi, zones negres marcades com zones importants, però en altres proves aleatòries que s'han fet, l'augment de les zones negres s'ha pogut observar de manera empírica. Un altre aspecte que cal remarcar és que la xarxa també dona una importància molt alta a determinades zones de l'escorça cerebral per fer les prediccions.
 \begin{figure}[h!]
     \centering
     \begin{subfigure}[b]{0.40\linewidth}
@@ -1159,8 +1184,8 @@ En l'anàlisi de les interpretacions gràfiques, es pot observar un augment de l
     \caption{Interpretacions i resultats de classificació de la classe \textit{Mild demented}}
     \label{fig:MDInterpretacions}
 \end{figure}
+\newpage
 
-En aquesta ocasió, els percentatges de classificació tornen a enfilar-se cap als 99 alts, quasi arribant al 100\%, però si s'analitzen les interpretacions, es pot observar (sobretot en la imatge \ref{fig:MD1}), un augment significatiu de les zones negres com a zones importants per la xarxa (zones verdes). Cal remarcar que en la imatge \ref{fig:MD2} no hi ha, quasi, zones negres marcades com zones importants, però en altres proves aleatòries que s'han fet, l'augment de les zones negres s'ha pogut observar de manera empírica. Un altre aspecte que cal remarcar és que la xarxa també dona una importància molt alta a determinades zones de l'escorça cerebral per fer les prediccions.\\
 \textbf{Proves en la categoria \textit{Moderate demented}}:
 \begin{figure}[h!]
     \centering
@@ -1189,18 +1214,18 @@ En aquesta ocasió, els percentatges de classificació tornen a enfilar-se cap a
     \caption{Interpretacions i resultats de classificació de la classe \textit{Moderate demented}}
     \label{fig:ModDInterpretacions}
 \end{figure}
-
+\newline
 En aquest últim cas de classificació, es poden observar un altre cop prediccions fregant el 100\% en la classificació. En les interpretacions gràfiques s'observa un augment d'importància en zones de l'escorça cerebral que arriben a profunditzar una mica en la imatge del cervell.\\
 Tot i que les zones negres quasi no són rellevants en la interpretació de les prediccions d'aquesta classe classificatòria, la importància d'aquestes zones continua present i, per tant, pot indicar una mala predicció que podria desembocar en un diagnòstic erroni si no es duen a terme les proves mèdiques pertinents.
-\subsubsection*{Detalls tècnics d'implementació}
-\addcontentsline{toc}{subsubsection}{Detalls tècnics d'implementació}
+\subsection*{Detalls tècnics d'implementació}
+\addcontentsline{toc}{subsection}{Detalls tècnics d'implementació}
 Abans de concloure aquesta secció del document cal que s'expliqui l'estructura del codi que s'ha seguit per implementar la proposta de treball des del preprocessament de les dades fins a la conversió del model en un format apte per la seva utilització en un futur sistema.\\
 Com s'ha especificat anteriorment, el codi pertanyent a aquest treball de final de grau s'ha realitzat en una llibreta de \textit{Jupyter} a \textit{Google Drive}.\\
 El primer pas, un cop carregat el \textit{dataset} a l'entorn de treball, és descomprimir-lo atès que solament es poden carregar fitxers comprimits. Per fer-ho es farà servir una comanda típica de línia de comandes (\textit{CMD}) del sistema operatiu.
 \begin{lstlisting}
     !unrar x -Y "content/dataset.rar" "/content/"
 \end{lstlisting}
-El signe d'exclamació, és un indicador, com s'ha esmentat abans, que aquesta comanda és una comanda que s'executa en una \textit{CMD}. La \textit{option} "x" indica a la comanda que es vol extreure el fitxer del qual s'especifica el \textit{path} complet. La \textit{flag} "-Y" indica que durant la descompressió, se sobreescriuran totes les dades a la ruta de destinació.\\
+El signe d'exclamació, és un indicador, com s'ha esmentat abans, que aquesta comanda és una comanda que s'executa en una \textit{CMD}. La \textit{option} \texttt{x} indica a la comanda que es vol extreure el fitxer del qual s'especifica el \textit{path} complet. La \textit{flag} \texttt{-Y} indica que durant la descompressió, se sobreescriuran totes les dades a la ruta de destinació.\\
 Seguidament, s'instal·la la dependència necessària per poder fer una interpretació de les prediccions que fa el model un cop aquest estigui entrenat.\\
 Un cop les dades estan descomprimides, les dependències instal·lades i importades i les rutes als fitxers d'entrenament i validació definides, cal definir una sèrie de paràmetres com les dimensions de les imatges, el nombre de classes de classificació, el nombre d'èpoques que s'entrenarà el model, el paràmetre \textit{batch\_size} i caldrà posar en una llista els noms de les etiquetes. A continuació es mostra un exemple del fragment de codi.
 \begin{lstlisting}
@@ -1212,11 +1237,52 @@ Un cop les dades estan descomprimides, les dependències instal·lades i importa
     label_names = ["MildDemented", "ModerateDemented", "NonDemented", "VeryMildDemented"]
 \end{lstlisting}
 on,
-    \[epochs, batch\_size = \{x, y \forall x \in \mathbf{N} > 0 \land t \in \mathbf{N} > 0\}\]
+    \[epochs = \{x \mid x \in \mathbf{N} \land x > 0 \}\]
+    \[batch\_size = \{y \mid y \in \mathbf{N} \land y > 0 \}\]
 A continuació es creen dos \textit{ImageDataGenerator()}. Un per l'entrenament i l'altre per a la validació. En aquests \textit{ImageDataGenerator()} s'introdueixen les dades de les imatges del directori que correspongui. Aquestes dades són un total de sis: la ruta al directori, les mides, la \textit{batch\_size}, el color, el \textit{class\_mode} i el booleà de mescla.\\
 Quan ja estan els paràmetres definits i les imatges preprocessades, arriba el moment de configurar el model.\\
-El model està definit amb una arquitectura seqüencial per tres raons. La primera és que un model d'arquitectura permet una major flexibilitat que un model d'arquitectura convolucional. És a dir, el fet d'utilitzar diferents tipus de capes, permet construir models complexos i, si s'escau, adaptar-los a altres tasques que no siguin la classificació. La segona raó, és la capacitat de processar seqüències. És a dir, aquests tipus de models són molt útils per dur a terme tasques de processament de seqüències, com per exemple, el reconeixement de veu. La utilització de capes convolucionals, juntament amb altres tipus de capes especialitzades a processar seqüències, dona com a resultat un model capaç d'extreure patrons en els seus \textit{inputs}. La tercera, i última, raó per la qual l'arquitectura del model és seqüencial és la reducció de la complexitat. Els models d'arquitectura convolucional, necessiten molts paràmetres cosa que desemboca en una complexitat elevada, un temps d'entrenament molt prolongat i un major risc d'\textit{overffiting}. Els models seqüencials redueixen aquesta complexitat gràcies a l'ús de les capes de \textit{pooling}. L'ús d'aquestes capes no solament redueix la complexitat del model, sinó que també redueix el temps d'entrenament i millora el rendiment del model.\\
-Un cop definida l'arquitectura, es van afegint les diferents capes de convolució, de normalització, de \textit{pooling} i de regularització. Aquesta combinació de capes es realitza quatre cops i seguidament s'afegeix una capa d'aplanament seguida d'una capa densa, una de normalització, una d'activació, una de regularització i una classificació també densa.\\
+El model està definit amb una arquitectura seqüencial per tres raons. La primera és que un model d'arquitectura lineal permet una major flexibilitat que un model d'arquitectura convolucional. És a dir, el fet d'utilitzar diferents tipus de capes, permet construir models complexos i, si s'escau, adaptar-los a altres tasques que no siguin la classificació. La segona raó, és la capacitat de processar seqüències. És a dir, aquests tipus de models són molt útils per dur a terme tasques de processament de seqüències, com per exemple, el reconeixement de veu. La utilització de capes convolucionals, juntament amb altres tipus de capes especialitzades a processar seqüències, dona com a resultat un model capaç d'extreure patrons en els seus \textit{inputs}. La tercera, i última, raó per la qual l'arquitectura del model és seqüencial és la reducció de la complexitat. Els models d'arquitectura convolucional, necessiten molts paràmetres cosa que desemboca en una complexitat elevada, un temps d'entrenament molt prolongat i un major risc d'\textit{overffiting}. Els models seqüencials redueixen aquesta complexitat gràcies a l'ús de les capes de \textit{pooling}. L'ús d'aquestes capes no solament redueix la complexitat del model, sinó que també redueix el temps d'entrenament i millora el rendiment del model.\\
+Un cop definida l'arquitectura, es van afegint les diferents capes de convolució, de normalització, de \textit{pooling} i de regularització. Aquesta combinació de capes es realitza quatre cops i seguidament s'afegeix una capa d'aplanament seguida d'una capa densa, una de normalització, una d'activació, una de regularització i una classificació també densa. Per tant, la construcció del model queda de la següent manera:
+\begin{lstlisting}
+    model = Sequential()
+
+    # Convolutional layer 1
+    model.add(Conv2D(32, kernel_size=(3, 3), pading="same", activation="relu", strides=1, input_shape=(width_shape, height_shape, 1)))
+    model.add(BatchNormalizartion())
+    model.add(MaxPool2D(pool\_size=(2, 2)))
+    model.add(Dropout(0.2))
+
+    # Convolutional layer 2
+    model.add(Conv2D(64, kernel_size=(5, 5), padding="same", activation="relu", strides=1))
+    model.add(BatchNormalizartion())
+    model.add(MaxPool2D(pool_size=(2, 2)))
+    model.add(Dropout(0.2))
+
+    # Convolutional layer 3
+    model.add(Conv2D(128, kernel_size=(3, 3), padding="same", activation="relu", strides=1))
+    model.add(BatchNormalizartion())
+    model.add(MaxPool2D(pool_size=(2, 2)))
+    model.add(Dropout(0.2))
+
+    # Convolutional layer 4
+    model.add(Conv2D(256, kernel_size=(5, 5), padding="same", activation="relu", strides=1))
+    model.add(BatchNormalizartion())
+    model.add(MaxPool2D(pool_size=(2, 2)))
+    model.add(Dropout(0.2))
+
+    model.add(Flatten())
+
+    # Dense layer
+    model.add(Dense(1024))
+    model.add(BatchNormalizartion())
+    model.add(Activation("relu"))
+    model.add(Dropout(0.2))
+
+    # Classification layer
+    model.add(Dense(num_labels, activation="softmax"))
+\end{lstlisting}
+El fet d'utilitzar la funció d'activació \textit{relu} en les capes que no fan la classificació i la funció \textit{softmax} en la capa de classificació té un sentit. Per la manera de treballar que tenen ambdues funcions d'activació, és pot concloure que l'ús de la funció \textit{relu} en les capes no classificatòries ajuda a aprendre les diferents representacions complexes que tenen les dades. L'ús de la funció \textit{softmax} en la capa que realitza la classificació, proporciona com \textit{output} una distribució de probabilitats, és a dir, aquesta funció proporciona una repartició de les probabilitats, que té una entrada, a pertànyer a una de les classes de classificació.\\
+Si es desitja obtenir més informació de les funcions \href{https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/}{\underline{\textit{relu}}} i \href{https://interactivechaos.com/es/manual/tutorial-de-machine-learning/regresion-softmax}{\underline{\textit{softmax}}}, consultar els enllaços proporcionats.
 En aquest punt, el model ja està definit i llest per la compilació i l'entrenament, per tant, en primer lloc, es compilarà el model amb la crida \textit{model.compile()} i l'optimitzador Adam. Aquest optimitzador combina les propietats dels optimitzadors de descens de gradient estocàstic (SGD) i de l'estimador adaptatiu de moments (RMSProp). Adam, en primer lloc, inicialitza una taxa d'aprenentatge i els pesos inicials del model intel·ligent. Seguidament, realitza el càlcul dels gradients (necessàri per aplicar els pesos a les neurones) del model basant-se en la funció de pèrdua utilitzant la tècnica de retropropagació. El funcionament d'aquesta tècnica costa de quatre passos bàsics:
 \begin{enumerate}
     \item La capa d'entrada rep l'\textit{input} que ha de ser processat.
@@ -1248,14 +1314,14 @@ Tot seguit es realitza un test amb una imatge aleatòria. Per dur a terme aquest
     print("Non-demented: " + str(percentages[2] + "%")
     print("Very mildly demented: " + str(percentages[3] + "%")
 \end{lstlisting}
-\newpage
 Primerament, la imatge seleccionada es converteix en una imatge en escala de grisos. En segon lloc, es redimensiona a les mides esperades pel model. Seguidament, es transforma la imatge en un \textit{numpy-array} perquè el model la pugui processar. La quarta operació que es realitza abans de fer la predicció és afegir una nova dimensió en la posició 0 del \textit{numpy-array} (axis = 0) que prendrà per valor el de la \textit{batch\_size} atès que el model espera una entrada del tipus: (\textit{batch\_size}, \textit{height}, \textit{width}, \textit{channels}), on el paràmetre \textit{channels} és un identificador que especifica si la imatge és en blanc i negre (1) o en color (3). Un cop fetes totes aquestes operacions, la imatge de test ja està adaptada al tipus d'entrada que espera el model i, per tant, ja es pot fer la predicció. Finalment, es treu per pantalla la predicció més elevada, juntament amb el tant per cent. A més de treure la predicció més alta, també es treuen per pantalla la resta de les possibles classificacions juntament amb els tant per cent que la xarxa els hi ha atorgat.
 Finalment, abans de guardar el model en un fitxer per la seva posterior integració en un sistema, per tenir una mica més clar com fa les prediccions el model s'utilitza la llibreria \textit{Lime} per obtenir una interpretació gràfica de les prediccions.\\
 Aquest pas es basa en, un cop creat l'explicador, preprocessar l'entrada de la qual es vol obtenir l'explicació realitzar i realitzar la predicció tot aplicant una màscara desitjada. Per fer obtenir l'explicació s'usarà la funció \textit{explain\_instance()} i per obtenir la imatge amb la màscara s'usarà la funció \textit{get\_image\_and\_mask()} El resultat es veurà com les imatges \ref{fig:NDInterpretacions}, \ref{fig:VMDInterpretacions}, \ref{fig:MDInterpretacions} i \ref{fig:ModDInterpretacions}.\\
+\newline
 Finalment, el model es guardarà en un fitxer \textit{.h5} que servirà per integrar-lo en un sistema. Aquest tipus de fitxer guarda totes les dades necessàries del model per poder-lo utilitzar en un futur.
-\section*{Conclusions}
-\addcontentsline{toc}{section}{Conclusions}
-Per concloure aquesta investigació, cal presentar quines conclusions s'han extret d'aquesta.\\
+\chapter*{Conclusions}
+\addcontentsline{toc}{chapter}{Conclusions}
+Per concloure aquesta investigació, cal presentar quines conclusions s'han extret d'aquesta durant aquest període de quasi un any de feina.\\
 La primera de les conclusions és, que la malaltia d'Alzheimer és una malaltia molt més comuna del que una persona es pot pensar i que tot i tenir una llarga història d'investigació i dures batalles per trobar-ne totes les causes, en ple segle XXI després de més de cent anys del seu descobriment, aquesta malaltia continua sent una gran desconeguda en alguns aspectes referents a factors condicionants a patir-la.\\
 La segona conclusió, és que tot i que des de l'any 1901 s'ha avançat molt en la lluita contra l'Alzheimer, encara no hi ha cap medicina específica per tractar la malaltia, solament hi ha medicines per tractar els símptomes.\\
 Com a tercera conclusió s'extreu que, tant l'herència genètica com l'estil de vida són factors molt importants per saber si una persona té un risc superior, al de la resta de la població, de patir Alzheimer.\\ 
@@ -1267,248 +1333,261 @@ La vuitena conclusió és que gràcies a grans informàtics com \textit{Stuart R
 La conclusió número deu és que la IA té molts avantatges i facilita i accelera molts processos que als humans ens porten un determinat temps i un determinat esforç mental. Tot i que aquesta tècnica de voler reproduir la intel·ligència humana en màquines té una part bona molt extensa, també té la seva part fosca i existeix la possibilitat futura que quan els sistemes intel·ligents desenvolupin una consciència pròpia, els humans siguem incapaços de controlar aquests sistemes.\\
 L'onzena conclusió és que per molt que una persona tingui coneixements sobre un tema concret, mai es té prou saber per a dur a terme una investigació sense trobar-se amb algun repte pel camí. En el cas d'aquesta investigació es poden observar els reptes trobats en la següent secció d'aquest document.\\
 En dotzè lloc, es pot extreure la conclusió que de vegades és més senzill interpretar els resultats d'un experiment determinat de manera gràfica que de manera numèrica. En el cas d'aquesta recerca, fins que no s'han observat, de manera gràfica, les dades resultants dels entrenaments dels diferents experiments, no s'ha pogut assegurar quines versions dels models estaven en situació d'\textit{overffiting}.\\
-Seguint amb les conclusions de la part computacional d'aquest treball de final de grau, la tretzena, i última, conclusió extreta, és que un petit canvi en algun dels paràmetres del model, siguin hiperparàmetres, un canvi del conjunt de dades, un canvi de les funcions d'activació de les capes, un canvi en el nombre de filtres de les capes convolucionals, etc., comporta un canvi notable en el rendiment final del model.
-\section*{Reptes i dificultats durant la realització del TFG}
-\addcontentsline{toc}{section}{Reptes i dificultats durant la realització del TFG}
+Seguint amb les conclusions de la part computacional d'aquest treball de final de grau, la tretzena, i penúltima, conclusió extreta, és que un petit canvi en algun dels paràmetres del model, siguin hiperparàmetres, un canvi del conjunt de dades, un canvi de les funcions d'activació de les capes, un canvi en el nombre de filtres de les capes convolucionals, etc., comporta un canvi notable en el rendiment final del model.\\
+La catorzena, i última, conclusió, és referent a les interpretacions de les prediccions amb Lime. Com s'ha comentat amb anterioritat, hi ha algunes imatges en les quals, la xarxa neuronal, pren com a importants zones negres que res tenen a veure amb la imatge del cervell, per tant, això és un aspecte que caldria corregir en futures implementacions, i encara s'hauria de corregir amb més precisió si aquest model intel·ligent s'hagués d'utilitzar en els hospitals. En conseqüència, tot i que moltes de les zones que es prenen com a rellevants són correctes (són zones del cervell) caldria continuar corregint el model fins que les interpretacions indiquin que no es prenen zones negres com a zones importants.
+\chapter*{Reptes i dificultats durant la realització del TFG}
+\addcontentsline{toc}{chapter}{Reptes i dificultats durant la realització del TFG}
 La realització d'aquesta investigació no ha estat del tot fàcil atès que s'ha hagut de batallar amb alguns problemes tant pel que fa a informació teòrica, com a escala d'implementació com en l'àmbit de redacció.\\
 En l'àmbit de la cerca d'informació el principal repte ha estat el contrast de la informació que s'anava trobant. Ha estat una dificultat perquè a la xarxa hi ha molta informació sobre un mateix tema, molt variada i, de vegades, contradictòria. Per tant, el contrast de tota la informació que s'anava cercant era molt important per assegurar-se de no donar com a informació verídica quelcom que no és veritat.\\
 La part d'implementació, tot i els meus coneixements previs sobre aprenentatge automàtic, també ha estat un repte important, instructor però, per sobre de tot, bonic. Els meus coneixements previs de \textit{Machine Learning} eren bastant limitats pel que fa a xarxes convolucionals i, conseqüentment, no coneixia del tot bé com funcionava l'estructura d'aquesta arquitectura. Gràcies a la xarxa i als meus amics ha estat possible conèixer prou per a culminar amb èxit aquest estudi.\\
 Una altra dificultat d'implementació de la proposta ha estat la llibreria \textit{Lime}. Aquesta llibreria era una completa desconeguda per mi. Per tant, després d'una lectura, a fons, de la documentació i de veure alguns exemples de codi la integració d'aquest mètode per interpretar les prediccions del model ha estat senzilla.\\
 Finalment, l'últim dels reptes més grans ha estat en el moment de la redacció de la memòria en LaTeX. Tot i els meus amplis, però no en excés, del llenguatge de redacció de documents m'he anat trobant alguns problemes en relació amb, per exemple, la representació gràfica de dades, la introducció de dues imatges en una sola figura, l'adheriment d'un document PDF (la plantilla portada) al document LaTeX i tenir una sèrie d'índexs (continguts, figures i taules) que superen la pàgina.\\
 L'últim problema amb què m'he topat, tot i ser un problema de menor calibre, és un problema important. El problema era la correcta redacció d'una referència bibliogràfica (referència a un llibre). Desconeixia si hi ha alguna metodologia específica per fer-ho. Ara ja sé que l'ordre correcte és: autor/a, títol, publicador, any.
-\section*{Annexos}
-\addcontentsline{toc}{section}{Annexos}
-
-\subsection*{Annex I: Síndrome plurietològic}
-\addcontentsline{toc}{subsection}{Annex I: Síndrome plurietològic}
+\chapter*{Glossari}
+\addcontentsline{toc}{chapter}{Glossari}
+\section*{Glossari I: Síndrome plurietològic}
+\addcontentsline{toc}{section}{Glossari I: Síndrome plurietològic}
 Una síndrome és un conjunt de símptomes amb personalitat clínica acusada. És a dir, és un grup de símptomes o afeccions que es presenten de manera conjunta en un individu i que suggereixen la presència d'una certa malaltia o una major probabilitat de patir una malaltia. Una síndrome és plurietològic quan els símptomes o afeccions que la caracteritzen poden ser produïdes per diverses causes. Gràcies a aquestes diverses causes, es poden diferenciar les formes primàries i secundàries d'un mateix síndrome. Les formes primàries són aquelles síndromes que no es poden relacionar amb cap afecció coneguda, mentre que les formes secundàries, són aquelles síndromes que estan vinculades, com a mínim, a una malaltia coneguda.
-\subsection*{Annex II: Acetilcolina}
-\addcontentsline{toc}{subsection}{Annex II: Acetilcolina}
+\section*{Glossari II: Acetilcolina}
+\addcontentsline{toc}{section}{Glossari II: Acetilcolina}
 L'acetilcolina és una substància química que elaboren algunes neurones. Aquesta substància serveix per enviar missatges a altres cèl·lules. S'allibera per la terminació del nervi i porta senyals a les cèl·lules que estan a l'altra banda d'una sinapsi (espai entre les cèl·lules nervioses i altres cèl·lules). Aquesta substància ajuda a controlar la memòria i l'accionat de certs músculs. L'acetilcolina fou el primer neurotransmissor descobert.
-\subsection*{Annex III: Arrítmia cardíaca}
-\addcontentsline{toc}{subsection}{Annex III: Arrítmia cardíaca}
+\section*{Glossari III: Arrítmia cardíaca}
+\addcontentsline{toc}{section}{Glossari III: Arrítmia cardíaca}
 Una arrítmia cardíaca o arrítmia és un trastorn de la freqüència cardíaca (pols) o del ritme cardíac. Aquest trastorn té dues variants diferents. El primer és la taquicàrdia que és quan el cor batega massa ràpid, i el segon és la bradicàrdia que és quan el cor batega massa lent o de manera irregular.
-\subsection*{Annex IV: Neurotransmissor}
-\addcontentsline{toc}{subsection}{Annex IV: Neurotransmissor}
+\section*{Glossari IV: Neurotransmissor}
+\addcontentsline{toc}{section}{Glossari IV: Neurotransmissor}
 Els neurotransmissors són les substàncies que utilitzen les neurones per poder comunicar-se entre elles i per poder-se comunicar amb altres teixits sobre els quals actuaran en el procés de sinapsi. Els neurotransmissors se sintetitzen i s'alliberen a les terminacions nervioses a l'altura de l'espai sinàptic. Després de la seva alliberació, es lliguen a diferents proteïnes a la membrana cel·lular del teixit diana i aquest pot excitar-se, inhibir-se o modificar-se funcionalment.
-\subsection*{Annex V: FDA}
-\addcontentsline{toc}{subsection}{Annex V: FDA}
+\section*{Glossari V: FDA}
+\addcontentsline{toc}{section}{Glossari V: FDA}
 FDA són les sigles de l'administració d'aliments i fàrmacs dels Estats Units (\textit{Food and drug administration} en anglès). La FDA és la màxima autoritat sanitària del país i s'encarrega de la regularització d'aliments, medicines (humanes i veterinàries), cosmètics, vacunes, etc. Per tant, si s'engloba tot en un sol grup, es podria dir que la FDA és l'organització governamental encarregada de vetllar per la salut pública.
-\subsection*{Annex VI: Glutamat}
-\addcontentsline{toc}{subsection}{Annex VI: Glutamat}
+\section*{Glossari VI: Glutamat}
+\addcontentsline{toc}{section}{Glossari VI: Glutamat}
 El glutamat és una substància que utilitzen moltes empreses per potenciar el sabor dels aliments i que en el cos humà actua com un neurotransmissor excitador. A més de ser el neurotransmissor més abundant del cervell d'un animal vertebrat, és el neurotransmissor que s'utilitza en totes les funcions importants del cervell i representa un 90\% de les connexions sinàptiques del cervell humà.
-\subsection*{Annex VII: Proteïna beta-amiloide}
-\addcontentsline{toc}{subsection}{Annex VII: Proteïna beta-amiloide}
+\section*{Glossari VII: Proteïna beta-amiloide}
+\addcontentsline{toc}{section}{Glossari VII: Proteïna beta-amiloide}
 La proteïna beta-amiloide és un aminoàcid d'entre 36 i 43 aminoàcids de llarg processat a partir d'un precursor de la proteïna amiloide, que és una proteïna transmembrana. És la principal component de les plaques senils i, per tant, tot i que aquesta proteïna es produeix de manera natural en el cervell, l'acumulació en forma de plaques amiloides és un dels moduladors de l'Alzheimer.
-\subsection*{Annex VIII: Edema cerebral}
-\addcontentsline{toc}{subsection}{Annex VIII: Edema cerebral}
+\section*{Glossari VIII: Edema cerebral}
+\addcontentsline{toc}{section}{Glossari VIII: Edema cerebral}
 Un edema cerebral és una inflamació del teixit tou cerebral provocada per una acumulació de líquid en les cèl·lules cerebrals. Aquest trastorn causa un augment de la pressió intracranial, cosa que desemboca en una falta d'oxigenació i degeneració cel·lular que pot provocar la mort.
-\subsection*{Annex IX: Hemosiderina}
-\addcontentsline{toc}{subsection}{Annex IX: Hemosiderina}
-L'hemosiderina és un pigment groguenc i d'aspecte granulós que deriva de l'hemoglobina quan hi ha un excés de ferro al cos.
-\subsection*{Annex X: MRI}
-\addcontentsline{toc}{subsection}{Annex X: MRI}
+\section*{Glossari IX: Hemosiderina}
+\addcontentsline{toc}{section}{Glossari IX: Hemosiderina}
+L'hemosiderina és un pigment (material que canvia el color de la llum que reflecteix) groguenc i d'aspecte granulós que deriva de l'hemoglobina quan hi ha un excés de ferro al cos.
+\section*{Glossari X: MRI}
+\addcontentsline{toc}{section}{Glossari X: MRI}
 MRI són les sigles en anglès de \textit{Magnetic Resonance Imaging}, que significa imatge per ressonància magnètica. Un MRI és una tecnologia de presa d'imatges anatòmiques detallades tridimensionals. És un procediment no invasiu utilitzat per la detecció de malalties, diagnosi i monitoratge de tractaments. Es basa en una sofisticada tecnologia que excita i detecta el canvi de direcció de l'eix de rotació dels protons que es troben a l'aigua que formen els teixits.
-\subsection*{Annex XI: Historial clínic}
-\addcontentsline{toc}{subsection}{Annex XI: Historial clínic}
+\section*{Glossari XI: Historial clínic}
+\addcontentsline{toc}{section}{Glossari XI: Historial clínic}
 L'historial clínic d'un pacient és un conjunt de documents relatius als processos assistencials d'aquell pacient on s'identifiquen els metges i altres professionals que han intervingut en els diferents processos. L'objectiu d'un historial clínic és obtenir la màxima integració possible de la documentació clínica de cada pacient.
-\subsection*{Annex XII: Emil Kraepelin}
-\addcontentsline{toc}{subsection}{Annex XII: Emil Kraepelin}
+\section*{Glossari XII: Emil Kraepelin}
+\addcontentsline{toc}{section}{Glossari XII: Emil Kraepelin}
 El Dr. Kraepelin va ser un psiquiatre alemany que va viure entre finals del segle XIX i principis del XX. La seva manera d'entendre les malalties mentals basant-se en conceptes científics naturals va tenir un gran impacte en la psiquiatria actual. De fet, el Dr. Kraepelin és considerat el pare de la psiquiatria científica moderna, la psicofarmacologia i la genètica psiquiàtrica.\\
 Una de les aportacions més importants del doctor al món de la psiquiatria va ser la identificació i distinció del trastorn maniàtic depressiu i de la demència precoç (més tard anomenada esquizofrènia). Va considerar que la depressió maníaca era un trastorn episòdic no neurodegeneratiu mentre que l'esquizofrènia provocava un deteriorament cognitiu permanent. El Dr. Kraepelin va establir que la diferència entre aquestes dues formes de psicosi es trobava en el patró dels símptomes i no en la semblança.
-\subsection*{Annex XIII: Espaitemps}
-\addcontentsline{toc}{subsection}{Annex XIII: Espaitemps}
+\section*{Glossari XIII: Espaitemps}
+\addcontentsline{toc}{section}{Glossari XIII: Espaitemps}
 El terme espaitemps fou usat per primer cop l'any 1908 pel matemàtic alemany Hermann Minkowski. Aquest terme fusiona els termes newtonians absoluts de l'espai i del temps en un nou constructe tetradimensional on les tres primeres dimensions eren les tres dimensions ordinàries de l'espai i la quarta dimensió representava el temps.\\
 En la concepció original, el temps, és geomètricament pla, però matemàticament és bastant curiós perquè, el temps, es comporta com una coordenada espacial però amb valors complexos. Gràcies a la teoria de la relativitat general d'Einstein que introduí l'efecte gravitacional, va sorgir la suposició que l'espaitemps de Minkowski no era pla, sinó que estava corbat.
-\subsection*{Annex XIV: Autòpsia}
-\addcontentsline{toc}{subsection}{Annex XIV: Autòpsia}
+\section*{Glossari XIV: Autòpsia}
+\addcontentsline{toc}{section}{Glossari XIV: Autòpsia}
 Una autòpsia és l'examinació detallada d'unes restes mortals. Aquest procés pot servir per múltiples aspectes com esbrinar quelcom sobre una malaltia o lesió o, també, per esbrinar com i per què ha mort la persona a la qual se li practica aquest procediment.\\
 Les autòpsies les duen a terme metges especialitzats anomenats patòlegs forenses que són experts en examinar teixits i líquids corporals, cosa que els permet interpretar descobriments post-mortem i recopilar dades forenses sobre la mort d'aquella persona en els casos de mort violenta o sospitosa. Normalment, treballen juntament amb altres especialistes com toxicòlegs o antropòlegs forenses per esbrinar de manera precisa les causes de la mort d'una persona.
-\subsection*{Annex XV: Proteïna Tau}
-\addcontentsline{toc}{subsection}{Annex XV: Proteïna tau}
+\section*{Glossari XV: Proteïna Tau}
+\addcontentsline{toc}{section}{Glossari XV: Proteïna tau}
 Juntament amb la proteïna beta-amiloide (anteriorment descrita) són dues proteïnes directament relacionades amb l'Alzheimer que tenen quatre funcions principals. La primera és mantenir l'estructura micro tubular. El micro tubs són unes estructures que es troben a l'interior de les cèl·lules, a través de les quals es transmet la informació i es permet el moviment dels axons (estructures nervioses que transmeten els impulsos nerviosos entre les cèl·lules nervioses) de les neurones. La segona funció que tenen és participar en la formació de noves neurones (procés anomenat neurogènesi). La tercera funcionalitat és la regulació dinàmica micro tubular i, la quarta i última funcionalitat és protegir contra la degeneració neuronal i la mort cel·lular.
-\subsection*{Annex XVI: Biomedicina}
-\addcontentsline{toc}{subsection}{Annex XVI: Biomedicina}
+\section*{Glossari XVI: Biomedicina}
+\addcontentsline{toc}{section}{Glossari XVI: Biomedicina}
 La biomedicina és una disciplina que aplica tècniques de l'enginyeria a les ciències de la vida. La biomedicina es dedica principalment al dissenyat i construcció d'eines i tecnologia com, per exemple, equipaments mèdics, pròtesis, dispositius de teràpia, etc. També es pot dedicar a estudiar i preparar dissenys d'equips electrònics per a hospitals, imatges de raigs X, etc.\\
 La biomedicina té la capacitat de fer que els metges, a més de ser metges, siguin també científics gràcies a la incorporació de coneixements en matèries de química, biologia, física i matemàtiques.\\
 Els tres elements que units resulten en la biomedicina són: l'enginyeria informàtica i les ciències de la computació per al processament de dades, l'enginyeria electrònica per a poder desenvolupar circuits electrònics per a l'adquisició de dades i així, juntament amb la informàtica, crear solucions \textit{hardware} i \textit{software} i, per últim, el tercer pilar de la biomedicina són les ciències de la vida (ciències que estudien els éssers vius).
-\subsection*{Annex XVII: APOE E-4}
-\addcontentsline{toc}{subsection}{Annex XVII: APOE E-4}
-La versió E4 del gen APOE incrementa el risc individual de desenvolupar de manera tardana la malaltia d'Alzheimer.\\
+\section*{Glossari XVII: APOE E-4}
+\addcontentsline{toc}{section}{Glossari XVII: APOE E-4}
+E-4 és una versió del gen APOE que incrementa el risc individual d'un ésser humà de desenvolupar, de manera tardana, la malaltia d'Alzheimer.\\
 El gen APOE proporciona instruccions per fer una proteïna anomenada apolipoproteïna E. Aquesta proteïna es combina amb els greixos del cos per formar molècules anomenades lipoproteïnes i aquestes són les que s'encarreguen de transportar el colesterol i altres grasses pel sistema circulatori.\\
 Existeixen, com a mínim tres versions (al·lels) d'aquest gen. Els principals s'anomenen E2, E3 i E4 sent l'E3 el més comú.
-\subsection*{Annex XVIII: Gen}
-\addcontentsline{toc}{subsection}{Annex XVIII: Gen}
+\section*{Glossari XVIII: Gen}
+\addcontentsline{toc}{section}{Glossari XVIII: Gen}
 Els gens són considerats la unitat bàsica de l'herència que passa de pares a fills. Els gens són segments de l'ADN d'una persona; la majoria dels gens contenen informació per elaborar una proteïna específica o segments de proteïnes, que tenen diferents funcionalitats en el cos de les persones. En ells també es pot trobar la informació necessària per determinar característiques físiques i biològiques d'una persona com el seu gènere, color de pell, color d'ulls i informació que predisposi a una persona a patir una malaltia, entre altres informacions variades.
-\subsection*{Annex XIX: Mutació genètica}
-\addcontentsline{toc}{subsection}{Annex XIX: Mutació genètica}
-Una mutació genètica és un canvi en un o més gens poden, algun d'aquests canvis, provocar malalties. És a dir, una mutació genètica és una alteració en la seqüència de l'ADN.
-\subsection*{Annex XX: Traumatisme cranial}
-\addcontentsline{toc}{subsection}{Annex XX: Traumatisme cranial}
+\section*{Glossari XIX: Mutació genètica}
+\addcontentsline{toc}{section}{Glossari XIX: Mutació genètica}
+Una mutació genètica és un canvi en un o més gens podent, algun d'aquests canvis, provocar diferents malalties. És a dir, una mutació genètica és una alteració en la seqüència de l'ADN.
+\section*{Glossari XX: Traumatisme cranial}
+\addcontentsline{toc}{section}{Glossari XX: Traumatisme cranial}
 Un traumatisme cranial és qualsevol traumatisme (lesió produïda per un cop amb un objecte contundent)
  que es produeix al cuir cabellut, el crani o el cervell. Existeixen dos tipus de traumatismes cranials. El traumatisme cranial tancat, que és aquell en què l'impacte no arriba a trencar el crani i el traumatisme cranial obert que és aquell en què el cop arriba a trencar el crani i penetra fins al cervell.
-\subsection*{Annex XXI: Desordre neurodegeneratiu}
-\addcontentsline{toc}{subsection}{Annex XXI: Desordre neurodegeneratiu}
+\section*{Glossari XXI: Desordre neurodegeneratiu}
+\addcontentsline{toc}{section}{Glossari XXI: Desordre neurodegeneratiu}
 Un desordre neurodegeneratiu és una malaltia en la qual les cèl·lules del cervell i la mèdula espinal deixen de funcionar o moren. Normalment, aquests trastorns van a pitjor amb el pas del temps i no tenen cura. Hi ha tres factors, naturals, que els poden causar: herència genètica, tumors o els ictus. Tabé poden ser causats per factor artificials com l'alcoholisme i l'exposició a virus i toxines.
-\subsection*{Annex XXII: Simptomatologia}
-\addcontentsline{toc}{subsection}{Annex XXII: Simptomatologia}
-S'anomena simptomatologia a un conjunt de síntomes que quan es manifesten tots junts es relacionen amb una dolència.\\
-Un simptoma és una manifestació indicadora d'una malaltia.
-\subsection*{Annex XXIII: Demència vascular}
-\addcontentsline{toc}{subsection}{Annex XXIII: Demència vascular}
-La demència vascular és la segona causa de demència després de l'Alzheimer, suposant entre un 15\% i un 20\% dels casos de demència.\\
+\section*{Glossari XXII: Simptomatologia}
+\addcontentsline{toc}{section}{Glossari XXII: Simptomatologia}
+S'anomena simptomatologia a un conjunt de síntomes que quan es manifesten tots junts es relacionen amb una dolència. Un simptoma és una manifestació indicadora d'una malaltia.
+\section*{Glossari XXIII: Demència vascular}
+\addcontentsline{toc}{section}{Glossari XXIII: Demència vascular}
+La demència vascular és la segona causa de demència després de l'Alzheimer, suposant entre un 15\% i un 20\% dels casos totals diagnosticats de demència.\\
 Aquest tipus de demència és el resultat de diverses afeccions, com per exemple, els ictus que interrompen el flux sanguini que va cap al cervell. Aquest fet desemboca en problemes amb la memòria, el pensament, el raonament i el comportament. La característica principal d'aquesta demència és que pot desenvolupar-se tota sola o juntament amb algun altre tipus de demència, per tant, seria perfectament possible ser diagnosticat amb demència vascular i Alzheimer.
-\subsection*{Annex XXIV: Demència amb cossos de Lewy}
-\addcontentsline{toc}{subsection}{Annex XXIV: Demència amb cossos de Lewy}
+\section*{Glossari XXIV: Demència amb cossos de Lewy}
+\addcontentsline{toc}{section}{Glossari XXIV: Demència amb cossos de Lewy}
 La demència amb cossos de Lewy causa un deteriorament, progressiu, de les capacitats mentals. Les persones que són diagnosticades amb aquesta demència, podent patir al·lucinacions visuals, canvis en l'atenció i moments de confusió (disminució de la lucidesa mental). Altres símptomes poden ser la rigidesa muscular, lentitud de moviments i tremolor.\\
 Aquesta demència es desenvolupa quan els dipòsits de proteïnes, anomenades cossos de Lewy, es desenvolupen en les cèl·lules de les regions cerebrals que tenen el control motor del cos.
-\subsection*{Annex XXV: Demència frontotemporal}
-\addcontentsline{toc}{subsection}{Annex XXV: Demència frontotemporal}
+\section*{Glossari XXV: Demència frontotemporal}
+\addcontentsline{toc}{section}{Glossari XXV: Demència frontotemporal}
 La demència frontotemporal és un grup de trastorns que afecten els lòbuls frontal i temporal del cervell. Aquestes dues àrees del cervell són les associades amb la personalitat, la conducta i la parla.\\
 En aquest tipus de demència, aquests lòbuls s'atrofien i, per tant, els símptomes varien segons quina és la regió del lòbul atrofiada.\\
 Alguns dels símptomes poden ser: canvis dramàtics en la personalitat, desenvolupar una conducta socialment inapropiada, impulsivitat, perdre la capacitat d'utilitzar correctament una llengua.\\
 Aquesta demència pot ser confosa amb l'Alzheimer, però hi ha un factor que decanta la balança cap a la demència frontotemporal, l'edat. Aquesta demència tendeix a aparèixer en edats més primerenques que l'Alzheimer. Aproximadament entre un 10\% i un 20\% dels casos de demència són casos de demència frontotemporal.
-\subsection*{Annex XXVI: Demència mixta}
-\addcontentsline{toc}{subsection}{Annex XXVI: Demència mixta}
+\section*{Glossari XXVI: Demència mixta}
+\addcontentsline{toc}{section}{Glossari XXVI: Demència mixta}
 La demència mixta és un tipus de demència que es caracteritza per presentar símptomes típics de més d'un tipus de demència. Sovint solen ser l'Alzheimer i la demència vascular. De vegades també hi poden haver símptomes de demència amb cossos de Lewy.
-\subsection*{Annex XXVII: Deteriorament cognitiu}
-\addcontentsline{toc}{subsection}{Annex XXVII: Deteriorament cognitiu}
+\section*{Glossari XXVII: Deteriorament cognitiu}
+\addcontentsline{toc}{section}{Glossari XXVII: Deteriorament cognitiu}
 El deteriorament cognitiu són les alteracions que té una persona en el seu pensament, la seva capacitat per aprendre, la memòria, el judici i la presa de decisions. Els senyals que indiquen que una persona pateix aquesta afecció són la pèrdua de memòria, la dificultat per mantenir la concentració, completar activitats, comprendre, seguir unes instruccions, solucionar problemes de la vida quotidiana, canvis conductuals, pèrdua de motivació i desorientació. Algunes de les causes més comunes que provoquen el deteriorament cognitiu són el càncer i alguns dels seus tractaments.
-\subsection*{Annex XXVIII: Dieta mediterrània}
-\addcontentsline{toc}{subsection}{Annex XXVIII: Dieta mediterrània}
+\section*{Glossari XXVIII: Dieta mediterrània}
+\addcontentsline{toc}{section}{Glossari XXVIII: Dieta mediterrània}
 La dieta mediterrània és una dieta amb una menor quantitat de carns i carbohidrats que una dieta típica dels Estats Units. També té més quantitat de vegetals i greixos monoinsaturats (greixos bons).\\
 Seguir una dieta d'estil mediterrani pot suposar una estabilització dels nivells de sucre en sang, una disminució del colesterol i dels triglicèrids i un menor risc al desenvolupament d'afeccions cardíaques.
-\subsection*{Annex XXIX: Dieta DASH}
-\addcontentsline{toc}{subsection}{Annex XXIX: Dieta DASH}
+\section*{Glossari XXIX: Dieta DASH}
+\addcontentsline{toc}{section}{Glossari XXIX: Dieta DASH}
 La dieta DASH és una dieta baixa en sal i alta en fruites, verdures, grans integrals i làctis baixos en greixos i proteïnes magres. La paraula DASH són unes sigles que corresponen a \textit{Dietary Approaches to Stop Hypertension}, que en català significa: "Enfocaments alimetàris per parar la hipertensió". Aquesta dieta es va crear, originalment, per ajudar a aquelles persones amb hipertensió a a reduir la pressió arterial. També és una manera saludable de perdre pes.
-\subsection*{Annex XXX: Metge de capçalera}
-\addcontentsline{toc}{subsection}{Annex XXX: Metge de capçalera}
+\section*{Glossari XXX: Metge de capçalera}
+\addcontentsline{toc}{section}{Glossari XXX: Metge de capçalera}
 El metge de capçalera és un metge pertanyent a l'atenció primària d'un sistema de salut públic que atèn a les persones amb dolències comunes. Normalment, un metge de capçalera és una persona amb una titulació de medicina, però, també pot ser un assistent mèdic o una persona que sigui professional de l'infermeía. El metge de capçalera és qui donarà tractaments als pacients durant un període de temps prolongat.
-\subsection*{Annex XXXI: Diagnòstic diferencial}
-\addcontentsline{toc}{subsection}{Annex XXXI: Diagnòstic diferencial}
-Un diagnòstic diferencial és un procediment d'identificació d'una determinada condició mèdica d'un pacient mitjançant l'exclusió d'altres dolències que presentin un quadre clínic similar.
-\subsection*{Annex XXXII: Neurologia}
-\addcontentsline{toc}{subsection}{Annex XXXII: Neurologia}
-La neurologia és la rama de la medicina que s'ocupa de l'estudi del sistema nerviós i de les malalties del cervell, la mèdula espinal, els nervis perifèrics i els músculs.\\
+\section*{Glossari XXXI: Diagnòstic diferencial}
+\addcontentsline{toc}{section}{Glossari XXXI: Diagnòstic diferencial}
+Un diagnòstic diferencial és un procediment d'identificació d'una determinada condició mèdica d'un pacient mitjançant l'exclusió d'altres mals que presentin un quadre clínic similar.
+\section*{Glossari XXXII: Neurologia}
+\addcontentsline{toc}{section}{Glossari XXXII: Neurologia}
+La neurologia és la branca de la medicina que s'ocupa de l'estudi del sistema nerviós i de les malalties del cervell, la medul·la espinal, els nervis perifèrics i els músculs.\\
 Considerada per molts l'especialitat per excel·lència, la neurologia és un dels camps mèdics que més s'ha desenvolupat en els últims anys gràcies als avenços en el camp de les neurociències.
-\subsection*{Annex XXXIII: Psiquiatria}
-\addcontentsline{toc}{subsection}{Annex XXXIII: Psiquiatria}
+\section*{Glossari XXXIII: Psiquiatria}
+\addcontentsline{toc}{section}{Glossari XXXIII: Psiquiatria}
 La psiquiatria és la rama de la medicina que es dedica a estudiar, diagnosticar i tractar trastorns mentals. Aquesta àrea de la medicina també s'ocupa dels trastorns de comportament, de les adiccions i de promocionar la salut mental.
-\subsection*{Annex XXXIV: Psicologia}
-\addcontentsline{toc}{subsection}{Annex XXXIV: Psicologia}
+\section*{Glossari XXXIV: Psicologia}
+\addcontentsline{toc}{section}{Glossari XXXIV: Psicologia}
 La psicologia és una ciència social enfocada a l'estudi i comprensió del comportament humà i dels processos mentals experimentats per les persones i pels grups socials en moments i situacions concretes mitjançant diferents perspectives i metodologies. Algunes d'aquestes perspectives i metodologies tendeixen a aplicar de manera més "pura" el mètode científic mentre que d'altres construeixen metodologies pròpies.
-\subsection*{Annex XXXV: Patologia}
-\addcontentsline{toc}{subsection}{Annex XXXV: Patologia}
+\section*{Glossari XXXV: Patologia}
+\addcontentsline{toc}{section}{Glossari XXXV: Patologia}
 La patologia o anatomia patològica és l'àmbit de la medicina que es dedica a conèixer i explicar, de manera racional i científica, les condicions que desemboquen en un estat anormal de l'organisme, sostenint els estudis en els següents aspectes: causes, mecanismes de producció, canvis estructurals en les cèl·lules, teixits i òrgans i les conseqüències d'aquests canvis expressades com símptomes.
-\subsection*{Annex XXXVI: Stuart Russell}
-\addcontentsline{toc}{subsection}{Annex XXXVI: Stuart Russell}
+\section*{Glossari XXXVI: Stuart Russell}
+\addcontentsline{toc}{section}{Glossari XXXVI: Stuart Russell}
 Stuart Jonathan Russell és un informàtic teòric, nascut l'any 1962 a Portmout, Anglaterra, Regne Unit. És professor de ciències de la computació a la Universitat de Califòrnia de Berkley i professor adjunt de cirurgia neurològica a la Universitat de Califòrnia de Sant Francisco on investiga sobre fisiologia computacional i monitoratge en UCI.\\
 El Dr. Russell és conegut per les seves aportacions al món de la intel·ligència artificial.\\
 L'any 2016, va fundar el centre per la intel·ligència artificial compatible amb humans, a la Universitat de Berkley.\\
 Juntament amb l'informàtic teòric Peter Norvig, va escriure el llibre \textit{Artificial Intelligence: A Modern Approach}, un llibre de text que s'utilitza en més de 116 països.\\
 La línia principal d'investigació del doctor esta centrada en temes d'intel·ligència artificial centrada en humans.
-\subsection*{Annex XXXVII: Peter Norvig}
-\addcontentsline{toc}{subsection}{Annex XXXVII: Peter Norvig}
+\section*{Glossari XXXVII: Peter Norvig}
+\addcontentsline{toc}{section}{Glossari XXXVII: Peter Norvig}
 Peter Norvig és un informàtic teòric nascut l'any 1956 als Estats Units i és el director d'investigació de Google.\\
 El Dr. Norvig és regidor de la \textit{Association for the Advancement of Artificial Intelligence} i coautor del llibre \textit{Artificial Intelligence: A Modern Approach} juntament amb el Dr. Stuart Russell.\\
 Va ser el cap e la divisió de ciències computacionals al centre de recerca Ames de la NASA on tenía el carrec de supervisar un equip de 200 científics.\\
 El Dr. Norvig també fou professor assitent a la Universitat del sud de Califòrnia i investigador a la facultat de Berkely.\\
 Juntament amb dos companys més, el professor Norvig, va crear JScheme i va treballar amb Sebastian Thrun per desenvolupar un curs d'intel·ligència artificial que ha format en aquesta a matèria a mñes de 160.000 persones.
-\subsection*{Annex XXXVIII: Sistemes experts}
-\addcontentsline{toc}{subsection}{Annex XXXVIII: Sistemes experts}
+\section*{Glossari XXXVIII: Sistemes experts}
+\addcontentsline{toc}{section}{Glossari XXXVIII: Sistemes experts}
 S'anomena sistema expert aquell element de \textit{software} que té com a objectiu la resolució d'un problema concret i que utilitza la intel·ligència artificial per fer-ho, tot simulant el raonament que faría un ésser humà.\\
 Es poden diferenciar tres tipus de sistemes experts: RBO (\textit{Rule Based Reasoning}) que són aquells que basen les seves decisions en normes prèviament establertes i aborden les situacions mitjançant regles deterministes. El segon tipus de sistemes experts són els CBR (\textit{Case Based Reasoning}). Aquests solucionen els problemes gràcies a solucions ja existents i fent una analogia de problemes anteriors. Finalment, el quart tipus de sistemes experts són els sistemes basats en xarxes Bayesianes, que utilitzen un conjunt de dades conegudes i la seva relació entre dues o més variables aleatòries en les quals la probabilitat que una variable prengui certs valors està condicionada per la probabilitat que una altra variable prengui certs valors.
-\subsection*{Annex XXXIX: Agents intel·ligents}
-\addcontentsline{toc}{subsection}{Annex XXXIX: Agents intel·ligents}
-Un agent intel·ligent, és un sistema que és capaç de percebre, interpretar i processar els esdeveniments que reb del seu entorn, actuant en conseqüència d'acord amb les dades que el mateix agent recull i processa. La manera de d'actuar d'aquests sistemes és lògica i racional d'acord amb les reaccions del comportament normal d'un sistema concret (tangible). Utilitza sensors per captar la informació de l'entorn i actuadors per executar les seves funcions.
-\subsection*{Annex XL: Operació de \textit{Pooling}}
-\addcontentsline{toc}{subsection}{Annex XL: Operació de \textit{Pooling}}
-En una xarxa neuronal convolucional, les operacions de \textit{pooling} s'utilitzen per reduïr la mida dels mapes d'activació que estàn treballant. A més, també ajuda a reduïr l'\textit{overfiting}.
-\subsection*{Annex XLI: Còrtex visual}
-\addcontentsline{toc}{subsection}{Annex XLI: Còrtex visual}
+\section*{Glossari XXXIX: Agents intel·ligents}
+\addcontentsline{toc}{section}{Glossari XXXIX: Agents intel·ligents}
+Un agent intel·ligent és un sistema que és capaç de percebre, interpretar i processar els esdeveniments que rep del seu entorn, actuant en conseqüència d'acord amb les dades que el mateix agent recull i processa. La manera d'actuar d'aquests sistemes és lògica i racional d'acord amb les reaccions del comportament normal d'un sistema concret (tangible). Utilitza sensors per captar la informació de l'entorn i actuadors per executar les seves funcions.
+\section*{Glossari XL: Operació de \textit{Pooling}}
+\addcontentsline{toc}{section}{Glossari XL: Operació de \textit{Pooling}}
+En una xarxa neuronal convolucional, les operacions de \textit{pooling} s'utilitzen per reduir la mida dels mapes d'activació que estan treballant. A més, també ajuda a reduir l'\textit{overfiting}.
+\section*{Glossari XLI: Còrtex visual}
+\addcontentsline{toc}{section}{Glossari XLI: Còrtex visual}
 El còrtex visual és la regió cortical primària del cervell que s'encarrega de rebre, integrar i processar la informació visual que entra per les retines. Aquesta regió del cervell està dividida en cinc parts diferents segons funcionalitat i estructura. El còrtex visual està situat al lòbul occipital de l'escorça cerebral primària, que se situa a la part més posterior del cervell.
-\subsection*{Annex XLII: Pneumònia}
-\addcontentsline{toc}{subsection}{Annex XLII: Pneumònia}
+\section*{Glossari XLII: Pneumònia}
+\addcontentsline{toc}{section}{Glossari XLII: Pneumònia}
 La pneumònia és la inflamació del teixit pulmonar (un o els dos pulmons). Normalment, aquesta inflamació és causada per una infecció bacteriana. Dintre dels pulmons hi ha uns tubs respiratoris anomenats bronquis i al final d'aquests hi ha uns petits sacs d'aire anomenat alvèols. Quan una persona pateix pneumònia, els alvèols s'inflamen i s'emplenen de líquid dificulten la respiració provocant símptomes com tos o febre.
-\subsection*{Annex XLIII: Ulceració}
-\addcontentsline{toc}{subsection}{Annex XLIII: Ulceració}
-Una ulceració és una lesió en la superfície d'un òrgan. Les úlceres es formen quan les cèl·lules de la superfície d'aquell òrgan moren i es desintegren. Les úlceres estàn relacionades amb malalties com el càncer.
-\subsection*{Annex XLIV: Infecció}
-\addcontentsline{toc}{subsection}{Annex XLIV: Infecció}
+\section*{Glossari XLIII: Ulceració}
+\addcontentsline{toc}{section}{Glossari XLIII: Ulceració}
+Una ulceració és una lesió en la superfície d'un òrgan. Les úlceres es formen quan les cèl·lules de la superfície d'aquell òrgan moren i es desintegren. Les úlceres estan relacionades amb malalties com el càncer.
+\section*{Glossari XLIV: Infecció}
+\addcontentsline{toc}{section}{Glossari XLIV: Infecció}
 Una infecció és un procés en el qual un virus, fong, protozou, bacteri i altres tipus d'organismes unicel·lulars s'allotgen en el cos d'una persona i provoquen diverses afectacions en la salut.
-\subsection*{Annex XLV: Rigidesa física}
-\addcontentsline{toc}{subsection}{Annex XLV: Rigidesa física}
+\section*{Glossari XLV: Rigidesa física}
+\addcontentsline{toc}{section}{Glossari XLV: Rigidesa física}
 En l'àrea de la medicina es defineix rigidesa com l'augment de resistència a l'estirament passiu d'un múscul. També es pot parlar de rigidesa articular. En aquest cas, el concepte es defineix com la dificultat de mobilitat de l'articulació en qüestió.
-\subsection*{Annex XLVI: Reflexos neurològics infantils}
-\addcontentsline{toc}{subsection}{Annex XLVI: Reflexos neurològics infantils}
-Els reflexos neurològics infantils són respostes involuntàries del cos, típiques dels infants, que són desencadenades per l'aplicació d'un estímul. Aquests reflexos estàn presents des del naixement i es van desenvolupant els primers mesos de vida. Si un adult presenta algun reflex lligat al comportament d'un infant de mesos de vida, es un signe inequívoc de danys neurològics.
-\subsection*{Annex XLVII: Contractura}
-\addcontentsline{toc}{subsection}{Annex XLVII: Contractura}
+\section*{Glossari XLVI: Reflexos neurològics infantils}
+\addcontentsline{toc}{section}{Glossari XLVI: Reflexos neurològics infantils}
+Els reflexos neurològics infantils són respostes involuntàries del cos, típiques dels infants, que són desencadenades per l'aplicació d'un estímul. Aquests reflexos estan presents des del naixement i es van desenvolupant els primers mesos de vida. Si un adult presenta algun reflex lligat al comportament d'un infant de mesos de vida, és un signe inequívoc de danys neurològics.
+\section*{Glossari XLVII: Contractura}
+\addcontentsline{toc}{section}{Glossari XLVII: Contractura}
 Una contractura és una contracció involuntària i continuada d'un múscul o d'alguna de les seves fibres. Aquesta és una lesió comuna que pot arribar a impedir el desenvolupament d'activitats i gestos amb normalitat i sense dolor.\\
 Segons l'origen d'aquestes lesions, es poden diferenciar tres tipus de contractures: les contractures durant l'esforç són aquelles quan es duu a terme un esforç excessiu, l'organisme no depura una sèrie de substàncies anomenades metabòlits que són substàncies que produeixen el moviment. Si aquestes substàncies no són depurades al torrent sanguini, es produeix inflamació i dolor. També existeixen les contractures posteriors a l'esforç. Són aquelles en les que el múscul és incapaç de tornar a l'estat de repòs. Finalment, existeixen les contractures residuals, que són aquelles en les que els músculs que envolten una lesió es contreuen com a mecanisme de protecció.
-\subsection*{Annex XLVIII: Hipertensió}
-\addcontentsline{toc}{subsection}{Annex XLVIII: Hipertensió}
+\section*{Glossari XLVIII: Hipertensió}
+\addcontentsline{toc}{section}{Glossari XLVIII: Hipertensió}
 Una persona pateix hipertensió quan la pressió de la sang en les seves artèries és massa elevada. Es parla de lectures hipertenses quan una persona supera els 140mmHg de SYS (pressió sistòlica) i els 90mmHg de DIA (pressió diastòlica).
-\subsection*{Annex XLIX: Obesitat}
-\addcontentsline{toc}{subsection}{Annex XLIX: Obesitat}
+\section*{Glossari XLIX: Obesitat}
+\addcontentsline{toc}{section}{Glossari XLIX: Obesitat}
 L'obesitat és una malaltia crònica causada per múltiples factors genètics, metabòlics, socials, culturals, psicològics i emocionals (entre altres). Aquesta afecció es caracteritza per una acumulació anormal de greix corporal que provoca malalties com la diabetis, la hipertensió, malalties cardiovasculars, insuficiència venosa, etc. provocant un decreixement en la qualitat de vida de les persones que la pateixen.
-\subsection*{Annex L: Omega-3}
-\addcontentsline{toc}{subsection}{Annex L: Omega-3}
+\section*{Glossari L: Omega-3}
+\addcontentsline{toc}{section}{Glossari L: Omega-3}
 L'omega-3 és un tipus de greix poli-saturat que necessitem per a enfortir les neurones i per altres funcionalitats importants. L'omega-3 ajuda a manutenció saludable del cor i el protegeix contra accidents cerebrals vasculars.\\
 Com el cos no produeix omega-3 de manera natural, les persones han d'absorbir aquests àcids grassos mitjançant el menjar.
-\subsection*{Annex L: Omega-6}
-\addcontentsline{toc}{subsection}{Annex L: Omega-6}
+\section*{Glossari L: Omega-6}
+\addcontentsline{toc}{section}{Glossari L: Omega-6}
 Els àcids grassos omega-6 són una família de greixos que es troben presents en olis vegetals i llavors (no totes). Aquest tipus de greixos es troben en totes les parts del cos i ajuden amb el normal funcionament de les cèl·lules. Cal remarcar que un excés d'omega-6 pot provocar un efecte advers en les cèl·lules del cor i dels vasos sanguinis.
-\subsection*{Annex LI: Depressió}
-\addcontentsline{toc}{subsection}{Annex LI: Depressió}
+\section*{Glossari LI: Depressió}
+\addcontentsline{toc}{section}{Glossari LI: Depressió}
 La depressió és un trastorn mental que es caracteritza per fer que la persona afectada tingui un estat d'ànim molt baix, sentiments de tristor i alteracions del comportament, del grau d'activitat i del pensament.\\
 La depressió és una de les principals causes de l'atenció primària i és la primera causa d'atenció psiquiàtrica.\\
 La depressió es tracta amb psicofàrmacs i psicoteràpia i, en la majoria dels casos, s'aconsegueix alleujar parcialment o totalment els símptomes.
-\subsection*{Annex LII: Ansietat}
-\addcontentsline{toc}{subsection}{Annex LII: Ansietat}
+\section*{Glossari LII: Ansietat}
+\addcontentsline{toc}{section}{Glossari LII: Ansietat}
 L'ansietat és una emoció que senten les persones quan se senten amenaçades o sota pressió, per tant, l'ansietat és un sentiment de por, temor i inquietud que pot provocar suors, tensió i palpitacions.
-\subsection*{Annex LIII: Estrès}
-\addcontentsline{toc}{subsection}{Annex LIII: Estrès}
+\section*{Glossari LIII: Estrès}
+\addcontentsline{toc}{section}{Glossari LIII: Estrès}
 S'anomena estrès al sentiment de tensió física o emocional que pot provenir de qualsevol situació o pensament que fa que una persona se senti frustrada, enfadada o nerviosa.\\
 Tot i que en petits episodis l'estrès pot arribar a ser positiu, quan aquest es prolonga en el temps pot arribar a malmetre la salut.
-\subsection*{Annex LIV: Anèmia}
-\addcontentsline{toc}{subsection}{Annex LIV: Anèmia}
+\section*{Glossari LIV: Anèmia}
+\addcontentsline{toc}{section}{Glossari LIV: Anèmia}
 L'anèmia és una malaltia que es desenvolupa quan la sang produeix una quantitat inferior a la normal de glòbuls vermells sans. El cos de les persones amb anèmia no obtenen una quantitat suficient de sang rica en oxigen i aquesta falta d'oxigen pot provocar cansament o debilitat.
-\subsection*{Annex LV: Tiroides}
-\addcontentsline{toc}{subsection}{Annex LV: Tiroides}
+\section*{Glossari LV: Tiroides}
+\addcontentsline{toc}{section}{Glossari LV: Tiroides}
 Les tiroides o la glàndula tiroidal, és una petita glàndula en forma de papallona que es troba a la part frontal del coll. Aquesta glàndula produeix hormones que controlen la manera en què el cos utilitza l'energia. Aquestes hormones, a més d'afectar a quasi tots els òrgans, també controlen moltes de les funcionalitats més importants com la respiració, el ritme cardíac, el pes, la digestió i l'estat anímic.
-\subsection*{Annex LVI: Vasos sanguinis}
-\addcontentsline{toc}{subsection}{Annex LVI: Vasos sanguinis}
+\section*{Glossari LVI: Vasos sanguinis}
+\addcontentsline{toc}{section}{Glossari LVI: Vasos sanguinis}
 Un vas sanguini és un tub pel qual circula sang pel cos. Si s'agafen tots els tubs que hi ha al cos, s'observarà que formen una xarxa composta per artèries, arterioles, capil·lars, vènules i venes.
-\subsection*{Annex LVII: \textit{CT scan}}
-\addcontentsline{toc}{subsection}{Annex LVII: \textit{CT scan}}
+\section*{Glossari LVII: \textit{CT scan}}
+\addcontentsline{toc}{section}{Glossari LVII: \textit{CT scan}}
 Una tomografia computada és una tècnica d'escaneig que combina imatges de raigs X que s'agafen des de diferents angles i utilitza un ordinador per processar-les i crear imatges de secció transversal dels ossos, vasos sanguinis i teixits tous.
-\subsection*{Annex LVIII: Xarxes bayesianes}
-\addcontentsline{toc}{subsection}{Annex LVIII: Xarxes bayesianes}
+\section*{Glossari LVIII: Xarxes bayesianes}
+\addcontentsline{toc}{section}{Glossari LVIII: Xarxes bayesianes}
 Una xarxa bayesiana és un graf dirigit acíclic en el qual cada node és una variable aleatòria i cada variable aleatòria té associada una funció de probabilitat condicional. L'estructura de la xarxa dona informació sobre les relacions de dependència condicional entre les variables. Aquestes relacions simplifiquen la representació de la funció de probabilitat conjunta com el producte de les funcions de probabilitat condicional de les diferents variables.
-\subsection*{Annex LIX: \textit{Command Line}}
-\addcontentsline{toc}{subsection}{Annex LIX: \textit{Command Line}}
+\section*{Glossari LIX: \textit{Command Line}}
+\addcontentsline{toc}{section}{Glossari LIX: \textit{Command Line}}
 La \textit{Command Line} d'un sistema operatiu és una interfície que permet als usuaris donar instruccions a programes informàtics o al mateix sistema operatiu mitjançant una línia de text (una comanda o crida).
-\subsection*{Annex LX: Programari de codi obert}
-\addcontentsline{toc}{subsection}{Annex LX: Programari de codi obert}
+\section*{Glossari LX: Programari de codi obert}
+\addcontentsline{toc}{section}{Glossari LX: Programari de codi obert}
 Un \textit{software} de codi obert és aquell programari que es desenvolupa i es manté a través d'una col·laboració oberta, normalment de manera gratuïta, perquè qualsevol persona pugui fer-ne ús, examinar-lo, modificar-lo i redistribuir-lo com cregui convenient.
-\subsection*{Annex LXI: Base de datos clínicos de atención primaria}
-\addcontentsline{toc}{subsection}{Annex LXI: Base de datos clínicos de atención primaria}
+\section*{Glossari LXI: Base de datos clínicos de atención primaria}
+\addcontentsline{toc}{section}{Glossari LXI: Base de datos clínicos de atención primaria}
 La BDCAP és  una base de dades que recull informació clínica codificada i normalitzada sobre l'atenció  primària prestada en un any. Les dades s'extreuen anualment d'una selecció aleatòria d'historials clínics de pacients de tota Espanya.
-\section*{Agraïments}
-\addcontentsline{toc}{section}{Agraïments}
+\chapter*{Agraïments}
+\addcontentsline{toc}{chapter}{Agraïments}
 Abans de donar per finalitzada aquesta investigació, m'agradaria donar les gràcies a certes persones que m'han ajudat en el transcurs del treball ja sigui com a consellers, aportant informació, proporciononant suport moral, etc.
 \begin{itemize}
     \item Dr. Jordi Planes. Tutor i director del treball. Sense els seus consells i recomanacions no hauria estat possible la realització d'aquesta investigació.
     \item  Dr. Ignacio López. Coordinador del grau en enginyeria informàtica i encarregat d'aprovar el meu TFG. Sense l'Ignacio, o com el coneixem tots, el Nacho, no hauria estat possible donar el tret de sortida a aquest treball.
     \item Joana Cervera, Esteban Cervera i Núria Rosell. La meva tieta, el meu pare i la meva mare han estat proporcionadors d'informació sobre la malaltia gràcies a l'experiència personal. En el cas del meu pare i la meva tieta, l'experiència prové del seu pare (el meu avi). En el cas de la meva mare, l'experiència no prové, només, del seu sogre sinó també de la seva padrina.
     \item Sergi Cervera. El meu germà ha estat un gran conseller informàtic en el moment de la redacció d'aquesta memòria en LaTeX i en el període de programació en Python tot donant-me consells per fer un codi bonic.
-    \item Nikita Deinega. Sense el meu amic fent-me de conseller mèdic (atès que està estudiant medicina), molts conceptes clínics haurien estat molt difícils de comprendre.
+    \item Nikita Deinega. Sense el meu amic metge fent-me de conseller mèdic, molts conceptes clínics haurien estat molt difícils de comprendre.
 \end{itemize}
 Finalment, vull fer una menció especial a les meves amistats més íntimes: Joel Farré, David Morea, Gabriel Garcia, Roger Castellví, Joel Aumedes, Armand Ciutat, Albert Duch, Ilyass Mahdiyan, Moises Bernaus i Oriol Llobera. Ells han estat el meu suport moral durant tota la investigació i la implementació del projecte i no m'han deixat rendir-me en cap moment.
 
-\section*{Bibliografia i webgrafia}
-\addcontentsline{toc}{section}{Bibliografia i webgrafia}
+\chapter*{Bibliografia}
+\addcontentsline{toc}{chapter}{Bibliografia}
+\begin{itemize}
+    \item INSALUD, Guía pràctica de la enfermedad de Alzheimer, 1996, Instituto nacional de la salud
+    \item Alzheimer’s association, Información bàsica sobre la enfermedad de Alzheimer. Qué es y que se puede hacer, 2016
+    \item CEAFA, Censo de las personas con Alzheimer y otras demencias en España, Ministerio de derechos sociales y agenda 2030, 2019
+    \item Mediagraphic, Enfermedad de Alzheimer. Clínica, diagnostico y neuropatologia, 2004, \href{https://www.medigraphic.com/newMedi/}{\underline{Mediagraphic - Literatura biomédic}}
+    \item Alzheimer’s disease International, World Alzheimer report 2021. Journey through the diagnosis of dementia, 2021
+    \item Brian Christian and Tom Griffiths, Algorithms to live by. The computer science of human decisions, Harper Collins, 2017
+    \item Mona Ashtari-Majlan, Abbas Seifi, Mohammad Mahdi, Deshibi, \textit{A multi-stream convolutional network for classification of progressive MCI in Alzheimer's disease using structural MRI images}, Universitat Oberta de Catalunya, 3 de març del 2022, \href{https://arxiv.org/abs/2203.01944}{\underline{Enllaç al \textit{paper}}}
+    \item Marianna Inglese, Neva Patel, Kristofer Linton-Reid, Flavia Loreto, Zarni Win, Richard J. Perry, Christopher Carswell, Matthew Grech-Sollars, William R. Crum, Haonan Lu, Paresh A. Malhotram Eric O. Aboagye, The Alzheimer's Disease Neuroimaging Initiative, \textit{A predictive model using the mesoscopic architecture of the living brain to detect Alzheimer's disease}, Communications medicine, 20 de juny del 2022, \href{https://www.nature.com/articles/s43856-022-00133-4}{\underline{Enllaç al \textit{paper}}}
+\end{itemize}
+
+\chapter*{Bibliografia electrònica}
+\addcontentsline{toc}{chapter}{Bibliografia electrònica}
+Abans de donar cap enllaç de les referències web utilitzades al llarg d'aquesta investigació, cal remarcar que totes les pàgines web han estat accedides l'any 2023.
 \begin{itemize}
 \item \href{https://www.kaggle.com/datasets/legendahmed/alzheimermridataset}{\underline{Dataset petit}}
     \item \href{https://www.kaggle.com/datasets/uraninjo/augmented-alzheimer-mri-dataset?resource=download}{\underline{Dataset gran i definitiu}}
@@ -1530,15 +1609,10 @@ Finalment, vull fer una menció especial a les meves amistats més íntimes: Joe
     \item \href{https://keepcoding.io/blog/redes-neuronales-convolucionales/#Que_son_las_Redes_Neuronales_Convolucionales}{\underline{¿Qué són las redes neuronales convolucionales?}}
     \item \href{https://www.ibm.com/docs/es/spss-modeler/saas?topic=networks-neural-model}{\underline{El modelo de redes neuronales}}
     \item \href{https://www.juanbarrios.com/redes-neurales-convolucionales/ }{\underline{Redes neuronales convolucionales}}
-    \item CEAFA, Censo de las personas con Alzheimer y otras demencias en España, Ministerio de derechos sociales y agenda 2030, 2019
-    \item Mediagraphic, Enfermedad de Alzheimer. Clínica, diagnostico y neuropatologia, 2004, \href{https://www.medigraphic.com/newMedi/}{\underline{Mediagraphic - Literatura biomédic}}
-    \item Alzheimer’s disease International, World Alzheimer report 2021. Journey through the diagnosis of dementia, 2021
     \item \href{https://www.alz.org/alzheimers-dementia/10_signs}{\underline{The 10 signs}}
     \item \href{https://www.cdc.gov/aging/spanish/features/dementia.html}{\underline{¿Qué es la demencia?}}
     \item \href{https://www.alzinfo.org/understand-alzheimers/clinical-stages-of-alzheimers/}{\underline{Clinical stages of Alzheimer's}}
     \item \href{https://www.ceafa.es/es/que-comunicamos/noticias/9-formas-de-reducir-el-riesgo-de-alzheimer}{\underline{9 formas de reducir el riesgo de Alzheimer}}
-    \item INSALUD, Guía pràctica de la enfermedad de Alzheimer, 1996, Instituto nacional de la salud
-    \item Alzheimer’s association, Información bàsica sobre la enfermedad de Alzheimer. Qué es y que se puede hacer, 2016
     \item \href{https://www.iberdrola.com/innovacion/machine-learning-aprendizaje-automatico}{\underline{Descubre los principales beneficios del "Machine Learning"}}
     \item \href{https://aws.amazon.com/es/what-is/neural-network/}{\underline{What is a neural network?}}
     \item \href{https://colab.research.google.com/}{\underline{Google Colab}}
@@ -1615,5 +1689,7 @@ Finalment, vull fer una menció especial a les meves amistats més íntimes: Joe
     \item \href{https://www.sanidad.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/SIAP/home.htm}{\underline{Definició de \textit{Base de datos clínicos de atención primaria}}}
     \item \href{https://www.askpython.com/python/examples/adam-optimizer}{\underline{Optmitzador Adam}}
     \item \href{https://www.askpython.com/python/examples/backpropagation-in-python}{\underline{Algorisme de retropropagació}}
+    \item \href{https://online.stat.psu.edu/stat505/lesson/7/7.1/7.1.3}{\underline{\textit{Hotelling's T-squared distribution}. Link 1}}
+    \item \href{https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc543.htm}{\underline{\textit{Hotelling's T-squared distribution}. Link 2}}
 \end{itemize}
 \end{document}
