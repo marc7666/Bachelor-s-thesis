@@ -484,7 +484,10 @@ El segon article va ser publicat al diari \href{https://www.lavanguardia.com/vid
         \vspace{5pt}
     \end{minipage}
 \end{center}
-\newpage
+Per tal d'obtenir una informació una mica més tècnica sobre aquesta proposta, s'ha consultat la publicació original dels autors. En ella s'observa com la proposta de recerca que fan es basa en 2 passos. El primer dels passos ha consistit a desenvolupar un enfocament basat en les dades. Aquest nou enfocament utilitza una tècnica del camp de l'estadística anomenada \textit{\href{https://www.statisticshowto.com/hotellings-t-squared/}{\underline{Hotelling's T-squared distribution}}} que consisteix a comparar els valors de les mitjanes dels grups de classificació per poder determinar si els diferents grups tenen, en termes de multivariabilitat, diferències estadístiques significatives o, si senzillament, són variacions aleatòries. Gràcies a l'aplicació d'aquesta tècnica, l'equip investigador, aconsegueix crear un mapa en forma de cervell tot identificant diferents aspectes anatòmics. Cadascun d'aquests punts s'associa a una coordenada en 3 dimensions de la qual s'extreu un fragment d'imatge de 19x19x19 píxels.\\
+Per obtenir la mitjana d'un dels anomenats punts anatòmics clau, el que es fa és sumar totes les mesures d'aquell punt i dividir la suma entre el nombre de mostres. Aquest càlcul es realitza per cadascun dels punts clau i per cada possible classe de classificació. Aleshores, un cop obtingudes totes les mitjanes de totes les classes, es pot dur a terme la comparació i concloure si les diferències són aleatòries o no.\\
+El segon pas d'aquesta recerca ha estat implementar una xarxa neuronal convolucional multiflux, on cada flux s'alimenta d'un dels fragments d'imatge de 19x19x19.\\
+Els investigadors han avaluat el rendiment d'aquest mètode en tres passos experimentals (entrenar el model convolucional de flux múltiple amb imatges de MRI, transferir els pesos del model entrenat a una arquitectura idèntica tot ajustant-la amb dades relacionades amb pacients sMCI i pMCI i afegir biomarcadors) i després de realitzar uns quants experiments, els resultats d'aquests demostra que el mètode supera qualsevol altre enfocament existent per la diagnosi de la malaltia.\\
 La tercera, i última, notícia es va publicar al diari \href{https://www.larazon.es/sociedad/20220620/ajwe2fywxzgnta7zt4godk4bae.html}{\underline{\textit{La Razón}}} el 7-11-2022 i es titula "\textit{Una nueva prueba para el diagnóstico precoz del Alzheimer logra una efectividad del 98\%}".
 \begin{center}
     \begin{minipage}{0.9\linewidth}
@@ -509,15 +512,14 @@ La tercera, i última, notícia es va publicar al diari \href{https://www.larazo
                     \vspace{20pt}
                 \end{minipage}
             \end{center}
-            Afirma el neuròleg \textit{Paresh Mahotra}, investigador del departament de ciències del cervell.\\
-            Els científics han adaptat a un MRI cerebral un algorisme que va ser dissenyat per detectar tumors cancerosos. Per fer-ho van dividir el cervell en 115 regions i depenent d'aspectes com la mida, la forma i la textura, van assignar fins a 660 característiques diferents.\\
-            En el moment de l'entrenament, els investigadors, van ensenyar al model a diferenciar entre les característiques que apunten a la malaltia d'Alzheimer i les que no.\\
-            Els autors del projecte, afirmen que aquest nou enfocament podria identificar l'Alzheimer en pacients que estan en l'etapa primerenca per a assaigs clínics de nous tractaments farmacològics o canvis en l'estil de vida, cosa que actualment és molt difícil de fer.
+            Afirma el neuròleg \textit{Paresh Mahotra}, investigador del departament de ciències del cervell.
         }
         \vspace{5pt}
     \end{minipage}
 \end{center}
-
+De la mateixa manera que en l'última notícia, s'ha consultat la publicació oficial del grup d'investigació per tal de poder obtenir una informació més detallada de la proposta implementada.\\
+En aquesta recerca, s'ha dissenyat un enfocament d'un operador de selecció i contracció mínima absoluta en dos passos (LASSO son les sigles en anglès). Les imatges seleccionades per l'entrenament del model són imatges per ressonància magnètica del tipus T1w que han estat segmentades en un total de 115 regions mitjançant la funció de reconeixement de \textit{FreeSurfer}. Després de la selecció i estandardització de les imatges s'ha creat un primer operador de contracció i selecció (LASSO1) que s'encarrega de classificar entre les persones amb patologia i sense patologia relacionada amb l'Alzheimer. Dins d'aquest, es crea un segon operador (LASSO2) que s'encarrega de diferenciar entre pacients amb un deteriorament cognitiu lleu causat per Alzheimer i pacients amb Alzheimer. Aquest model també ha estat integrat amb altres puntuacions cognitives com el \textit{Mini-Mental State Examination} (\href{https://www.farmaceuticoscomunitarios.org/anexos/vol11_n1/ANEXO2.pdf}{\underline{MMSE}} en anglès), que és una prova curta, d'uns 10 minuts de llargada, i estructurada de l'estat mental del pacient.\\
+Com el model final, només ha de discriminar entre persones amb patologies relacionades amb la malaltia d'Alzheimer i persones amb patologies no relacionades amb la malaltia d'Alzheimer, es va introduir en un grup de patologies anomenat \textit{non-AD-related} els casos de persones sanes, persones amb Parkinson, demència frontotemporal, etc.
 \chapter*{Implementació de la proposta de treball i anàlisi de resultats}
 \addcontentsline{toc}{chapter}{Implementació de la proposta de treball i anàlisi de resultats}
 \section*{Disseny dels experiments}
@@ -1579,6 +1581,8 @@ Finalment, vull fer una menció especial a les meves amistats més íntimes: Joe
     \item Mediagraphic, Enfermedad de Alzheimer. Clínica, diagnostico y neuropatologia, 2004, \href{https://www.medigraphic.com/newMedi/}{\underline{Mediagraphic - Literatura biomédic}}
     \item Alzheimer’s disease International, World Alzheimer report 2021. Journey through the diagnosis of dementia, 2021
     \item Brian Christian and Tom Griffiths, Algorithms to live by. The computer science of human decisions, Harper Collins, 2017
+    \item Mona Ashtari-Majlan, Abbas Seifi, Mohammad Mahdi, Deshibi, \textit{A multi-stream convolutional network for classification of progressive MCI in Alzheimer's disease using structural MRI images}, Universitat Oberta de Catalunya, 3 de març del 2022, \href{https://arxiv.org/abs/2203.01944}{\underline{Enllaç al \textit{paper}}}
+    \item Marianna Inglese, Neva Patel, Kristofer Linton-Reid, Flavia Loreto, Zarni Win, Richard J. Perry, Christopher Carswell, Matthew Grech-Sollars, William R. Crum, Haonan Lu, Paresh A. Malhotram Eric O. Aboagye, The Alzheimer's Disease Neuroimaging Initiative, \textit{A predictive model using the mesoscopic architecture of the living brain to detect Alzheimer's disease}, Communications medicine, 20 de juny del 2022, \href{https://www.nature.com/articles/s43856-022-00133-4}{\underline{Enllaç al \textit{paper}}}
 \end{itemize}
 
 \chapter*{Bibliografia electrònica}
@@ -1685,5 +1689,7 @@ Abans de donar cap enllaç de les referències web utilitzades al llarg d'aquest
     \item \href{https://www.sanidad.gob.es/estadEstudios/estadisticas/estadisticas/estMinisterio/SIAP/home.htm}{\underline{Definició de \textit{Base de datos clínicos de atención primaria}}}
     \item \href{https://www.askpython.com/python/examples/adam-optimizer}{\underline{Optmitzador Adam}}
     \item \href{https://www.askpython.com/python/examples/backpropagation-in-python}{\underline{Algorisme de retropropagació}}
+    \item \href{https://online.stat.psu.edu/stat505/lesson/7/7.1/7.1.3}{\underline{\textit{Hotelling's T-squared distribution}. Link 1}}
+    \item \href{https://www.itl.nist.gov/div898/handbook/pmc/section5/pmc543.htm}{\underline{\textit{Hotelling's T-squared distribution}. Link 2}}
 \end{itemize}
 \end{document}
